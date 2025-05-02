@@ -1,0 +1,395 @@
+[
+  {
+
+    "name": "Dr. Gagandeep",
+    "title": "Head of Computer Science",
+    "department": "Computer Science",
+    "email": "gagan@gmail.com",
+    "phone": "(555) 123-4567",
+    "expertise": ["Artificial Intelligence", "Machine Learning", "Data Science"],
+    "bio": "Dr. Gagandeep has over 15 years of experience in AI research and has published numerous papers on machine learning algorithms.",
+    "image": "/images/hod.jpg",
+    "Designation": "Professor"
+    
+  },
+  {
+
+      "name": "Prof. Sukhjeet K Rnade",
+      "title": "Professor",
+      "department": "Computer Science",
+      "email": "sukhjeet@pbi.ac.in",
+      "phone": "",
+      "expertise": ["Digital Image Processing Image Watermarking", "Fingerprinting and Steganography", "Medical Image Denoising",  "Face Recognition", "Invariant Moments and Transforms"],
+      "image": "/images/Sukhjeet kaur.jpeg",
+      "Designation": "Professor",
+      "bio": "Prof. Sukhjeet Kaur specializes in Digital Image Processing, with research in Image Watermarking, Fingerprinting, Steganography, Medical Image Denoising, Face Recognition, and Invariant Moments and Transforms. Her work focuses on advancing secure and intelligent image analysis techniques"
+      
+    },
+    
+  {
+  
+    "name": "Dr. Gurpreet Singh Josan",
+    "title": "Professor",
+    "department": "Computer Science",
+    "email": " josangurpreet@pbi.ac.in",
+    "phone": "",
+    "expertise": ["Natural Language Processing", "Signal Processing"],
+    "bio": "Dr. Gurpreet Singh Josan has over 24 years of experience in Natural Language Processing, Signal Processing and has published numerous papers on Natural Language Processing and Signal Processing.",
+    "image": "/images/Gurpreet Josan.jpg",
+    "Designation": "Professor"
+  },
+  {
+      
+      "name": "Dr. Neeraj Sharma",
+      "title": "Professor ",
+      "department": "Computer Science",
+      "email": "sharma_neeraj@hotmail.com",
+      "phone": "",
+      "expertise": ["AI/ Machine Learning", "Data Science, Software"],
+      "image": "/images/Neeraj sharma.jpg",
+      "Designation": "Professor",
+      "bio": "Dr. Neeraj Sharma has extensive experience in Artificial Intelligence, Machine Learning, Data Science, and Software Engineering. With a strong academic and research background, he has contributed significantly through publications and projects in these cutting-edge domains."
+      
+    },
+    {
+      
+      "name": "Dr. Dharamveer Sharma",
+      "title": "Professor & Dean, Faculty of Computing Sciences ",
+      "department": "Computer Science",
+      "email": "sharma_neeraj@hotmail.com",
+      "phone": "",
+      "expertise": ["AI/ Machine Learning", "Data Science, Software"],
+      "image": "/images/Dharmveersir.jpg",
+      "bio": "Dr. Dharamveer Sharma is an expert in AI/Machine Learning, Data Science, and Software Development. With a passion for advancing technology, he focuses on creating innovative solutions in these fields. For more information, visit his website at www.dveer.in.",
+      "WEBSITE": "WWW.DVEER.IN",
+      "Designation": "Professor"
+      
+    },
+    {
+      
+      "name": "Dr. Manider Singh",
+      "title": "Assistant Professor",
+      "department": "Computer Science",
+      "email": "singhmaninder25@yahoo.com",
+      "phone": "",
+      "expertise": [" Mobile Computing", "Network Security", "Big Data Analytics "],
+      "image": "/images/Manider sir.Jpeg",
+      "Designation": "Assistant Professor",
+      "bio": "Dr. Maninder Singh specializes in Mobile Computing, Network Security, and Big Data Analytics. He is dedicated to advancing technology and solving complex challenges in these areas."       
+    },
+    {
+      
+      "name": "Dr. Vishal Goyal",
+      "title": "Professor",
+      "department": "Computer Science",
+      "email": "vishal.pup@gmail.com",
+      "phone": "",
+      "expertise": ["Natural Language Processing", "Artificial Intelligence", "Data Analysis", "Data Science", "Machine Learning", "Database Management Systems","PsychoLinguistics", "Technology Development for Differently Abled Persons "],
+      "image": "/images/vishalSir.PNG",
+      "bio": " Currently working at Department of Computer Science, Punjabi University, Patiala as Permanent Professor Since 23rd Feb, 2005. (Current Status) ",
+      "Designation": "Professor"
+      
+    },
+    {
+      
+      "name": "Er. Amarvir Singh",
+      "title": "Assistant Professor",
+      "department": "Computer Science",
+      "email": "amar.vir@hotmail.com",
+      "phone": "",
+      "expertise": ["Computer networks", "internet of things", "cryptography"],
+      "image": "/images/Amar Vir.jpeg",
+      "bio": " Currently working at Department of Computer Science, Punjabi University, Patiala as Assistant Professor. Er. Amarvir Singh has over 10 years of experience in Computer networks, internet of things, cryptography.",
+      "Designation": "Assistant Professor"
+      
+    },
+     {
+      
+      "name": "Dr. Rajneesh Randhawa",
+      "title": "Assistant Professor",
+      "department": "Computer Science",
+      "email": "drrajneeshrandhawa@gmail.com",
+      "phone": "",
+      "expertise": [" Wireless Sensor Networks", "Optical Networks", "Cloud Computing", "Computer Networks", "Operating System"],
+      "image": "/images/Ranjneesh Mam.jpeg",
+      "bio": " Serving as an Assistant Professor in the Department of Computer Science at Punjabi University, Patiala since July 28, 2011, with extensive experience in teaching, research, and academic mentoring. Dr. Rajneesh Randhawa has over 18 years of experience in  Computer Networks, Cloud Computing, Operating System. ",
+      "Designation": "Assistant Professor"
+      
+    },
+    {
+      
+      "name": "Dr. Gurpreet Singh Lehal",
+      "title": "Retired Professor",
+      "department": "Computer Science",
+      "email": "gslehal@gmail.com",
+      "phone": "",
+      "expertise": ["Research Centre for Punjabi Language", "Literature and Culture Punjabi University, Patiala."],
+      "image": "/images/Gurpreet singh lehal.jpg",
+      "bio": "  Professor in Department of Computer Science and Engineering, Punjabi University   ",
+      "Designation": "Retired Professor"
+      
+    },
+
+    {
+      
+      "name": "Miss. Rama Rani",
+      "title": "PHD Scholar",
+      "department": "Computer Science",
+      "email": "rama.gargcse@gmail.com",
+      "phone": "",
+      "expertise": ["Digital Image Processing", "Machine learning", "Deep Learning", "Medical image segmentation", "Data Sciences using python"],
+      "image": "/images/Rama Garg.png",
+      "bio": "  Miss. Rama Rani has over 5 years of experience in AI research and has published numerous papers on machine learning algorithms. Her areas of expertise include Digital Image Processing, Machine Learning, Deep Learning, Medical Image Segmentation, and Data Sciences using Python  ",
+      "Designation": "PhD Scholar"
+      
+    },
+    {
+      
+      "name": "Mrs.Rajdeep Kaur",
+      "title": "PHD Scholar",
+      "department": "Computer Science",
+      "email": "rajdeep_rs23@pbi.ac.in",
+      "phone": "",
+      "expertise": ["Digital image processing", "Deep Learning"],
+      "image": "/images/Rajdeep Kaur.JPEG",
+     "bio": "Mrs. Rajdeep Kaur has over 4 years of experience in Digital Image Processing and Deep Learning, and has published numerous papers on machine learning algorithms. Her areas of expertise include Digital Image Processing, Deep Learning.",
+      "Designation": "PhD Scholar"
+      
+    },
+    {
+      
+      "name": "Mrs. Bavneet Kaur",
+      "title": "PHD Scholar",
+      "department": "Computer Science",
+      "email": "kbavneet04@gmail.com",
+      "phone": "",
+      "expertise": ["Animation"],
+      "image": "/images/BAVNEET KAUR.JPG",
+     "bio": "Mrs.Bavneet Kaur has over 3 years of experience in Animation and has published numerous papers on Animations.",
+      "Designation": "PhD Scholar"
+      
+    },
+    {
+      
+      "name": "Ms. Priyanka",
+      "title": "PHD Scholar",
+      "department": "Computer Science",
+      "email": "Priyankaprajapati63@gmail.com",
+      "phone": "",
+      "expertise": ["Artificical Intelligence"],
+      "image": "/images/Priyanka Prajapati.JPG",
+     "bio": "Ms. Priyanka has over 3 years of experience in Artificical Intelligence and has published numerous papers on AI.",
+      "Designation": "PhD Scholar",
+      "Linkdin": "www.linkedin.com/in/priyanka-prajapati-773b4629a"
+      
+    },
+  {
+
+  
+    "name": "Sh. Arun Bansal",
+    "title": "System Administrator",
+    "department": "Computer Science",
+    "email": "arun.bansal@rediffmail.com",
+    "Designation": "System Administrator",
+    "phone": "",
+    "expertise": ["Senior Programmer"],
+    "bio": "",
+    "image": "/images/No User.Jpg"
+  },
+  {
+
+    "name": "Sh. Arun Sharma",
+    "title": "Programmer",
+    "department": "Computer Science",
+    "email": "arshiyarun@hotmail.com",
+    "Designation": "Programmer",
+    "phone": "",
+    "expertise": ["Programmer"],
+    "bio": "",
+    "image": "/images/No User.Jpg"
+  },
+  {
+      
+      "name": "Sh. Nadeem Akhtar",
+      "title": "Senior Asisstant",
+      "department": "Computer Science",
+      "email": "mrnadeemakhtar3@gmail.com",
+      "phone": "",
+      "expertise": ["Senior Asisstant"],
+      "bio": "",
+      "image": "/images/nadeem sir.Jpg",
+      "Designation": "Senior Assistant"
+    },
+    {
+      
+      "name": "Sh. Sanjeev Kumar",
+      "title": "Junior Stenographer",
+      "department": "Computer Science",
+      "email": "sanjeev.sanjay.kumar2@gmail.com",
+      "phone": "",
+      "expertise": ["Stenography In English, Punjabi"],
+      "bio": "",
+      "image": "/images/No User.Jpg",
+      "Designation": "Junior Stenographer"
+      
+    },
+    {
+   
+      "name": "Sh. Kawaljit Singh",
+      "title": "Technical Assistance",
+      "department": "Computer Science",
+      "email": "kawal_sehgal@yahoo.co.in",
+      "phone": "",
+      "expertise": ["Computer Hardware & Troubleshooting", "Network Configuration", "Lab Maintenance", "Installation of Software & Operating Systems"],
+      "bio": "",
+      "image": "/images/No User.Jpg",
+      "Designation": "Technical Assistance"
+      
+    },
+    {
+   
+      "name": "Sh. Dilbagh Singh",
+      "title": "Technical Assistant",
+      "department": "Computer Science",
+      "email": "dilbaghpawar@gmail.com",
+      "phone": "",
+      "expertise": ["Computer Hardware & Troubleshooting", "Network Configuration", "Lab Maintenance", "Installation of Software & Operating Systems "],
+      "bio": "",
+      "image": "/images/No User.Jpg",
+      "Designation": "Technical Assistant"
+      
+    },
+    {
+      
+      "name": "Sh. Vipan Kumar",
+      "title": "Technical Assistant",
+      "department": "Computer Science",
+      "email": "kumarvipen@rediffmail.com",
+      "phone": "",
+      "expertise": ["Computer Hardware & Troubleshooting", "Network Configuration", "Lab Maintenance", "Installation of Software & Operating Systems"],
+      "bio": "",
+      "image": "/images/vipinKumar.jpg",
+      "Designation": "Technical Assistant"
+    },
+    {
+ 
+      "name": "Sh. Ganesh Prashad",
+      "title": "Technical Assistant",
+      "department": "Computer Science",
+      "email": "gpgautam4@gmail.com",
+      "phone": "",
+      "expertise": ["Computer Hardware & Troubleshooting", "Network Configuration", "Lab Maintenance", "Installation of Software & Operating Systems"],
+      "bio": "",
+      "image": "/images/No User.Jpg",
+      "Designation": "Technical Assistant"
+    },
+    {
+    
+      "name": "Sh. Jaswinder Singh",
+      "title": "Junior Technical Assistance",
+      "department": "Computer Science",
+      "email": "Jaswindersingh3003@gmail.com",
+      "phone": "",
+      "expertise": ["Computer Hardware & Troubleshooting", "Network Configuration", "Lab Maintenance", "Installation of Software & Operating Systems"],
+      "bio": "",
+      "image": "/images/No User.Jpg",
+      "Designation": "Junior Technical Assistance"
+    },
+    {
+      
+      "name": "Sh. Paramjeet Singh",
+      "title": "Technical Assistant",
+      "department": "Computer Science",
+      "email": "pamidcs@yahoo.com",
+      "phone": "",
+      "expertise": ["Computer Hardware & Troubleshooting", "Network Configuration", "Lab Maintenance", "Installation of Software & Operating Systems"],
+      "bio": "",
+      "image": "/images/No User.Jpg",
+      "Designation": "Technical Assistant"
+    },
+    {
+    
+      "name": "Sh. Pankaj Prashar",
+      "title": "Junior Technical Assistant",
+      "department": "Computer Science",
+      "email": "pankaj.prasher64@gmail.com",
+      "phone": "",
+      "expertise": ["Computer Hardware & Troubleshooting", "Network Configuration", "Lab Maintenance", "Installation of Software & Operating Systems"],
+      "bio": "",
+      "image": "/images/No User.Jpg",
+      "Designation": "Junior Technical Assistant"
+    },
+    {
+    
+      "name": "Sh. Krishan Singh",
+      "title": "Lab Attendant",
+      "department": "Computer Science",
+      "email": "singhkishana@gmail.com",
+      "phone": "",
+      "expertise": ["Lab Equipment Cleaning & Maintenance", "Basic Computer Setup Etc."],
+      "bio": "",
+      "image": "/images/No User.Jpg",
+      "Designation": "Lab Attendant"
+    },
+    {
+     
+      "name": "Sh. Raju Kumar",
+      "title": "Lab Attendant",
+      "department": "Computer Science",
+      "email": "Rajdcs1990@gmail.com",
+      "phone": "",
+      "expertise": ["Lab Equipment Cleaning & Maintenance", "Basic Computer Setup Etc."],
+      "bio": "",
+      "image": "/images/No User.Jpg",
+      "Designation": "Lab Attendant"
+    },
+    {
+      
+      "name": "Sh. Satbir Singh Sidhu",
+      "title": "Lab Attendant",
+      "department": "Computer Science",
+      "email": "garysidhu86@gmail.com",
+      "phone": "",
+      "expertise": ["Lab Equipment Cleaning & Maintenance", "Basic Computer Setup Etc."],
+      "bio": "",
+      "image": "/images/No User.Jpg",
+      "Designation": "Lab Attendant"
+    },
+    {
+      
+      "name": "Mrs. Shabnamjeet kaur",
+      "title": "Lab Attendant",
+      "department": "Computer Science",
+      "email": "",
+      "phone": "",
+      "expertise": ["Lab Equipment Cleaning & Maintenance", "Basic Computer Setup Etc."],
+      "bio": "",
+      "image": "/images/No User.Jpg",
+      "Designation": "Lab Attendant"
+    },
+    {
+     
+      "name": "Sh. Inderjeet Singh",
+      "title": "Clerk",
+      "department": "Computer Science",
+      "email": "",
+      "phone": "",
+      "expertise": ["Office File Management", "Data Entry", "Clerical Support During Exams and Results Processing Etc. "],
+      "bio": "",
+      "image": "/images/No User.Jpg",
+      "Designation": "Clerk"
+    },
+    {
+  
+      "name": "Sh. Balwinder Singh",
+      "title": "Peon",
+      "department": "Computer Science",
+      "email": "",
+      "phone": "",
+      "expertise": ["Opening and Closing Department Premises", "Carrying Files", "Supporting Staff & Faculty"],
+      "bio": "",
+      "image": "/images/No User.Jpg",
+      "Designation": "Peon"
+      
+    }
+]
