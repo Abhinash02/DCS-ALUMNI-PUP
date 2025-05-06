@@ -12,7 +12,19 @@ const notificationRoutes = require('./routes/notificationRoutes');
 dotenv.config();
 const app = express();
 
-app.use(cors());
+// app.use(cors());
+const corsOptions = {
+  origin: (origin, callback) => {
+    // Allow requests with no origin (like mobile apps, curl, etc.)
+    if (!origin || origin === 'https://dcsalumni.vishalpup.in',   'http://localhost:3000') {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true, // Allow credentials (cookies, authorization headers, etc.)
+};
+app.use(cors(corsOptions));
 app.use(express.json());
 
 mongoose.connect(process.env.MONGO_URI, {

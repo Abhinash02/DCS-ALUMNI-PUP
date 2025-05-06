@@ -20,7 +20,6 @@
 // });
 
 // module.exports = mongoose.model('Alumni', alumniSchema);
-
 const mongoose = require('mongoose');
 
 const alumniSchema = new mongoose.Schema({
@@ -39,6 +38,7 @@ const alumniSchema = new mongoose.Schema({
   skills: [String],
   otherSkill: String,
   sessionConsent: String,
+  password: { type: String, required: true }, // Added password field
   approved: { type: Boolean, default: false },
   denied: { type: Boolean, default: false }
 });
