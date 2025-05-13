@@ -67,9 +67,17 @@ export const Footer = () => {
                 </div>
                 <hr className=" border-gray-200 sm:mx-auto my-8" />
                 <div className="flex justify-center">
-                    <span className="text-xs 3xl:text-base  ">©2023 <a href="#" className="hover:underline">Punjabi University</a>. All Rights Reserved.
-                    </span>
-                </div>
+      <span className="text-xs 3xl:text-base">
+        ©2023{' '}
+        <a href="#" className="hover:underline">
+          Punjabi University
+        </a>
+        .{' '}
+        <Link to="/Login" >
+          All Rights Reserved
+        </Link>
+      </span>
+    </div>
             </div>
         </footer>
     )

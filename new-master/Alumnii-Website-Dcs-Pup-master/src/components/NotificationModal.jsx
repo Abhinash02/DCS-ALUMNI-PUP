@@ -9,7 +9,7 @@ const NotificationModal = ({ onClose }) => {
   useEffect(() => {
     const fetchNotifications = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/notifications");
+        const response = await axios.get("https://dcsalumni.vishalpup.in/api/notifications");
         setNotifications(response.data);
         setLoading(false);
       } catch (err) {

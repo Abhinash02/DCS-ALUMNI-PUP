@@ -16,7 +16,7 @@ const app = express();
 const corsOptions = {
   origin: (origin, callback) => {
     // Allow requests with no origin (like mobile apps, curl, etc.)
-    if (!origin || origin === 'https://dcsalumni.vishalpup.in', 'http://localhost:3000') {
+    if (!origin || origin === 'https://dcsalumni.vishalpup.in','http://localhost:3000') {
       callback(null, true);
     } else {
       callback(new Error("Not allowed by CORS"));

@@ -50,7 +50,7 @@
 //   // Fetch data and initial professions
 //   useEffect(() => {
 //     axios
-//       .get('http://localhost:5000/api/alumni/approved')
+//       .get('https://dcsalumni.vishalpup.in/api/alumni/approved')
 //       .then((res) => {
 //         const mongoData = Array.isArray(res.data) ? res.data : [];
 //         const merged = [...localData, ...mongoData];
@@ -431,7 +431,7 @@ export default function Alumni() {
   // Fetch data and initial filters
   useEffect(() => {
     axios
-      .get('http://localhost:5000/api/alumni/approved')
+      .get('https://dcsalumni.vishalpup.in/api/alumni/approved')
       .then((res) => {
         const mongoData = Array.isArray(res.data) ? res.data : [];
         const merged = [...localData, ...mongoData];

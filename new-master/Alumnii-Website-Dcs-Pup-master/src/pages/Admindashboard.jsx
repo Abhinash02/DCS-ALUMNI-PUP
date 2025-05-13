@@ -34,7 +34,7 @@
 //   // Fetch Functions
 //   const fetchPending = async () => {
 //     try {
-//       const response = await axios.get('http://localhost:5000/api/alumni/pending', {
+//       const response = await axios.get('https://dcsalumni.vishalpup.in/api/alumni/pending', {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 //       });
 //       setPending(response.data);
@@ -46,7 +46,7 @@
 
 //   const fetchApproved = async () => {
 //     try {
-//       const response = await axios.get('http://localhost:5000/api/alumni/approved', {
+//       const response = await axios.get('https://dcsalumni.vishalpup.in/api/alumni/approved', {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 //       });
 //       setApproved(response.data);
@@ -58,7 +58,7 @@
 
 //   const fetchDenied = async () => {
 //     try {
-//       const response = await axios.get('http://localhost:5000/api/alumni/denied', {
+//       const response = await axios.get('https://dcsalumni.vishalpup.in/api/alumni/denied', {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 //       });
 //       setDenied(response.data);
@@ -70,7 +70,7 @@
 
 //   const fetchFaculty = async () => {
 //     try {
-//       const response = await axios.get('http://localhost:5000/api/faculty', {
+//       const response = await axios.get('https://dcsalumni.vishalpup.in/api/faculty', {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 //       });
 //       setFaculty(response.data);
@@ -82,7 +82,7 @@
 
 //   const fetchEvents = async () => {
 //     try {
-//       const response = await axios.get('http://localhost:5000/api/events', {
+//       const response = await axios.get('https://dcsalumni.vishalpup.in/api/events', {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 //       });
 //       setEvents(response.data);
@@ -94,7 +94,7 @@
 
 //   const fetchNotifications = async () => {
 //     try {
-//       const response = await axios.get('http://localhost:5000/api/notifications', {
+//       const response = await axios.get('https://dcsalumni.vishalpup.in/api/notifications', {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 //       });
 //       setNotifications(response.data);
@@ -108,7 +108,7 @@
 //   const approve = async (id) => {
 //     try {
 //       await axios.put(
-//         `http://localhost:5000/api/alumni/approve/${id}`,
+//         `https://dcsalumni.vishalpup.in/api/alumni/approve/${id}`,
 //         {},
 //         {
 //           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
@@ -125,7 +125,7 @@
 //   const deny = async (id) => {
 //     try {
 //       await axios.put(
-//         `http://localhost:5000/api/alumni/deny/${id}`,
+//         `https://dcsalumni.vishalpup.in/api/alumni/deny/${id}`,
 //         {},
 //         {
 //           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
@@ -144,7 +144,7 @@
 
 //   const remove = async (id) => {
 //     try {
-//       await axios.delete(`http://localhost:5000/api/alumni/${id}`, {
+//       await axios.delete(`https://dcsalumni.vishalpup.in/api/alumni/${id}`, {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 //       });
 //       fetchPending();
@@ -159,7 +159,7 @@
 //   const deleteFaculty = async (id) => {
 //     if (!window.confirm('Are you sure you want to delete this faculty member?')) return;
 //     try {
-//       await axios.delete(`http://localhost:5000/api/faculty/${id}`, {
+//       await axios.delete(`https://dcsalumni.vishalpup.in/api/faculty/${id}`, {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 //       });
 //       setSuccess('Faculty member deleted successfully!');
@@ -180,7 +180,7 @@
 //       if (!token) {
 //         throw new Error('No authentication token found.');
 //       }
-//       await axios.delete(`http://localhost:5000/api/events/${id}`, {
+//       await axios.delete(`https://dcsalumni.vishalpup.in/api/events/${id}`, {
 //         headers: { Authorization: `Bearer ${token}` },
 //         data: { publicIds },
 //       });
@@ -201,7 +201,7 @@
 //   const deleteNotification = async (id, publicId) => {
 //     if (!window.confirm('Are you sure you want to delete this notification?')) return;
 //     try {
-//       await axios.delete(`http://localhost:5000/api/notifications/${id}`, {
+//       await axios.delete(`https://dcsalumni.vishalpup.in/api/notifications/${id}`, {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 //         data: { publicId },
 //       });
@@ -273,7 +273,7 @@
 
 //     try {
 //       const token = localStorage.getItem('token');
-//       await axios.post('http://localhost:5000/api/events', data, {
+//       await axios.post('https://dcsalumni.vishalpup.in/api/events', data, {
 //         headers: {
 //           Authorization: `Bearer ${token}`,
 //           'Content-Type': 'multipart/form-data',
@@ -325,7 +325,7 @@
 
 //     try {
 //       const token = localStorage.getItem('token');
-//       await axios.post('http://localhost:5000/api/faculty', data, {
+//       await axios.post('https://dcsalumni.vishalpup.in/api/faculty', data, {
 //         headers: {
 //           Authorization: `Bearer ${token}`,
 //           'Content-Type': 'multipart/form-data',
@@ -374,7 +374,7 @@
 
 //     try {
 //       const token = localStorage.getItem('token');
-//       await axios.post('http://localhost:5000/api/notifications', data, {
+//       await axios.post('https://dcsalumni.vishalpup.in/api/notifications', data, {
 //         headers: {
 //           Authorization: `Bearer ${token}`,
 //           'Content-Type': 'multipart/form-data',
@@ -1042,7 +1042,7 @@
 //   // Fetch Functions
 //   const fetchPending = async () => {
 //     try {
-//       const response = await axios.get('http://localhost:5000/api/alumni/pending', {
+//       const response = await axios.get('https://dcsalumni.vishalpup.in/api/alumni/pending', {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 //       });
 //       setPending(response.data);
@@ -1054,7 +1054,7 @@
 
 //   const fetchApproved = async () => {
 //     try {
-//       const response = await axios.get('http://localhost:5000/api/alumni/approved', {
+//       const response = await axios.get('https://dcsalumni.vishalpup.in/api/alumni/approved', {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 //       });
 //       setApproved(response.data);
@@ -1066,7 +1066,7 @@
 
 //   const fetchDenied = async () => {
 //     try {
-//       const response = await axios.get('http://localhost:5000/api/alumni/denied', {
+//       const response = await axios.get('https://dcsalumni.vishalpup.in/api/alumni/denied', {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 //       });
 //       setDenied(response.data);
@@ -1078,7 +1078,7 @@
 
 //   const fetchFaculty = async () => {
 //     try {
-//       const response = await axios.get('http://localhost:5000/api/faculty', {
+//       const response = await axios.get('https://dcsalumni.vishalpup.in/api/faculty', {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 //       });
 //       setFaculty(response.data);
@@ -1090,7 +1090,7 @@
 
 //   const fetchEvents = async () => {
 //     try {
-//       const response = await axios.get('http://localhost:5000/api/events', {
+//       const response = await axios.get('https://dcsalumni.vishalpup.in/api/events', {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 //       });
 //       setEvents(response.data);
@@ -1102,7 +1102,7 @@
 
 //   const fetchNotifications = async () => {
 //     try {
-//       const response = await axios.get('http://localhost:5000/api/notifications', {
+//       const response = await axios.get('https://dcsalumni.vishalpup.in/api/notifications', {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 //       });
 //       setNotifications(response.data);
@@ -1116,7 +1116,7 @@
 //   const approve = async (id) => {
 //     try {
 //       await axios.put(
-//         `http://localhost:5000/api/alumni/approve/${id}`,
+//         `https://dcsalumni.vishalpup.in/api/alumni/approve/${id}`,
 //         {},
 //         {
 //           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
@@ -1133,7 +1133,7 @@
 //   const deny = async (id) => {
 //     try {
 //       await axios.put(
-//         `http://localhost:5000/api/alumni/deny/${id}`,
+//         `https://dcsalumni.vishalpup.in/api/alumni/deny/${id}`,
 //         {},
 //         {
 //           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
@@ -1152,7 +1152,7 @@
 
 //   const remove = async (id) => {
 //     try {
-//       await axios.delete(`http://localhost:5000/api/alumni/${id}`, {
+//       await axios.delete(`https://dcsalumni.vishalpup.in/api/alumni/${id}`, {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 //       });
 //       fetchPending();
@@ -1167,7 +1167,7 @@
 //   const deleteFaculty = async (id) => {
 //     if (!window.confirm('Are you sure you want to delete this faculty member?')) return;
 //     try {
-//       await axios.delete(`http://localhost:5000/api/faculty/${id}`, {
+//       await axios.delete(`https://dcsalumni.vishalpup.in/api/faculty/${id}`, {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 //       });
 //       setSuccess('Faculty member deleted successfully!');
@@ -1188,7 +1188,7 @@
 //       if (!token) {
 //         throw new Error('No authentication token found.');
 //       }
-//       await axios.delete(`http://localhost:5000/api/events/${id}`, {
+//       await axios.delete(`https://dcsalumni.vishalpup.in/api/events/${id}`, {
 //         headers: { Authorization: `Bearer ${token}` },
 //         data: { publicIds },
 //       });
@@ -1209,7 +1209,7 @@
 //   const deleteNotification = async (id, publicId) => {
 //     if (!window.confirm('Are you sure you want to delete this notification?')) return;
 //     try {
-//       await axios.delete(`http://localhost:5000/api/notifications/${id}`, {
+//       await axios.delete(`https://dcsalumni.vishalpup.in/api/notifications/${id}`, {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 //         data: { publicId },
 //       });
@@ -1223,7 +1223,7 @@
 
 //   const updateFaculty = async (id, data) => {
 //     try {
-//       await axios.put(`http://localhost:5000/api/faculty/${id}`, data, {
+//       await axios.put(`https://dcsalumni.vishalpup.in/api/faculty/${id}`, data, {
 //         headers: {
 //           Authorization: `Bearer ${localStorage.getItem('token')}`,
 //           'Content-Type': 'multipart/form-data',
@@ -1251,7 +1251,7 @@
 
 //   const updateEvent = async (id, data) => {
 //     try {
-//       await axios.put(`http://localhost:5000/api/events/${id}`, data, {
+//       await axios.put(`https://dcsalumni.vishalpup.in/api/events/${id}`, data, {
 //         headers: {
 //           Authorization: `Bearer ${localStorage.getItem('token')}`,
 //           'Content-Type': 'multipart/form-data',
@@ -1337,7 +1337,7 @@
 //         await updateEvent(editingEvent._id, data);
 //       } else {
 //         const token = localStorage.getItem('token');
-//         await axios.post('http://localhost:5000/api/events', data, {
+//         await axios.post('https://dcsalumni.vishalpup.in/api/events', data, {
 //           headers: {
 //             Authorization: `Bearer ${token}`,
 //             'Content-Type': 'multipart/form-data',
@@ -1392,7 +1392,7 @@
 //         await updateFaculty(editingFaculty._id, data);
 //       } else {
 //         const token = localStorage.getItem('token');
-//         await axios.post('http://localhost:5000/api/faculty', data, {
+//         await axios.post('https://dcsalumni.vishalpup.in/api/faculty', data, {
 //           headers: {
 //             Authorization: `Bearer ${token}`,
 //             'Content-Type': 'multipart/form-data',
@@ -1441,7 +1441,7 @@
 
 //     try {
 //       const token = localStorage.getItem('token');
-//       await axios.post('http://localhost:5000/api/notifications', data, {
+//       await axios.post('https://dcsalumni.vishalpup.in/api/notifications', data, {
 //         headers: {
 //           Authorization: `Bearer ${token}`,
 //           'Content-Type': 'multipart/form-data',
@@ -2197,7 +2197,7 @@ export default function Admindashboard() {
   // Fetch Functions
   const fetchPending = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/alumni/pending', {
+      const response = await axios.get('https://dcsalumni.vishalpup.in/api/alumni/pending', {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       });
       setPending(response.data);
@@ -2209,7 +2209,7 @@ export default function Admindashboard() {
 
   const fetchApproved = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/alumni/approved', {
+      const response = await axios.get('https://dcsalumni.vishalpup.in/api/alumni/approved', {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       });
       setApproved(response.data);
@@ -2221,7 +2221,7 @@ export default function Admindashboard() {
 
   const fetchDenied = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/alumni/denied', {
+      const response = await axios.get('https://dcsalumni.vishalpup.in/api/alumni/denied', {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       });
       setDenied(response.data);
@@ -2233,7 +2233,7 @@ export default function Admindashboard() {
 
   const fetchFaculty = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/faculty', {
+      const response = await axios.get('https://dcsalumni.vishalpup.in/api/faculty', {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       });
       setFaculty(response.data);
@@ -2245,7 +2245,7 @@ export default function Admindashboard() {
 
   const fetchEvents = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/events', {
+      const response = await axios.get('https://dcsalumni.vishalpup.in/api/events', {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       });
       setEvents(response.data);
@@ -2257,7 +2257,7 @@ export default function Admindashboard() {
 
   const fetchNotifications = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/notifications', {
+      const response = await axios.get('https://dcsalumni.vishalpup.in/api/notifications', {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       });
       setNotifications(response.data);
@@ -2271,7 +2271,7 @@ export default function Admindashboard() {
   const approve = async (id) => {
     try {
       await axios.put(
-        `http://localhost:5000/api/alumni/approve/${id}`,
+        `https://dcsalumni.vishalpup.in/api/alumni/approve/${id}`,
         {},
         {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
@@ -2288,7 +2288,7 @@ export default function Admindashboard() {
   const deny = async (id) => {
     try {
       await axios.put(
-        `http://localhost:5000/api/alumni/deny/${id}`,
+        `https://dcsalumni.vishalpup.in/api/alumni/deny/${id}`,
         {},
         {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
@@ -2307,7 +2307,7 @@ export default function Admindashboard() {
 
   const remove = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/alumni/${id}`, {
+      await axios.delete(`https://dcsalumni.vishalpup.in/api/alumni/${id}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       });
       fetchPending();
@@ -2322,7 +2322,7 @@ export default function Admindashboard() {
   const deleteFaculty = async (id) => {
     if (!window.confirm('Are you sure you want to delete this faculty member?')) return;
     try {
-      await axios.delete(`http://localhost:5000/api/faculty/${id}`, {
+      await axios.delete(`https://dcsalumni.vishalpup.in/api/faculty/${id}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       });
       setSuccess('Faculty member deleted successfully!');
@@ -2343,7 +2343,7 @@ export default function Admindashboard() {
       if (!token) {
         throw new Error('No authentication token found.');
       }
-      await axios.delete(`http://localhost:5000/api/events/${id}`, {
+      await axios.delete(`https://dcsalumni.vishalpup.in/api/events/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
         data: { publicIds },
       });
@@ -2364,7 +2364,7 @@ export default function Admindashboard() {
   const deleteNotification = async (id, publicId) => {
     if (!window.confirm('Are you sure you want to delete this notification?')) return;
     try {
-      await axios.delete(`http://localhost:5000/api/notifications/${id}`, {
+      await axios.delete(`https://dcsalumni.vishalpup.in/api/notifications/${id}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
         data: { publicId },
       });
@@ -2378,7 +2378,7 @@ export default function Admindashboard() {
 
   const updateFaculty = async (id, data) => {
     try {
-      await axios.put(`http://localhost:5000/api/faculty/${id}`, data, {
+      await axios.put(`https://dcsalumni.vishalpup.in/api/faculty/${id}`, data, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
           'Content-Type': 'multipart/form-data',
@@ -2406,7 +2406,7 @@ export default function Admindashboard() {
 
   const updateEvent = async (id, data) => {
     try {
-      await axios.put(`http://localhost:5000/api/events/${id}`, data, {
+      await axios.put(`https://dcsalumni.vishalpup.in/api/events/${id}`, data, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
           'Content-Type': 'multipart/form-data',
@@ -2431,7 +2431,7 @@ export default function Admindashboard() {
 
   const updateNotification = async (id, data) => {
     try {
-      await axios.put(`http://localhost:5000/api/notifications/${id}`, data, {
+      await axios.put(`https://dcsalumni.vishalpup.in/api/notifications/${id}`, data, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`,
           'Content-Type': 'multipart/form-data',
@@ -2514,7 +2514,7 @@ export default function Admindashboard() {
         await updateEvent(editingEvent._id, data);
       } else {
         const token = localStorage.getItem('token');
-        await axios.post('http://localhost:5000/api/events', data, {
+        await axios.post('https://dcsalumni.vishalpup.in/api/events', data, {
           headers: {
             Authorization: `Bearer ${token}`,
             'Content-Type': 'multipart/form-data',
@@ -2569,7 +2569,7 @@ export default function Admindashboard() {
         await updateFaculty(editingFaculty._id, data);
       } else {
         const token = localStorage.getItem('token');
-        await axios.post('http://localhost:5000/api/faculty', data, {
+        await axios.post('https://dcsalumni.vishalpup.in/api/faculty', data, {
           headers: {
             Authorization: `Bearer ${token}`,
             'Content-Type': 'multipart/form-data',
@@ -2621,7 +2621,7 @@ export default function Admindashboard() {
         await updateNotification(editingNotification._id, data);
       } else {
         const token = localStorage.getItem('token');
-        await axios.post('http://localhost:5000/api/notifications', data, {
+        await axios.post('https://dcsalumni.vishalpup.in/api/notifications', data, {
           headers: {
             Authorization: `Bearer ${token}`,
             'Content-Type': 'multipart/form-data',

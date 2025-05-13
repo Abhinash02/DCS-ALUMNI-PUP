@@ -85,7 +85,7 @@
 //         }
 //       }
 
-//       await axios.post('http://localhost:5000/api/alumni', formData, {
+//       await axios.post('https://dcsalumni.vishalpup.in/api/alumni', formData, {
 //         headers: {
 //           'Content-Type': 'multipart/form-data',
 //         },
@@ -798,7 +798,7 @@ const Register = () => {
         }
       }
 
-      await axios.post('http://localhost:5000/api/alumni', formData, {
+      await axios.post('https://dcsalumni.vishalpup.in/api/alumni', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

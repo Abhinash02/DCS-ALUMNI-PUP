@@ -51,7 +51,7 @@ export default function UserLogin() {
     setError('');
 
     try {
-      const res = await axios.post('http://localhost:5000/api/alumni/login', { email, password });
+      const res = await axios.post('https://dcsalumni.vishalpup.in/api/alumni/login', { email, password });
       localStorage.setItem('token', res.data.token);
       localStorage.setItem('alumni', JSON.stringify(res.data.alumni));
       navigate('/profile');
@@ -107,24 +107,6 @@ export default function UserLogin() {
               placeholder="••••••••"
               index={2}
             />
-
-            <div className="flex items-center justify-between text-sm font-poppins">
-              <div className="flex items-center">
-                <input
-                  id="remember"
-                  type="checkbox"
-                  className="h-4 w-4 text-darkBlue focus:ring-darkBlue border-gray-300 rounded"
-                />
-                <label htmlFor="remember" className="ml-2 text-gray-700 text-sm xs:text-base">
-                  Remember me
-                </label>
-              </div>
-
-              <a href="#" className="text-darkBlue hover:text-lightBlueAlt font-medium hover:underline">
-                Forgot password?
-              </a>
-            </div>
-
             <Button type="submit" isPrimary={true} disabled={isLoading}>
               {isLoading ? 'Logging in...' : 'Login'}
             </Button>

@@ -292,7 +292,7 @@ const ProfilePage = () => {
       });
   
       const token = localStorage.getItem('token');
-      return await axios.put('http://localhost:5000/api/alumni/profile', data, {
+      return await axios.put('https://dcsalumni.vishalpup.in/api/alumni/profile', data, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'multipart/form-data'
