@@ -490,7 +490,7 @@ const Events = () => {
   const [isAdmin, setIsAdmin] = useState(false);
   const [error, setError] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [eventsPerPage] = useState(5); // Display 5 events per page
+  const [eventsPerPage] = useState(7); // Display 5 events per page
 
   useEffect(() => {
     console.log("Triggering animations");
@@ -904,8 +904,9 @@ const Events = () => {
             </div>
           ))
         )}
-        <PaginationControls />
+        
       </div>
+      
 
       <div className="hidden sm:block relative wrap overflow-hidden p-10 pb-32 h-full">
         <div
@@ -991,8 +992,9 @@ const Events = () => {
             </div>
           ))
         )}
-        <PaginationControls />
+      
       </div>
+      <PaginationControls />
     </div>
   );
 };

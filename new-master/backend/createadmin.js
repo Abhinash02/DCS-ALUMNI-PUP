@@ -11,8 +11,8 @@ mongoose.connect(process.env.MONGO_URI, {
 });
 
 const createAdmin = async () => {
-  const email = 'admin@1234';
-  const password = '123'; // hashed 'admin123'
+  const email = 'Alumni12@gmail.com';
+  const password = 'Alumni@23'; // hashed 'admin123'
 
   try {
     const exists = await Admin.findOne({ email });

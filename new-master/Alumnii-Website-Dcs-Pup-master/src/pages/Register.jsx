@@ -759,7 +759,7 @@ const Register = () => {
 
   const courseOptions = ['BCA', 'MCA', 'B.TECH', 'M.TECH', 'PHD'];
   const professionOptions = [
-    'Trainee', 'Govt Job', 'Own Business', 'Internship', 'Teacher/Professor',
+    'Trainee', 'Govt Job','MERN Stack', 'Own Business', 'Internship', 'Teacher/Professor',
     'Full Stack Developer', 'Data Scientist', 'Cybersecurity Analyst', 'Network Engineer',
     'Cloud Security Expert', 'DevOps Engineer', 'Research Scientist', 'IT Consultant',
     'System Administrator', 'Blockchain Developer',
@@ -767,7 +767,7 @@ const Register = () => {
 
   const skillOptions = [
     'Python', 'C', 'C++', 'Java', 'JavaScript', 'PHP', 'SQL', 'Power BI',
-    'MERN Stack', 'MEAN Stack', 'Full Stack Developer',
+    'MERN Stack', 'MEAN Stack Devloper', 'Full Stack Developer',
     'AI', 'ML', 'DL', 'CN',
     'Java & Spring Boot', 'Microservices Architecture', 'Cloud-Native Apps',
     'Team Lead - Quality Assurance', 'Scrum Master',
