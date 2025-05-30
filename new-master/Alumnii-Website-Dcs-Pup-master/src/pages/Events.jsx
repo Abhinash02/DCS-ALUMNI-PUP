@@ -31,7 +31,7 @@
 //   const fetchEvents = async () => {
 //     try {
 //       const token = localStorage.getItem("token");
-//       const response = await axios.get("https://dcsalumni.vishalpup.in/api/events", {
+//       const response = await axios.get("http://localhost:5000/api/events", {
 //         headers: {
 //           Authorization: `Bearer ${token}`,
 //         },
@@ -103,7 +103,7 @@
 
 //     try {
 //       const token = localStorage.getItem("token");
-//       const response = await axios.post("https://dcsalumni.vishalpup.in/api/events", data, {
+//       const response = await axios.post("http://localhost:5000/api/events", data, {
 //         headers: {
 //           Authorization: `Bearer ${token}`,
 //           "Content-Type": "multipart/form-data",
@@ -133,7 +133,7 @@
 //     }
 //     try {
 //       const token = localStorage.getItem("token");
-//       await axios.delete(`https://dcsalumni.vishalpup.in/api/events/${id}`, {
+//       await axios.delete(`http://localhost:5000/api/events/${id}`, {
 //         headers: {
 //           Authorization: `Bearer ${token}`,
 //         },
@@ -502,7 +502,7 @@ const Events = () => {
   const fetchEvents = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get("https://dcsalumni.vishalpup.in/api/events", {
+      const response = await axios.get("http://localhost:5000/api/events", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -574,7 +574,7 @@ const Events = () => {
 
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.post("https://dcsalumni.vishalpup.in/api/events", data, {
+      const response = await axios.post("http://localhost:5000/api/events", data, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data",
@@ -605,7 +605,7 @@ const Events = () => {
     }
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(`https://dcsalumni.vishalpup.in/api/events/${id}`, {
+      await axios.delete(`http://localhost:5000/api/events/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

@@ -18,7 +18,7 @@
 
 // //   const fetchFaculty = async () => {
 // //     try {
-// //       const response = await axios.get('https://dcsalumni.vishalpup.in/api/faculty');
+// //       const response = await axios.get('http://localhost:5000/api/faculty');
 // //       const mongoData = response.data.map((item, index) => ({
 // //         ...item,
 // //         id: item._id || `mongo_${index}`,
@@ -378,7 +378,7 @@
 
 //   const fetchFaculty = async () => {
 //     try {
-//       const response = await axios.get('https://dcsalumni.vishalpup.in/api/faculty');
+//       const response = await axios.get('http://localhost:5000/api/faculty');
 //       const mongoData = response.data.map((item, index) => ({
 //         ...item,
 //         id: item._id || `mongo_${index}`,
@@ -754,7 +754,7 @@ const FacultyTeachers = () => {
 
   const fetchFaculty = async () => {
     try {
-      const response = await axios.get('https://dcsalumni.vishalpup.in/api/faculty');
+      const response = await axios.get('http://localhost:5000/api/faculty');
       const mongoData = response.data.map((item, index) => ({
         ...item,
         id: item._id || `mongo_${index}`,
@@ -928,7 +928,7 @@ const FacultyTeachers = () => {
       key={teacher.id}
       className="border border-[#D1D5DB] rounded-lg overflow-hidden shadow-lg transition-transform hover:shadow-xl hover:scale-105"
     >
-      <div className="p-6 flex flex-col sm:flex-row gap-4">
+      <div className="p-7 flex flex-col sm:flex-row gap-4">
         <img
           src={teacher.image || "/default-profile.png"}
           alt={teacher.name || "Profile"}
