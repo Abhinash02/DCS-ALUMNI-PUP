@@ -1047,7 +1047,7 @@ export const Navbar = () => {
   };
 
   return (
-    <div className="py-2 fixed w-full bg-[#ffffff] z-50 navbar duration-700 border-b border-darkBlue">
+    <div className="py-2 fixed w-full bg-[#ffffff] z-50 navbar duration-700 ">
       <nav className="flex justify-between items-center max-w-[95%] md:max-w-[85%] mx-auto text-lg">
         <div className="w-16">
           <img src="/images/logo.png" alt="Punjabi University" />
