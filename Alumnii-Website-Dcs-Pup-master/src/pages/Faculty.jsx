@@ -334,22 +334,7 @@ const FacultyTeachers = () => {
         </div>
       )}
 
-      {visibleSections.phdScholars && (
-        <div className="mb-12">
-          <h2 className="text-2xl font-semibold mb-6 text-center">PhD Scholars</h2>
-          {phdScholars.length === 0 ? (
-            <div className="text-center py-12 text-gray-500">
-              <p>No PhD Scholars found matching your search criteria.</p>
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:px-20">
-              {phdScholars.map((teacher) => (
-                <FacultyCard key={teacher.id} teacher={teacher} />
-              ))}
-            </div>
-          )}
-        </div>
-      )}
+     
 
       {visibleSections.technicalStaff && (
         <div className="mb-12">
