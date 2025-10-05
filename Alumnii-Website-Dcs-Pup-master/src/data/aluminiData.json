@@ -198,21 +198,6 @@
         "Image": "/images/Umang.jpg"
     },
     {
-        "Name": "Manvir Singh",
-        "FatherName": "Satvir Singh",
-        "PhoneNo": 8968962200,
-        "Address": "#1119 Phase 3B2 Mohali",
-        "Email": "manvir019@gmail.com",
-        "Profession": "Traniee",
-        "Occupation": "Traniee at CSIO-CSIR Sector 30 Chandigarh",
-        "InstituteName": "",
-        "LinkedIn": "https://www.linkedin.com/in/manvir-singh-2260a62bb?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-        "Skill": "AI, ML, DL",
-        "Batch": 2025,
-        "Course": "MCA",
-        "Image": "images/manvir singh.jpeg"
-    },
-    {
         "Name": "Amarpal singh",
         "FatherName": "Harvinder singh",
         "PhoneNo": 7837092930,
@@ -257,20 +242,7 @@
         "Course": "MCA",
         "Image": "/images/Diksha Sharma.jpeg"
     },
-    {
-        "Name": "Simranjeet Kaur",
-        "FatherName": "Baljeet Singh",
-        "PhoneNo": 9053453231,
-        "Address": "Vill- Hansu Majra , Distt- Kaithal, Haryana- 136035",
-        "Email": "simranjeetmehrok24@gmail.com",
-        "Profession": "Internship",
-        "Occupation": "Intern at Punjabi University Patiala, on Campus",
-        "InstituteName": "",
-        "WebsiteLink": "",
-        "Skill": "Web Development",
-        "Batch": 2025,
-        "Image": "/images/simran_Mca25.jpeg"
-    },
+
     {
         "Name": "Manjot Kaur",
         "FatherName": "Jarnail Singh",
@@ -48280,24 +48252,7 @@
         "State": "Punjab",
         "UniversityRegNo": "716-20-395"
     },
-    {
-        "Name": "AADITYA VARDHAN",
-        "FatherName": "DEEPAK KANDA",
-        "PhoneNo": "7087714405, 9872527957",
-        "Address": "# C-488, Street No. 1, Bagh Colony, Near Old Bus Stand, OPP. J P Cinema, Bhagat Singh Chowk, Jalalabad West, Fazilka (152024)",
-        "Email": "aadityavardhan786@gmail.com",
-        "Profession": "",
-        "Occupation": "",
-        "InstituteName": "",
-        "WebsiteLink": "",
-        "Skill": "",
-        "Batch": "2023-2025",
-        "Course": "MCA",
-        "Image": "",
-        "LinkedIn": "",
-        "State": "Punjab",
-        "UniversityRegNo": "9797-2023-1331"
-    },
+  
     {
         "Name": "SALESH GARG",
         "FatherName": "SUKHJIWAN LAL",
