@@ -227,9 +227,9 @@ const NotificationModal = ({ onClose }) => {
                     <p className="text-sm text-gray-500 mt-2">
                       Posted on: {new Date(notification.createdAt).toLocaleDateString()}
                     </p>
-                    <p className="text-sm text-gray-500 mt-1">
+                    {/* <p className="text-sm text-gray-500 mt-1">
                       Archive Date: {new Date(notification.archiveDate).toLocaleDateString()}
-                    </p>
+                    </p> */}
                   </div>
                 ))}
               </div>
