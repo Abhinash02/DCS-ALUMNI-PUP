@@ -86,7 +86,7 @@ const Register = () => {
         }
       }
 
-      await axios.post('http://localhost:5000/api/alumni', formData, {
+      await axios.post('https://dcs-alumni-925122167822.us-central1.run.app/api/alumni', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

@@ -51,7 +51,7 @@ export default function UserLogin() {
     setError('');
 
     try {
-      const res = await axios.post('http://localhost:5000/api/alumni/login', { email, password });
+      const res = await axios.post('https://dcs-alumni-925122167822.us-central1.run.app/api/alumni/login', { email, password });
       localStorage.setItem('token', res.data.token);
       localStorage.setItem('alumni', JSON.stringify(res.data.alumni));
       navigate('/profile');

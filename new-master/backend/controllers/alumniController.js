@@ -1,4 +1,4 @@
-const Alumni = require('../models/alumni');
+const Alumni = require('../models/Alumni');
 const bcrypt = require('bcrypt');
 const cloudinary = require('../utils/cloudinary');
 const jwt = require('jsonwebtoken');

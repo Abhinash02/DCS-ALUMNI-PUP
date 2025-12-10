@@ -18,7 +18,7 @@ const FacultyTeachers = () => {
 
   const fetchFaculty = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/faculty');
+      const response = await axios.get('https://dcs-alumni-925122167822.us-central1.run.app/api/faculty');
       const mongoData = response.data.map((item, index) => ({
         ...item,
         id: item._id || `mongo_${index}`,
