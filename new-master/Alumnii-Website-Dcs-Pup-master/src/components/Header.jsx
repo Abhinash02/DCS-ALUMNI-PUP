@@ -9,7 +9,7 @@ const Header = () => {
   useEffect(() => {
     const fetchNotificationCount = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/notifications");
+        const response = await axios.get("https://dcs-alumni-925122167822.us-central1.run.app/api/notifications");
         const activeCount = response.data.filter((n) => !n.isArchived).length;
         setNotificationCount(activeCount); // Display full count
       } catch (err) {

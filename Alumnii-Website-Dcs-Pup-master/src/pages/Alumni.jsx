@@ -76,7 +76,7 @@ export default function Alumni() {
   // Fetch data and initial filters
   useEffect(() => {
     axios
-      .get('http://localhost:5000/api/alumni/approved')
+      .get('https://dcs-alumni-925122167822.us-central1.run.app/api/alumni/approved')
       .then((res) => {
         const mongoData = Array.isArray(res.data) ? res.data : [];
         const merged = [...localData, ...mongoData];

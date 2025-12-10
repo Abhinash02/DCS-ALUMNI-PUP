@@ -34,7 +34,7 @@
 //   // Fetch Functions
 //   const fetchPending = async () => {
 //     try {
-//       const response = await axios.get('http://localhost:5000/api/alumni/pending', {
+//       const response = await axios.get('https://dcs-alumni-925122167822.us-central1.run.app/api/alumni/pending', {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 //       });
 //       setPending(response.data);
@@ -46,7 +46,7 @@
 
 //   const fetchApproved = async () => {
 //     try {
-//       const response = await axios.get('http://localhost:5000/api/alumni/approved', {
+//       const response = await axios.get('https://dcs-alumni-925122167822.us-central1.run.app/api/alumni/approved', {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 //       });
 //       setApproved(response.data);
@@ -58,7 +58,7 @@
 
 //   const fetchDenied = async () => {
 //     try {
-//       const response = await axios.get('http://localhost:5000/api/alumni/denied', {
+//       const response = await axios.get('https://dcs-alumni-925122167822.us-central1.run.app/api/alumni/denied', {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 //       });
 //       setDenied(response.data);
@@ -70,7 +70,7 @@
 
 //   const fetchFaculty = async () => {
 //     try {
-//       const response = await axios.get('http://localhost:5000/api/faculty', {
+//       const response = await axios.get('https://dcs-alumni-925122167822.us-central1.run.app/api/faculty', {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 //       });
 //       setFaculty(response.data);
@@ -82,7 +82,7 @@
 
 //   const fetchEvents = async () => {
 //     try {
-//       const response = await axios.get('http://localhost:5000/api/events', {
+//       const response = await axios.get('https://dcs-alumni-925122167822.us-central1.run.app/api/events', {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 //       });
 //       setEvents(response.data);
@@ -94,7 +94,7 @@
 
 //   const fetchNotifications = async () => {
 //     try {
-//       const response = await axios.get('http://localhost:5000/api/notifications', {
+//       const response = await axios.get('https://dcs-alumni-925122167822.us-central1.run.app/api/notifications', {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 //       });
 //       setNotifications(response.data);
@@ -108,7 +108,7 @@
 //   const approve = async (id) => {
 //     try {
 //       await axios.put(
-//         `http://localhost:5000/api/alumni/approve/${id}`,
+//         `https://dcs-alumni-925122167822.us-central1.run.app/api/alumni/approve/${id}`,
 //         {},
 //         {
 //           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
@@ -125,7 +125,7 @@
 //   const deny = async (id) => {
 //     try {
 //       await axios.put(
-//         `http://localhost:5000/api/alumni/deny/${id}`,
+//         `https://dcs-alumni-925122167822.us-central1.run.app/api/alumni/deny/${id}`,
 //         {},
 //         {
 //           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
@@ -144,7 +144,7 @@
 
 //   const remove = async (id) => {
 //     try {
-//       await axios.delete(`http://localhost:5000/api/alumni/${id}`, {
+//       await axios.delete(`https://dcs-alumni-925122167822.us-central1.run.app/api/alumni/${id}`, {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 //       });
 //       fetchPending();
@@ -159,7 +159,7 @@
 //   const deleteFaculty = async (id) => {
 //     if (!window.confirm('Are you sure you want to delete this faculty member?')) return;
 //     try {
-//       await axios.delete(`http://localhost:5000/api/faculty/${id}`, {
+//       await axios.delete(`https://dcs-alumni-925122167822.us-central1.run.app/api/faculty/${id}`, {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 //       });
 //       setSuccess('Faculty member deleted successfully!');
@@ -180,7 +180,7 @@
 //       if (!token) {
 //         throw new Error('No authentication token found.');
 //       }
-//       await axios.delete(`http://localhost:5000/api/events/${id}`, {
+//       await axios.delete(`https://dcs-alumni-925122167822.us-central1.run.app/api/events/${id}`, {
 //         headers: { Authorization: `Bearer ${token}` },
 //         data: { publicIds },
 //       });
@@ -201,7 +201,7 @@
 //   const deleteNotification = async (id, publicId) => {
 //     if (!window.confirm('Are you sure you want to delete this notification?')) return;
 //     try {
-//       await axios.delete(`http://localhost:5000/api/notifications/${id}`, {
+//       await axios.delete(`https://dcs-alumni-925122167822.us-central1.run.app/api/notifications/${id}`, {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 //         data: { publicId },
 //       });
@@ -273,7 +273,7 @@
 
 //     try {
 //       const token = localStorage.getItem('token');
-//       await axios.post('http://localhost:5000/api/events', data, {
+//       await axios.post('https://dcs-alumni-925122167822.us-central1.run.app/api/events', data, {
 //         headers: {
 //           Authorization: `Bearer ${token}`,
 //           'Content-Type': 'multipart/form-data',
@@ -325,7 +325,7 @@
 
 //     try {
 //       const token = localStorage.getItem('token');
-//       await axios.post('http://localhost:5000/api/faculty', data, {
+//       await axios.post('https://dcs-alumni-925122167822.us-central1.run.app/api/faculty', data, {
 //         headers: {
 //           Authorization: `Bearer ${token}`,
 //           'Content-Type': 'multipart/form-data',
@@ -374,7 +374,7 @@
 
 //     try {
 //       const token = localStorage.getItem('token');
-//       await axios.post('http://localhost:5000/api/notifications', data, {
+//       await axios.post('https://dcs-alumni-925122167822.us-central1.run.app/api/notifications', data, {
 //         headers: {
 //           Authorization: `Bearer ${token}`,
 //           'Content-Type': 'multipart/form-data',
@@ -1046,7 +1046,7 @@
 //   // Fetch Functions
 //   const fetchPending = async () => {
 //     try {
-//       const response = await axios.get('http://localhost:5000/api/alumni/pending', {
+//       const response = await axios.get('https://dcs-alumni-925122167822.us-central1.run.app/api/alumni/pending', {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 //       });
 //       setPending(response.data);
@@ -1058,7 +1058,7 @@
 
 //   const fetchApproved = async () => {
 //     try {
-//       const response = await axios.get('http://localhost:5000/api/alumni/approved', {
+//       const response = await axios.get('https://dcs-alumni-925122167822.us-central1.run.app/api/alumni/approved', {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 //       });
 //       setApproved(response.data);
@@ -1070,7 +1070,7 @@
 
 //   const fetchDenied = async () => {
 //     try {
-//       const response = await axios.get('http://localhost:5000/api/alumni/denied', {
+//       const response = await axios.get('https://dcs-alumni-925122167822.us-central1.run.app/api/alumni/denied', {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 //       });
 //       setDenied(response.data);
@@ -1082,7 +1082,7 @@
 
 //   const fetchFaculty = async () => {
 //     try {
-//       const response = await axios.get('http://localhost:5000/api/faculty', {
+//       const response = await axios.get('https://dcs-alumni-925122167822.us-central1.run.app/api/faculty', {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 //       });
 //       setFaculty(response.data);
@@ -1094,7 +1094,7 @@
 
 //   const fetchEvents = async () => {
 //     try {
-//       const response = await axios.get('http://localhost:5000/api/events', {
+//       const response = await axios.get('https://dcs-alumni-925122167822.us-central1.run.app/api/events', {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 //       });
 //       setEvents(response.data);
@@ -1106,7 +1106,7 @@
 
 //   const fetchNotifications = async () => {
 //     try {
-//       const response = await axios.get('http://localhost:5000/api/notifications', {
+//       const response = await axios.get('https://dcs-alumni-925122167822.us-central1.run.app/api/notifications', {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 //       });
 //       setNotifications(response.data);
@@ -1120,7 +1120,7 @@
 //   const approve = async (id) => {
 //     try {
 //       await axios.put(
-//         `http://localhost:5000/api/alumni/approve/${id}`,
+//         `https://dcs-alumni-925122167822.us-central1.run.app/api/alumni/approve/${id}`,
 //         {},
 //         {
 //           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
@@ -1137,7 +1137,7 @@
 //   const deny = async (id) => {
 //     try {
 //       await axios.put(
-//         `http://localhost:5000/api/alumni/deny/${id}`,
+//         `https://dcs-alumni-925122167822.us-central1.run.app/api/alumni/deny/${id}`,
 //         {},
 //         {
 //           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
@@ -1156,7 +1156,7 @@
 
 //   const remove = async (id) => {
 //     try {
-//       await axios.delete(`http://localhost:5000/api/alumni/${id}`, {
+//       await axios.delete(`https://dcs-alumni-925122167822.us-central1.run.app/api/alumni/${id}`, {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 //       });
 //       fetchPending();
@@ -1171,7 +1171,7 @@
 //   const deleteFaculty = async (id) => {
 //     if (!window.confirm('Are you sure you want to delete this faculty member?')) return;
 //     try {
-//       await axios.delete(`http://localhost:5000/api/faculty/${id}`, {
+//       await axios.delete(`https://dcs-alumni-925122167822.us-central1.run.app/api/faculty/${id}`, {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 //       });
 //       setSuccess('Faculty member deleted successfully!');
@@ -1192,7 +1192,7 @@
 //       if (!token) {
 //         throw new Error('No authentication token found.');
 //       }
-//       await axios.delete(`http://localhost:5000/api/events/${id}`, {
+//       await axios.delete(`https://dcs-alumni-925122167822.us-central1.run.app/api/events/${id}`, {
 //         headers: { Authorization: `Bearer ${token}` },
 //         data: { publicIds },
 //       });
@@ -1213,7 +1213,7 @@
 //   const deleteNotification = async (id, publicId) => {
 //     if (!window.confirm('Are you sure you want to delete this notification?')) return;
 //     try {
-//       await axios.delete(`http://localhost:5000/api/notifications/${id}`, {
+//       await axios.delete(`https://dcs-alumni-925122167822.us-central1.run.app/api/notifications/${id}`, {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 //         data: { publicId },
 //       });
@@ -1285,7 +1285,7 @@
 
 //     try {
 //       const token = localStorage.getItem('token');
-//       await axios.post('http://localhost:5000/api/events', data, {
+//       await axios.post('https://dcs-alumni-925122167822.us-central1.run.app/api/events', data, {
 //         headers: {
 //           Authorization: `Bearer ${token}`,
 //           'Content-Type': 'multipart/form-data',
@@ -1337,7 +1337,7 @@
 
 //     try {
 //       const token = localStorage.getItem('token');
-//       await axios.post('http://localhost:5000/api/faculty', data, {
+//       await axios.post('https://dcs-alumni-925122167822.us-central1.run.app/api/faculty', data, {
 //         headers: {
 //           Authorization: `Bearer ${token}`,
 //           'Content-Type': 'multipart/form-data',
@@ -1386,7 +1386,7 @@
 
 //     try {
 //       const token = localStorage.getItem('token');
-//       await axios.post('http://localhost:5000/api/notifications', data, {
+//       await axios.post('https://dcs-alumni-925122167822.us-central1.run.app/api/notifications', data, {
 //         headers: {
 //           Authorization: `Bearer ${token}`,
 //           'Content-Type': 'multipart/form-data',
@@ -2075,7 +2075,7 @@
 //   // Fetch Functions
 //   const fetchPending = async () => {
 //     try {
-//       const response = await axios.get('http://localhost:5000/api/alumni/pending', {
+//       const response = await axios.get('https://dcs-alumni-925122167822.us-central1.run.app/api/alumni/pending', {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 //       });
 //       setPending(response.data);
@@ -2087,7 +2087,7 @@
 
 //   const fetchApproved = async () => {
 //     try {
-//       const response = await axios.get('http://localhost:5000/api/alumni/approved', {
+//       const response = await axios.get('https://dcs-alumni-925122167822.us-central1.run.app/api/alumni/approved', {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 //       });
 //       setApproved(response.data);
@@ -2099,7 +2099,7 @@
 
 //   const fetchDenied = async () => {
 //     try {
-//       const response = await axios.get('http://localhost:5000/api/alumni/denied', {
+//       const response = await axios.get('https://dcs-alumni-925122167822.us-central1.run.app/api/alumni/denied', {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 //       });
 //       setDenied(response.data);
@@ -2111,7 +2111,7 @@
 
 //   const fetchFaculty = async () => {
 //     try {
-//       const response = await axios.get('http://localhost:5000/api/faculty', {
+//       const response = await axios.get('https://dcs-alumni-925122167822.us-central1.run.app/api/faculty', {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 //       });
 //       setFaculty(response.data);
@@ -2123,7 +2123,7 @@
 
 //   const fetchEvents = async () => {
 //     try {
-//       const response = await axios.get('http://localhost:5000/api/events', {
+//       const response = await axios.get('https://dcs-alumni-925122167822.us-central1.run.app/api/events', {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 //       });
 //       setEvents(response.data);
@@ -2135,7 +2135,7 @@
 
 //   const fetchNotifications = async () => {
 //     try {
-//       const response = await axios.get('http://localhost:5000/api/notifications', {
+//       const response = await axios.get('https://dcs-alumni-925122167822.us-central1.run.app/api/notifications', {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 //       });
 //       setNotifications(response.data);
@@ -2149,7 +2149,7 @@
 //   const approve = async (id) => {
 //     try {
 //       await axios.put(
-//         `http://localhost:5000/api/alumni/approve/${id}`,
+//         `https://dcs-alumni-925122167822.us-central1.run.app/api/alumni/approve/${id}`,
 //         {},
 //         {
 //           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
@@ -2166,7 +2166,7 @@
 //   const deny = async (id) => {
 //     try {
 //       await axios.put(
-//         `http://localhost:5000/api/alumni/deny/${id}`,
+//         `https://dcs-alumni-925122167822.us-central1.run.app/api/alumni/deny/${id}`,
 //         {},
 //         {
 //           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
@@ -2185,7 +2185,7 @@
 
 //   const remove = async (id) => {
 //     try {
-//       await axios.delete(`http://localhost:5000/api/alumni/${id}`, {
+//       await axios.delete(`https://dcs-alumni-925122167822.us-central1.run.app/api/alumni/${id}`, {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 //       });
 //       fetchPending();
@@ -2200,7 +2200,7 @@
 //   const deleteFaculty = async (id) => {
 //     if (!window.confirm('Are you sure you want to delete this faculty member?')) return;
 //     try {
-//       await axios.delete(`http://localhost:5000/api/faculty/${id}`, {
+//       await axios.delete(`https://dcs-alumni-925122167822.us-central1.run.app/api/faculty/${id}`, {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 //       });
 //       setSuccess('Faculty member deleted successfully!');
@@ -2221,7 +2221,7 @@
 //       if (!token) {
 //         throw new Error('No authentication token found.');
 //       }
-//       await axios.delete(`http://localhost:5000/api/events/${id}`, {
+//       await axios.delete(`https://dcs-alumni-925122167822.us-central1.run.app/api/events/${id}`, {
 //         headers: { Authorization: `Bearer ${token}` },
 //         data: { publicIds },
 //       });
@@ -2242,7 +2242,7 @@
 //   const deleteNotification = async (id, publicId) => {
 //     if (!window.confirm('Are you sure you want to delete this notification?')) return;
 //     try {
-//       await axios.delete(`http://localhost:5000/api/notifications/${id}`, {
+//       await axios.delete(`https://dcs-alumni-925122167822.us-central1.run.app/api/notifications/${id}`, {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 //         data: { publicId },
 //       });
@@ -2314,7 +2314,7 @@
 
 //     try {
 //       const token = localStorage.getItem('token');
-//       await axios.post('http://localhost:5000/api/events', data, {
+//       await axios.post('https://dcs-alumni-925122167822.us-central1.run.app/api/events', data, {
 //         headers: {
 //           Authorization: `Bearer ${token}`,
 //           'Content-Type': 'multipart/form-data',
@@ -2367,8 +2367,8 @@
 //     try {
 //       const token = localStorage.getItem('token');
 //       const url = editingFaculty
-//         ? `http://localhost:5000/api/faculty/${editingFaculty._id}`
-//         : 'http://localhost:5000/api/faculty';
+//         ? `https://dcs-alumni-925122167822.us-central1.run.app/api/faculty/${editingFaculty._id}`
+//         : 'https://dcs-alumni-925122167822.us-central1.run.app/api/faculty';
 //       const method = editingFaculty ? axios.put : axios.post;
 
 //       await method(url, data, {
@@ -2427,8 +2427,8 @@
 //     try {
 //       const token = localStorage.getItem('token');
 //       const url = editingNotification
-//         ? `http://localhost:5000/api/notifications/${editingNotification._id}`
-//         : 'http://localhost:5000/api/notifications';
+//         ? `https://dcs-alumni-925122167822.us-central1.run.app/api/notifications/${editingNotification._id}`
+//         : 'https://dcs-alumni-925122167822.us-central1.run.app/api/notifications';
 //       const method = editingNotification ? axios.put : axios.post;
 
 //       await method(url, data, {
@@ -3298,7 +3298,7 @@
 //   // Fetch Functions
 //   const fetchPending = async () => {
 //     try {
-//       const response = await axios.get('http://localhost:5000/api/alumni/pending', {
+//       const response = await axios.get('https://dcs-alumni-925122167822.us-central1.run.app/api/alumni/pending', {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 //       });
 //       setPending(response.data);
@@ -3310,7 +3310,7 @@
 
 //   const fetchApproved = async () => {
 //     try {
-//       const response = await axios.get('http://localhost:5000/api/alumni/approved', {
+//       const response = await axios.get('https://dcs-alumni-925122167822.us-central1.run.app/api/alumni/approved', {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 //       });
 //       setApproved(response.data);
@@ -3322,7 +3322,7 @@
 
 //   const fetchDenied = async () => {
 //     try {
-//       const response = await axios.get('http://localhost:5000/api/alumni/denied', {
+//       const response = await axios.get('https://dcs-alumni-925122167822.us-central1.run.app/api/alumni/denied', {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 //       });
 //       setDenied(response.data);
@@ -3334,7 +3334,7 @@
 
 //   const fetchFaculty = async () => {
 //     try {
-//       const response = await axios.get('http://localhost:5000/api/faculty', {
+//       const response = await axios.get('https://dcs-alumni-925122167822.us-central1.run.app/api/faculty', {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 //       });
 //       setFaculty(response.data);
@@ -3346,7 +3346,7 @@
 
 //   const fetchEvents = async () => {
 //     try {
-//       const response = await axios.get('http://localhost:5000/api/events', {
+//       const response = await axios.get('https://dcs-alumni-925122167822.us-central1.run.app/api/events', {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 //       });
 //       setEvents(response.data);
@@ -3358,7 +3358,7 @@
 
 //   const fetchNotifications = async () => {
 //     try {
-//       const response = await axios.get('http://localhost:5000/api/notifications', {
+//       const response = await axios.get('https://dcs-alumni-925122167822.us-central1.run.app/api/notifications', {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 //       });
 //       setNotifications(response.data);
@@ -3372,7 +3372,7 @@
 //   const approve = async (id) => {
 //     try {
 //       await axios.put(
-//         `http://localhost:5000/api/alumni/approve/${id}`,
+//         `https://dcs-alumni-925122167822.us-central1.run.app/api/alumni/approve/${id}`,
 //         {},
 //         {
 //           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
@@ -3389,7 +3389,7 @@
 //   const deny = async (id) => {
 //     try {
 //       await axios.put(
-//         `http://localhost:5000/api/alumni/deny/${id}`,
+//         `https://dcs-alumni-925122167822.us-central1.run.app/api/alumni/deny/${id}`,
 //         {},
 //         {
 //           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
@@ -3408,7 +3408,7 @@
 
 //   const remove = async (id) => {
 //     try {
-//       await axios.delete(`http://localhost:5000/api/alumni/${id}`, {
+//       await axios.delete(`https://dcs-alumni-925122167822.us-central1.run.app/api/alumni/${id}`, {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 //       });
 //       fetchPending();
@@ -3423,7 +3423,7 @@
 //   const deleteFaculty = async (id) => {
 //     if (!window.confirm('Are you sure you want to delete this faculty member?')) return;
 //     try {
-//       await axios.delete(`http://localhost:5000/api/faculty/${id}`, {
+//       await axios.delete(`https://dcs-alumni-925122167822.us-central1.run.app/api/faculty/${id}`, {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 //       });
 //       setSuccess('Faculty member deleted successfully!');
@@ -3444,7 +3444,7 @@
 //       if (!token) {
 //         throw new Error('No authentication token found.');
 //       }
-//       await axios.delete(`http://localhost:5000/api/events/${id}`, {
+//       await axios.delete(`https://dcs-alumni-925122167822.us-central1.run.app/api/events/${id}`, {
 //         headers: { Authorization: `Bearer ${token}` },
 //         data: { publicIds },
 //       });
@@ -3465,7 +3465,7 @@
 //   const deleteNotification = async (id, publicId) => {
 //     if (!window.confirm('Are you sure you want to delete this notification?')) return;
 //     try {
-//       await axios.delete(`http://localhost:5000/api/notifications/${id}`, {
+//       await axios.delete(`https://dcs-alumni-925122167822.us-central1.run.app/api/notifications/${id}`, {
 //         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
 //         data: { publicId },
 //       });
@@ -3537,7 +3537,7 @@
 
 //     try {
 //       const token = localStorage.getItem('token');
-//       await axios.post('http://localhost:5000/api/events', data, {
+//       await axios.post('https://dcs-alumni-925122167822.us-central1.run.app/api/events', data, {
 //         headers: {
 //           Authorization: `Bearer ${token}`,
 //           'Content-Type': 'multipart/form-data',
@@ -3590,8 +3590,8 @@
 //     try {
 //       const token = localStorage.getItem('token');
 //       const url = editingFaculty
-//         ? `http://localhost:5000/api/faculty/${editingFaculty._id}`
-//         : 'http://localhost:5000/api/faculty';
+//         ? `https://dcs-alumni-925122167822.us-central1.run.app/api/faculty/${editingFaculty._id}`
+//         : 'https://dcs-alumni-925122167822.us-central1.run.app/api/faculty';
 //       const method = editingFaculty ? axios.put : axios.post;
 
 //       await method(url, data, {
@@ -3650,8 +3650,8 @@
 //     try {
 //       const token = localStorage.getItem('token');
 //       const url = editingNotification
-//         ? `http://localhost:5000/api/notifications/${editingNotification._id}`
-//         : 'http://localhost:5000/api/notifications';
+//         ? `https://dcs-alumni-925122167822.us-central1.run.app/api/notifications/${editingNotification._id}`
+//         : 'https://dcs-alumni-925122167822.us-central1.run.app/api/notifications';
 //       const method = editingNotification ? axios.put : axios.post;
 
 //       await method(url, data, {
@@ -4523,7 +4523,7 @@ export default function Admindashboard() {
   // Fetch Functions
   const fetchPending = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/alumni/pending', {
+      const response = await axios.get('https://dcs-alumni-925122167822.us-central1.run.app/api/alumni/pending', {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       });
       setPending(response.data);
@@ -4535,7 +4535,7 @@ export default function Admindashboard() {
 
   const fetchApproved = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/alumni/approved', {
+      const response = await axios.get('https://dcs-alumni-925122167822.us-central1.run.app/api/alumni/approved', {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       });
       setApproved(response.data);
@@ -4547,7 +4547,7 @@ export default function Admindashboard() {
 
   const fetchDenied = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/alumni/denied', {
+      const response = await axios.get('https://dcs-alumni-925122167822.us-central1.run.app/api/alumni/denied', {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       });
       setDenied(response.data);
@@ -4559,7 +4559,7 @@ export default function Admindashboard() {
 
   const fetchFaculty = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/faculty', {
+      const response = await axios.get('https://dcs-alumni-925122167822.us-central1.run.app/api/faculty', {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       });
       setFaculty(response.data);
@@ -4571,7 +4571,7 @@ export default function Admindashboard() {
 
   const fetchEvents = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/events', {
+      const response = await axios.get('https://dcs-alumni-925122167822.us-central1.run.app/api/events', {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       });
       setEvents(response.data);
@@ -4583,7 +4583,7 @@ export default function Admindashboard() {
 
   const fetchNotifications = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/notifications', {
+      const response = await axios.get('https://dcs-alumni-925122167822.us-central1.run.app/api/notifications', {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       });
       setNotifications(response.data);
@@ -4597,7 +4597,7 @@ export default function Admindashboard() {
   const approve = async (id) => {
     try {
       await axios.put(
-        `http://localhost:5000/api/alumni/approve/${id}`,
+        `https://dcs-alumni-925122167822.us-central1.run.app/api/alumni/approve/${id}`,
         {},
         {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
@@ -4614,7 +4614,7 @@ export default function Admindashboard() {
   const deny = async (id) => {
     try {
       await axios.put(
-        `http://localhost:5000/api/alumni/deny/${id}`,
+        `https://dcs-alumni-925122167822.us-central1.run.app/api/alumni/deny/${id}`,
         {},
         {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
@@ -4633,7 +4633,7 @@ export default function Admindashboard() {
 
   const remove = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/alumni/${id}`, {
+      await axios.delete(`https://dcs-alumni-925122167822.us-central1.run.app/api/alumni/${id}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       });
       fetchPending();
@@ -4648,7 +4648,7 @@ export default function Admindashboard() {
   const deleteFaculty = async (id) => {
     if (!window.confirm('Are you sure you want to delete this faculty member?')) return;
     try {
-      await axios.delete(`http://localhost:5000/api/faculty/${id}`, {
+      await axios.delete(`https://dcs-alumni-925122167822.us-central1.run.app/api/faculty/${id}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       });
       setSuccess('Faculty member deleted successfully!');
@@ -4669,7 +4669,7 @@ export default function Admindashboard() {
       if (!token) {
         throw new Error('No authentication token found.');
       }
-      await axios.delete(`http://localhost:5000/api/events/${id}`, {
+      await axios.delete(`https://dcs-alumni-925122167822.us-central1.run.app/api/events/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
         data: { publicIds },
       });
@@ -4690,7 +4690,7 @@ export default function Admindashboard() {
   const deleteNotification = async (id, publicId) => {
     if (!window.confirm('Are you sure you want to delete this notification?')) return;
     try {
-      await axios.delete(`http://localhost:5000/api/notifications/${id}`, {
+      await axios.delete(`https://dcs-alumni-925122167822.us-central1.run.app/api/notifications/${id}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
         data: { publicId },
       });
@@ -4762,7 +4762,7 @@ export default function Admindashboard() {
 
     try {
       const token = localStorage.getItem('token');
-      await axios.post('http://localhost:5000/api/events', data, {
+      await axios.post('https://dcs-alumni-925122167822.us-central1.run.app/api/events', data, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'multipart/form-data',
@@ -4815,8 +4815,8 @@ export default function Admindashboard() {
     try {
       const token = localStorage.getItem('token');
       const url = editingFaculty
-        ? `http://localhost:5000/api/faculty/${editingFaculty._id}`
-        : 'http://localhost:5000/api/faculty';
+        ? `https://dcs-alumni-925122167822.us-central1.run.app/api/faculty/${editingFaculty._id}`
+        : 'https://dcs-alumni-925122167822.us-central1.run.app/api/faculty';
       const method = editingFaculty ? axios.put : axios.post;
 
       await method(url, data, {
@@ -4875,8 +4875,8 @@ export default function Admindashboard() {
     try {
       const token = localStorage.getItem('token');
       const url = editingNotification
-        ? `http://localhost:5000/api/notifications/${editingNotification._id}`
-        : 'http://localhost:5000/api/notifications';
+        ? `https://dcs-alumni-925122167822.us-central1.run.app/api/notifications/${editingNotification._id}`
+        : 'https://dcs-alumni-925122167822.us-central1.run.app/api/notifications';
       const method = editingNotification ? axios.put : axios.post;
 
       await method(url, data, {

@@ -34,7 +34,7 @@ const Events = () => {
   const fetchEvents = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get("http://localhost:5000/api/events", {
+      const response = await axios.get("https://dcs-alumni-925122167822.us-central1.run.app/api/events", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -106,7 +106,7 @@ const Events = () => {
 
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.post("http://localhost:5000/api/events", data, {
+      const response = await axios.post("https://dcs-alumni-925122167822.us-central1.run.app/api/events", data, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data",
@@ -137,7 +137,7 @@ const Events = () => {
     }
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(`http://localhost:5000/api/events/${id}`, {
+      await axios.delete(`https://dcs-alumni-925122167822.us-central1.run.app/api/events/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

@@ -998,7 +998,7 @@ export const Navbar = () => {
   useEffect(() => {
     const fetchNotifications = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/notifications");
+        const response = await axios.get("https://dcs-alumni-925122167822.us-central1.run.app/api/notifications");
         setNotifications(response.data);
       } catch (err) {
         console.error("Error fetching notifications:", err);
