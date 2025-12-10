@@ -40,11 +40,8 @@ app.use('/api/notifications', notificationRoutes);
 
 
 // app.listen(5000, () => console.log('Backend running on port 5000'));
+
 const PORT = process.env.PORT || 8080;  // <--- IMPORTANT: Must use process.env.PORT
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
-<<<<<<< HEAD
 });
-=======
-});
->>>>>>> b3a4ef953875b1d10a4d28fe99e97c6154603137
