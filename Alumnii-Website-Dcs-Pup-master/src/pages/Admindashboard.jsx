@@ -4520,7 +4520,7 @@ export default function Admindashboard() {
   const itemsPerPage = { pending: 10, approved: 10, faculty: 10, notification: 2, events: 2 };
   const navigate = useNavigate();
 
-  // Fetch Functions
+  // Fetch Functions http://localhost:5000//
   const fetchPending = async () => {
     try {
       const response = await axios.get('https://dcs-alumni-925122167822.us-central1.run.app/api/alumni/pending', {
