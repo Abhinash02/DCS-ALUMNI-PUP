@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import API from '../api/api';
 
 // Reusable input component
 const FormInput = ({ label, type, value, onChange, placeholder, index }) => (
@@ -51,7 +51,7 @@ export default function UserLogin() {
     setError('');
 
     try {
-      const res = await axios.post('https://dcs-alumni-925122167822.us-central1.run.app/api/alumni/login', { email, password });
+      const res = await API.post('/alumni/login', { email, password });
       localStorage.setItem('token', res.data.token);
       localStorage.setItem('alumni', JSON.stringify(res.data.alumni));
       navigate('/profile');

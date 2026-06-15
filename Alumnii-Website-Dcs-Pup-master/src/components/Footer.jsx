@@ -13,9 +13,9 @@ export const Footer = () => {
             <div className="mx-auto max-w-[95%] md:max-w-[85%] py-5 pt-10">
                 <div className="lg:flex justify-between items-center">
                     <div className="flex flex-col gap-4">
-                        <a href="#">
+                        <Link to="/">
                             <img src='/images/logo.png' className="" alt="Logo" />
-                        </a>
+                        </Link>
                         <p className='w-full lg:w-[85%] sm:mt-0 3xl:text-xl text-justify'>"Founded in 1962, Punjabi University, Patiala, is a leading institution promoting Punjabi language, culture, and education. It offers a wide range of academic programs and is committed to excellence in research and student development."</p>
                     </div>
                     <div className="sm:flex gap-20 w-full justify-start mt-10 lg:mt-0 lg:justify-end font-mons">
@@ -69,7 +69,7 @@ export const Footer = () => {
                 <div className="flex justify-center">
       <span className="text-xs 3xl:text-base">
         ©2023{' '}
-        <a href="#" className="hover:underline">
+        <a href="https://punjabiuniversity.ac.in" target="_blank" rel="noopener noreferrer" className="hover:underline">
           Punjabi University
         </a>
         .{' '}

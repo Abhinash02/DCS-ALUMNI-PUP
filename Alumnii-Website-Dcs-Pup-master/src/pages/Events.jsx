@@ -2,7 +2,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
-import axios from "axios";
+import API from "../api/api";
 import eventData from "../data/EventData.json";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -34,7 +34,7 @@ const Events = () => {
   const fetchEvents = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get("https://dcs-alumni-925122167822.us-central1.run.app/api/events", {
+      const response = await API.get("/events", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -106,7 +106,7 @@ const Events = () => {
 
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.post("https://dcs-alumni-925122167822.us-central1.run.app/api/events", data, {
+      const response = await API.post("/events", data, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data",
@@ -137,7 +137,7 @@ const Events = () => {
     }
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(`https://dcs-alumni-925122167822.us-central1.run.app/api/events/${id}`, {
+      await API.delete(`/events/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

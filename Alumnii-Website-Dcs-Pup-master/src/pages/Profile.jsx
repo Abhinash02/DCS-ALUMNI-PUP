@@ -1,7 +1,7 @@
 // components/ProfilePage.jsx
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import API from '../api/api';
 
 // UI Components
 const Container = ({ children }) => {
@@ -292,7 +292,7 @@ const ProfilePage = () => {
       });
   
       const token = localStorage.getItem('token');
-      return await axios.put('https://dcs-alumni-925122167822.us-central1.run.app/api/alumni/profile', data, {
+      return await API.put('/alumni/profile', data, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'multipart/form-data'

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import API from "../api/api";
 import NotificationModal from "./NotificationModal";
 
 const Header = () => {
@@ -9,7 +9,7 @@ const Header = () => {
   useEffect(() => {
     const fetchNotificationCount = async () => {
       try {
-        const response = await axios.get("https://dcs-alumni-925122167822.us-central1.run.app/api/notifications");
+        const response = await API.get("/notifications");
         const activeCount = response.data.filter((n) => !n.isArchived).length;
         setNotificationCount(activeCount); // Display full count
       } catch (err) {

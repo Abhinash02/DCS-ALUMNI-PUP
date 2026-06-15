@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import API from '../api/api';
 import { useNavigate } from 'react-router-dom';
 
 // Reusable input component
@@ -52,7 +52,7 @@ export default function Login() {
 
     try {
       console.log('Sending login request:', { email, password });
-      const res = await axios.post('https://dcs-alumni-925122167822.us-central1.run.app/api/auth/login', { email, password });
+      const res = await API.post('/auth/login', { email, password });
       localStorage.setItem('token', res.data.token);
       console.log('Login successful, token:', res.data.token);
       navigate('/Admindashboard');

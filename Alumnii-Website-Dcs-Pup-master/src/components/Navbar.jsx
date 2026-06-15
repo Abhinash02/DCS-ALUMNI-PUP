@@ -982,7 +982,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaBell, FaLinkedinIn, FaInstagram, FaUserAlt } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
-import axios from "axios";
+import API from "../api/api";
 import NotificationModal from "./NotificationModal";
 
 export const Navbar = () => {
@@ -998,7 +998,7 @@ export const Navbar = () => {
   useEffect(() => {
     const fetchNotifications = async () => {
       try {
-        const response = await axios.get("https://dcs-alumni-925122167822.us-central1.run.app/api/notifications");
+        const response = await API.get("/notifications");
         setNotifications(response.data);
       } catch (err) {
         console.error("Error fetching notifications:", err);
