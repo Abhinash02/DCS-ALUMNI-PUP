@@ -53,7 +53,7 @@ export default function Admindashboard() {
 
   const fetchApproved = async () => {
     try {
-      const response = await API.get('https://dcs.vercel.app/api/alumni/approved', {
+      const response = await API.get('/alumni/approved', {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       });
       setApproved(response.data);
@@ -65,7 +65,7 @@ export default function Admindashboard() {
 
   const fetchDenied = async () => {
     try {
-      const response = await API.get('https://dcs.vercel.app/api/alumni/denied', {
+      const response = await API.get('/alumni/denied', {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       });
       setDenied(response.data);
@@ -77,7 +77,7 @@ export default function Admindashboard() {
 
   const fetchFaculty = async () => {
     try {
-      const response = await API.get('https://dcs.vercel.app/api/faculty', {
+      const response = await API.get('/faculty', {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       });
       setFaculty(response.data);
@@ -485,17 +485,17 @@ export default function Admindashboard() {
     setImage(null);
   };
 
-  const handleLogout = () => {
+  const handleLogout = useCallback(() => {
     localStorage.removeItem('token');
     navigate('/login');
-  };
+  }, [navigate]);
 
   const resetTimeout = useCallback(() => {
     const timeout = setTimeout(() => {
       handleLogout();
     }, 5 * 60 * 1000); // 5 minutes
     return timeout;
-  }, [navigate]);
+  }, [handleLogout]);
 
   const toggleCardDetails = (id) => {
     setExpandedCards((prev) => ({
@@ -1143,7 +1143,7 @@ export default function Admindashboard() {
                             >
                               <img
                                 src={image.url}
-                                alt={`Event ${event.title} image ${index + 1}`}
+                                alt={`Event ${event.title} ${index + 1}`}
                                 className="w-24 h-24 object-cover rounded-md"
                                 onError={(e) => (e.target.src = '/images/placeholder.png')}
                               />

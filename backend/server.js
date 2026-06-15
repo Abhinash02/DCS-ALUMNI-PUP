@@ -93,8 +93,13 @@ const allowedOrigins = [
 // CORS Configuration
 const corsOptions = {
   origin: (origin, callback) => {
-    // Allow requests with no origin
-    if (!origin || allowedOrigins.includes(origin)) {
+    // Allow requests with no origin, matched in allowedOrigins list, or any local dev server port
+    if (
+      !origin || 
+      allowedOrigins.includes(origin) ||
+      /^http:\/\/localhost:\d+$/.test(origin) ||
+      /^http:\/\/127\.0\.0\.1:\d+$/.test(origin)
+    ) {
       callback(null, true);
     } else {
       callback(new Error('Not allowed by CORS'));

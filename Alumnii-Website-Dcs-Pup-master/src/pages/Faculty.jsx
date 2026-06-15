@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FaSearch, FaUndo } from "react-icons/fa";
 import facultyData from "../data/facultyData.json";
-import axios from 'axios';
+import API from '../api/api';
 
 const FacultyTeachers = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -18,7 +18,7 @@ const FacultyTeachers = () => {
 
   const fetchFaculty = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/faculty');
+      const response = await API.get('/faculty');
       const mongoData = response.data.map((item, index) => ({
         ...item,
         id: item._id || `mongo_${index}`,

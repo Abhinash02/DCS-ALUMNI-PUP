@@ -80,7 +80,7 @@
 // export default NotificationModal;
 
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import API from "../api/api";
 
 const NotificationModal = ({ onClose }) => {
   const [notifications, setNotifications] = useState([]);
@@ -91,7 +91,7 @@ const NotificationModal = ({ onClose }) => {
   useEffect(() => {
     const fetchNotifications = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/notifications");
+        const response = await API.get("/notifications");
         setNotifications(response.data);
         setLoading(false);
       } catch (err) {

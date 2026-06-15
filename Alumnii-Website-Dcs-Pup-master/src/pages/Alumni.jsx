@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import localData from '../data/aluminiData.json';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
+import API from '../api/api';
 
 export default function Alumni() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -75,8 +74,8 @@ export default function Alumni() {
 
   // Fetch data and initial filters
   useEffect(() => {
-    axios
-      .get('http://localhost:5000/api/alumni/approved')
+    API
+      .get('/alumni/approved')
       .then((res) => {
         const mongoData = Array.isArray(res.data) ? res.data : [];
         const merged = [...localData, ...mongoData];
@@ -110,6 +109,7 @@ export default function Alumni() {
           console.warn('Local items without batches:', missingBatches);
         }
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Update filtered data and filters when filters change
@@ -117,11 +117,13 @@ export default function Alumni() {
     const merged = [...localData, ...combinedData.filter(d => !localData.includes(d))];
     setCombinedData(sortAndFilterData(merged, searchTerm, selectedCourse, selectedProfession, selectedBatch));
     updateFilters(merged);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchTerm, selectedCourse, selectedProfession, selectedBatch]);
 
   // Update filters when combinedData changes
   useEffect(() => {
     updateFilters(combinedData);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [combinedData]);
 
   useEffect(() => {
@@ -215,9 +217,10 @@ export default function Alumni() {
       { threshold: 1 }
     );
 
-    if (loaderRef.current) observer.observe(loaderRef.current);
+    const currentLoader = loaderRef.current;
+    if (currentLoader) observer.observe(currentLoader);
     return () => {
-      if (loaderRef.current) observer.unobserve(loaderRef.current);
+      if (currentLoader) observer.unobserve(currentLoader);
     };
   }, [loadMore, visibleCount, combinedData.length]);
 

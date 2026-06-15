@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import API from '../api/api';
 import Select from 'react-select';
 import { Upload, CheckCircle, ChevronRight } from 'lucide-react';
 import { useForm, Controller } from 'react-hook-form';
@@ -86,7 +86,7 @@ const Register = () => {
         }
       }
 
-      await axios.post('http://localhost:5000/api/alumni', formData, {
+      await API.post('/alumni', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
