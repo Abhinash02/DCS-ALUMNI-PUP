@@ -17,16 +17,16 @@ const getBaseURL = () => {
   }
 
   // 2. Otherwise, check the hostname of the current page.
-  // If we are on localhost, default to development backend.
   if (typeof window !== "undefined") {
     const hostname = window.location.hostname;
-    if (hostname === "localhost" || hostname === "127.0.0.1") {
-      return process.env.REACT_APP_API_URL || API_URLS.development;
+    // If we are on ANY live domain (not localhost), strictly use the Vercel production backend
+    if (hostname !== "localhost" && hostname !== "127.0.0.1") {
+      return API_URLS.production;
     }
   }
 
-  // 3. Otherwise, use the production backend URL.
-  return process.env.REACT_APP_API_URL || API_URLS.production;
+  // 3. If we are on localhost, default to development backend
+  return API_URLS.development;
 };
 
 const API = axios.create({
