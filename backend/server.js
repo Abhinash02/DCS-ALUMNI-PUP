@@ -195,8 +195,13 @@ mongoose.connect(process.env.MONGO_URI)
 
 
 // Root Route
-app.get('/', (req, res) => {
-  res.send('Backend API Running Successfully');
+app.get('/api/health', (req, res) => {
+  res.status(200).json({
+    ok: true,
+    message: 'Backend is running',
+    uptime: process.uptime(),
+    timestamp: new Date().toISOString()
+  });
 });
 
 
