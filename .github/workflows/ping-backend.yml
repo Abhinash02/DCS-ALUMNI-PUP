@@ -1,0 +1,16 @@
+name: Ping Backend to Prevent Cold Start
+
+on:
+  schedule:
+    # Runs every 10 minutes to prevent Vercel cold starts
+    - cron: '*/10 * * * *'
+  workflow_dispatch: # Allows you to manually trigger it from the GitHub Actions tab
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Vercel Backend
+        run: |
+          echo "Pinging the backend to keep it awake..."
+          curl -I https://dcs-alumni.vercel.app/
