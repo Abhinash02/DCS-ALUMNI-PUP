@@ -2,8 +2,8 @@ name: Ping Backend to Prevent Cold Start
 
 on:
   schedule:
-    # Runs every 10 minutes to prevent Vercel cold starts
-    - cron: '*/10 * * * *'
+    # Runs every 5 minutes to prevent Vercel cold starts
+    - cron: '*/5 * * * *'
   workflow_dispatch: # Allows you to manually trigger it from the GitHub Actions tab
 
 jobs:

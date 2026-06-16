@@ -57,7 +57,7 @@ const members = [
     linkedIn: "https://www.linkedin.com/in/kanika-bhatia08/",
   },
   {
-    img: "/images/abhinash_team.jpeg",
+    img: "/images/abhinash_alumni_lisst.jpg",
     name: "Abhinash",
     title: "Student",
     designation: "Team Lead, Developer",
