@@ -188,10 +188,28 @@ app.use(cors(corsOptions));
 app.use(express.json());
 
 
-// MongoDB Connection
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log('MongoDB Connected Successfully'))
-  .catch((err) => console.log(err));
+// MongoDB Connection (Serverless Friendly)
+let isConnected = false;
+
+const connectDB = async () => {
+  if (isConnected) {
+    console.log('Using existing MongoDB connection');
+    return;
+  }
+  try {
+    const db = await mongoose.connect(process.env.MONGO_URI);
+    isConnected = db.connections[0].readyState;
+    console.log('MongoDB Connected Successfully');
+  } catch (err) {
+    console.log('MongoDB Connection Error:', err);
+  }
+};
+
+// Connect to the database before handling any requests
+app.use(async (req, res, next) => {
+  await connectDB();
+  next();
+});
 
 
 // Root Route
