@@ -30,4 +30,4 @@ jobs:
       - name: Ping Backend
         run: |
           echo "Pinging backend..."
-          curl --silent --show-error --fail https://dcs-alumni.vercel.app/api/health
+          curl --silent --show-error --fail https://dcs-alumni.vercel.app/

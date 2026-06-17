@@ -3,7 +3,9 @@ import './App.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { Navbar } from './components/Navbar';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import PageLoader from './components/PageLoader';
 import { Home } from './pages/Home';
 import { Footer } from './components/Footer';
 import Alumni from './pages/Alumni';
@@ -18,8 +20,24 @@ import UserLogin from './pages/UserLogin';
 import Profile from './pages/Profile';
 
 function App() {
+  const [isPageLoading, setIsPageLoading] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    // Show the loader when the path changes
+    setIsPageLoading(true);
+    
+    // Hide the loader after a short delay
+    const timer = setTimeout(() => {
+      setIsPageLoading(false);
+    }, 600); // 600ms transition effect
+
+    return () => clearTimeout(timer);
+  }, [location.pathname]);
+
   return (
-    <div className='overflow-hidden font-poppins' >
+    <div className='relative overflow-hidden font-poppins' >
+      {isPageLoading && <PageLoader />}
       <Navbar />
       <div className=' mx-auto z-0'>
         <Routes>
