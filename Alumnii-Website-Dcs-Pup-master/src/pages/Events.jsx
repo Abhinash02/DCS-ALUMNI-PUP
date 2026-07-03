@@ -10,7 +10,6 @@ import "slick-carousel/slick/slick-theme.css";
 const Events = () => {
   const [events, setEvents] = useState([]);
   const [expanded, setExpanded] = useState({});
-  const [animate, setAnimate] = useState(false);
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -25,8 +24,6 @@ const Events = () => {
   const [eventsPerPage] = useState(7); // Display 5 events per page
 
   useEffect(() => {
-    console.log("Triggering animations");
-    setAnimate(true);
     fetchEvents();
     setIsAdmin(localStorage.getItem("isAdmin") === "true");
   }, []);
@@ -511,7 +508,7 @@ const Events = () => {
                           <img
                             key={imgIndex}
                             src={item.source === "mongodb" ? image.url : image}
-                            alt={`Event ${index + 1} image ${imgIndex + 1}`}
+                            alt="Event"
                             className="w-full max-h-[300px] object-contain rounded-md hover:scale-105 hover:border-2 hover:border-lightBlue transition-all duration-300"
                             onError={(e) => (e.target.src = "/images/default-event.png")}
                           />

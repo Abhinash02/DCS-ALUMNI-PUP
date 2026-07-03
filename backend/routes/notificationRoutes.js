@@ -11,7 +11,8 @@ const storage = new CloudinaryStorage({
   cloudinary,
   params: {
     folder: 'notifications',
-    allowed_formats: ['jpg', 'jpeg', 'png', 'pdf'],
+    allowed_formats: ['jpg', 'png', 'jpeg', 'pdf'],
+    transformation: [{ quality: 'auto', fetch_format: 'auto' }],
     resource_type: 'auto',
   },
 });

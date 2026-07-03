@@ -2,12 +2,14 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import API from '../api/api';
+import { toast } from 'react-toastify';
+import { FaUserEdit, FaSignOutAlt, FaGraduationCap, FaBriefcase, FaStar } from 'react-icons/fa';
 
 // UI Components
 const Container = ({ children }) => {
   return (
-    <div className="min-h-screen bg-hoverBlue p-6">
-      <div className="max-w-4xl mx-auto pt-20">
+    <div className="min-h-screen bg-gray-50 p-6">
+      <div className="max-w-4xl mx-auto pt-20 animate-fadeInTop">
         {children}
       </div>
     </div>
@@ -16,26 +18,8 @@ const Container = ({ children }) => {
 
 const Card = ({ children }) => {
   return (
-    <div className="bg-white p-8 rounded-lg shadow-lg border-t-4 border-blue">
+    <div className="bg-white p-8 rounded-xl shadow-2xl border-t-4 border-blue-600">
       {children}
-    </div>
-  );
-};
-
-// Common Components
-const AlertMessage = ({ success, error }) => {
-  if (!success && !error) return null;
-  
-  const isSuccess = Boolean(success);
-  const message = isSuccess ? success : error;
-  
-  return (
-    <div 
-      className={`mb-6 p-4 rounded-lg font-poppins ${
-        isSuccess ? 'bg-hoverBlue text-blue' : 'bg-red-50 text-red-800'
-      }`}
-    >
-      <p className="text-sm font-medium">{message}</p>
     </div>
   );
 };
@@ -43,7 +27,7 @@ const AlertMessage = ({ success, error }) => {
 const FormField = ({ name, label, value, onChange }) => {
   return (
     <div className="flex flex-col">
-      <label className="block text-gray text-sm font-medium mb-1 font-poppins">
+      <label className="block text-gray-700 text-sm font-semibold mb-1 font-poppins">
         {label}
       </label>
       <input
@@ -51,7 +35,7 @@ const FormField = ({ name, label, value, onChange }) => {
         name={name}
         value={value || ''}
         onChange={onChange}
-        className="w-full px-3 py-2 border border-lightBlue rounded-lg focus:ring-2 focus:ring-blue focus:border-blue transition duration-200 font-poppins"
+        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200 font-poppins bg-gray-50 hover:bg-white"
       />
     </div>
   );
@@ -60,24 +44,27 @@ const FormField = ({ name, label, value, onChange }) => {
 const FileUpload = ({ name, label, onChange }) => {
   return (
     <div className="flex flex-col">
-      <label className="block text-gray-700 text-sm font-medium mb-1">
+      <label className="block text-gray-700 text-sm font-semibold mb-1 font-poppins">
         {label}
       </label>
       <input
         type="file"
         name={name}
         onChange={onChange}
-        className="w-full px-3 py-2 border border-lightBlue rounded-lg focus:ring-2 focus:ring-blue focus:border-blue transition duration-200 text-sm font-poppins"
+        className="w-full text-gray-700 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-blue-600 file:text-white hover:file:bg-blue-700 transition duration-200"
       />
     </div>
   );
 };
 
 // Profile Components
-const FormSection = ({ title, children }) => {
+const FormSection = ({ title, icon, children }) => {
   return (
-    <div className="border-b border-lightBlue pb-6">
-      <h3 className="text-lg font-semibold text-blue mb-4 font-mons">{title}</h3>
+    <div className="border-b border-gray-200 pb-8 mb-6">
+      <div className="flex items-center gap-2 mb-6">
+        {icon}
+        <h3 className="text-xl font-bold text-gray-800 font-mons">{title}</h3>
+      </div>
       {children}
     </div>
   );
@@ -85,13 +72,15 @@ const FormSection = ({ title, children }) => {
 
 const ProfileHeader = ({ onLogout }) => {
   return (
-    <div className="flex justify-between items-center mb-6">
-      <h2 className="text-2xl font-bold text-darkBlue font-mons">Update Profile</h2>
+    <div className="flex justify-between items-center mb-8 border-b border-gray-200 pb-4">
+      <h2 className="text-3xl font-bold text-gray-800 font-mons flex items-center gap-3">
+        <FaUserEdit className="text-blue-600" /> My Profile
+      </h2>
       <button
         onClick={onLogout}
-        className="bg-darkBlue text-white px-4 py-2 rounded-lg hover:bg-blue transition duration-200"
+        className="flex items-center gap-2 bg-red-600 text-white px-5 py-2.5 rounded-lg hover:bg-red-700 transition duration-200 font-semibold shadow-md hover:shadow-lg"
       >
-        Logout
+        <FaSignOutAlt /> Logout
       </button>
     </div>
   );
@@ -129,9 +118,9 @@ const ProfileForm = ({
   ];
 
   return (
-    <form onSubmit={onSubmit} className="space-y-6">
-      <FormSection title="Personal Information">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <form onSubmit={onSubmit} className="space-y-8">
+      <FormSection title="Personal Information" icon={<FaUserEdit className="text-blue-500 text-xl" />}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {personalFields.map(field => (
             <FormField
               key={field.name}
@@ -144,8 +133,8 @@ const ProfileForm = ({
         </div>
       </FormSection>
 
-      <FormSection title="Academic Information">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <FormSection title="Academic Information" icon={<FaGraduationCap className="text-blue-500 text-xl" />}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {academicFields.map(field => (
             <FormField
               key={field.name}
@@ -158,8 +147,8 @@ const ProfileForm = ({
         </div>
       </FormSection>
 
-      <FormSection title="Professional Information">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <FormSection title="Professional Information" icon={<FaBriefcase className="text-blue-500 text-xl" />}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {professionalFields.map(field => (
             <FormField
               key={field.name}
@@ -172,8 +161,8 @@ const ProfileForm = ({
         </div>
       </FormSection>
 
-      <FormSection title="Skills & Other Information">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <FormSection title="Skills & Additional Info" icon={<FaStar className="text-blue-500 text-xl" />}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <FormField
             name="skills"
             label="Skills (comma-separated)"
@@ -182,7 +171,7 @@ const ProfileForm = ({
           />
           <FileUpload
             name="photo"
-            label="Profile Photo"
+            label="Update Profile Photo"
             onChange={onFileChange}
           />
           {otherFields.map(field => (
@@ -199,9 +188,9 @@ const ProfileForm = ({
 
       <button
         type="submit"
-        className="w-full bg-blue text-white py-3 px-4 rounded-lg hover:bg-darkBlue transition duration-200 font-medium font-mons"
+        className="w-full bg-blue text-white py-4 px-6 rounded-xl hover:bg-blue-700 transition duration-300 font-bold font-mons text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1"
       >
-        Update Profile
+        Save Changes
       </button>
     </form>
   );
@@ -226,7 +215,6 @@ const ProfilePage = () => {
       photo: null
     });
   
-    const [status, setStatus] = useState({ success: '', error: '' });
     const navigate = useNavigate();
   
     useEffect(() => {
@@ -269,13 +257,11 @@ const ProfilePage = () => {
   
       try {
         const response = await updateProfile();
-        setStatus({ success: 'Profile updated successfully', error: '' });
+        toast.success('Profile updated successfully!');
         localStorage.setItem('alumni', JSON.stringify(response.data.alumni));
       } catch (err) {
-        setStatus({
-          success: '',
-          error: err.response?.data?.error || 'Update failed'
-        });
+        const errorMessage = err.response?.data?.error || 'Update failed';
+        toast.error(errorMessage);
       }
     };
   
@@ -310,10 +296,6 @@ const ProfilePage = () => {
       <Container>
         <Card>
           <ProfileHeader onLogout={handleLogout} />
-  
-          {(status.success || status.error) && (
-            <AlertMessage success={status.success} error={status.error} />
-          )}
   
           <ProfileForm
             formData={formData}

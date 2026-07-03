@@ -12,10 +12,14 @@ const storage = new CloudinaryStorage({
   params: {
     folder: 'alumni',
     allowed_formats: ['jpg', 'png', 'jpeg'],
+    transformation: [{ quality: 'auto', fetch_format: 'auto' }]
   },
 });
 
 const upload = multer({ storage });
+
+const memoryStorage = multer.memoryStorage();
+const uploadExcel = multer({ storage: memoryStorage });
 
 router.get('/pending', alumniController.getPending);
 router.get('/approved', alumniController.getApproved);
@@ -26,5 +30,9 @@ router.delete('/:id', alumniController.deleteAlumni);
 router.post('/', upload.single('photo'), alumniController.createAlumni);
 router.post('/login', alumniController.loginAlumni);
 router.put('/profile', authMiddleware, upload.single('photo'), alumniController.updateProfile);
+router.post('/upload-excel', uploadExcel.single('file'), alumniController.uploadExcel);
+router.post('/forgot-password', alumniController.forgotPassword);
+router.post('/reset-password', alumniController.resetPassword);
+router.post('/bulk-email', alumniController.sendBulkEmail);
 
 module.exports = router;

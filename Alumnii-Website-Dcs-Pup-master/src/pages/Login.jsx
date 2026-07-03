@@ -1,26 +1,44 @@
 import React, { useState } from 'react';
 import API from '../api/api';
 import { useNavigate } from 'react-router-dom';
+import { Eye, EyeOff } from 'lucide-react';
 
 // Reusable input component
-const FormInput = ({ label, type, value, onChange, placeholder, index }) => (
-  <div
-    className="mb-4 animate-slideIn"
-    style={{ animationDelay: `${index * 0.1}s` }}
-  >
-    <label className="block text-gray-700 text-sm xs:text-base font-medium mb-2 font-poppins">
-      {label}
-    </label>
-    <input
-      type={type}
-      value={value}
-      onChange={onChange}
-      required
-      className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-darkBlue focus:border-darkBlue transition-all duration-200 hover:border-lightBlue font-poppins text-sm xs:text-base"
-      placeholder={placeholder}
-    />
-  </div>
-);
+const FormInput = ({ label, type, value, onChange, placeholder, index }) => {
+  const [showPassword, setShowPassword] = useState(false);
+  const isPassword = type === 'password';
+  const inputType = isPassword ? (showPassword ? 'text' : 'password') : type;
+
+  return (
+    <div
+      className="mb-4 animate-slideIn relative"
+      style={{ animationDelay: `${index * 0.1}s` }}
+    >
+      <label className="block text-gray-700 text-sm xs:text-base font-medium mb-2 font-poppins">
+        {label}
+      </label>
+      <div className="relative">
+        <input
+          type={inputType}
+          value={value}
+          onChange={onChange}
+          required
+          className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-darkBlue focus:border-darkBlue transition-all duration-200 hover:border-lightBlue font-poppins text-sm xs:text-base"
+          placeholder={placeholder}
+        />
+        {isPassword && (
+          <button
+            type="button"
+            onClick={() => setShowPassword(!showPassword)}
+            className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-darkBlue focus:outline-none"
+          >
+            {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+          </button>
+        )}
+      </div>
+    </div>
+  );
+};
 
 // Reusable button component
 const Button = ({ type, onClick, children, isPrimary = true, disabled = false }) => (

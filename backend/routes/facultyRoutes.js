@@ -11,6 +11,7 @@ const storage = new CloudinaryStorage({
   params: {
     folder: 'faculty',
     allowed_formats: ['jpg', 'png', 'jpeg'],
+    transformation: [{ quality: 'auto', fetch_format: 'auto' }]
   },
 });
 

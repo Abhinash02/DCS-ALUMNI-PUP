@@ -10,6 +10,7 @@ export default function Alumni() {
   const [professions, setProfessions] = useState([]);
   const [batches, setBatches] = useState([]);
   const [visibleCount, setVisibleCount] = useState(25);
+  const [allData, setAllData] = useState([]);
   const [combinedData, setCombinedData] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [apiError, setApiError] = useState(null);
@@ -79,6 +80,7 @@ export default function Alumni() {
       .then((res) => {
         const mongoData = Array.isArray(res.data) ? res.data : [];
         const merged = [...localData, ...mongoData];
+        setAllData(merged);
         setCombinedData(sortAndFilterData(merged, searchTerm, selectedCourse, selectedProfession, selectedBatch));
         updateFilters(merged);
         setApiError(null);
@@ -95,6 +97,7 @@ export default function Alumni() {
       })
       .catch((err) => {
         console.error('Failed to fetch alumni:', err);
+        setAllData(localData);
         setCombinedData(sortAndFilterData(localData, searchTerm, selectedCourse, selectedProfession, selectedBatch));
         updateFilters(localData);
         setApiError('Failed to load MongoDB data. Showing local data only.');
@@ -112,19 +115,11 @@ export default function Alumni() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Update filtered data and filters when filters change
+  // Update filtered data when filters change
   useEffect(() => {
-    const merged = [...localData, ...combinedData.filter(d => !localData.includes(d))];
-    setCombinedData(sortAndFilterData(merged, searchTerm, selectedCourse, selectedProfession, selectedBatch));
-    updateFilters(merged);
+    setCombinedData(sortAndFilterData(allData, searchTerm, selectedCourse, selectedProfession, selectedBatch));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchTerm, selectedCourse, selectedProfession, selectedBatch]);
-
-  // Update filters when combinedData changes
-  useEffect(() => {
-    updateFilters(combinedData);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [combinedData]);
+  }, [searchTerm, selectedCourse, selectedProfession, selectedBatch, allData]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -172,15 +167,28 @@ export default function Alumni() {
 
     // Sort by batch year (descending) and prioritize localData before mongoData within the same year
     return [...results].sort((a, b) => {
+      const topAlumniNames = ["ABHINASH", "HARMANDEEP SINGH SAGGU", "HANSRAJ SINGH RISEM"];
+      const nameA = (a.Name || a.name || "").trim().toUpperCase();
+      const nameB = (b.Name || b.name || "").trim().toUpperCase();
+      
+      const isALocal = localData.includes(a);
+      const isBLocal = localData.includes(b);
+
+      const aIsTop = isALocal && topAlumniNames.includes(nameA);
+      const bIsTop = isBLocal && topAlumniNames.includes(nameB);
+
+      // Force top alumni to the very beginning
+      if (aIsTop && !bIsTop) return -1;
+      if (!aIsTop && bIsTop) return 1;
+      if (aIsTop && bIsTop) return nameA.localeCompare(nameB);
+
       const yearA = extractYear(a.Batch || a.batch);
       const yearB = extractYear(b.Batch || b.batch);
-      
+
       // Sort by year in descending order (2024 > 2023 > 2022)
       if (yearB !== yearA) return yearB - yearA;
 
       // Within the same year, localData comes first, mongoData (new data) comes last
-      const isALocal = localData.includes(a);
-      const isBLocal = localData.includes(b);
       if (isALocal && !isBLocal) return -1;
       if (!isALocal && isBLocal) return 1;
 
@@ -231,9 +239,8 @@ export default function Alumni() {
         {slides.map((slide, index) => (
           <div
             key={slide.id}
-            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-              index === currentIndex ? 'opacity-100' : 'opacity-0'
-            }`}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentIndex ? 'opacity-100' : 'opacity-0'
+              }`}
           >
             <img
               src={slide.image}
@@ -374,14 +381,14 @@ export default function Alumni() {
                       </a>
                     </p>
                   )}
-                  {item.website && (
+                  {(item.WebsiteLink || item.website) && (
                     <p>
                       <strong>Website:</strong>{' '}
                       <a
-                        href={item.website}
+                        href={item.WebsiteLink || item.website}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-blue-600 underline"
+                        className="text-blue underline"
                       >
                         Visit
                       </a>

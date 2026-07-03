@@ -36,14 +36,29 @@ const Register = () => {
   const [activeStep, setActiveStep] = useState(1);
   const [formSubmitted, setFormSubmitted] = useState(false);
 
-  // Generate batch options (1998-2025, deduplicated)
-  const batchOptions = Array.from({ length: 28 }, (_, i) => {
+  const selectedCourse = watch('course');
+
+  // Dynamic Batch Options based on selected Course
+  const getCourseDuration = (course) => {
+    switch (course) {
+      case 'BCA': return 3;
+      case 'B.TECH': return 4;
+      case 'M.TECH': return 2;
+      case 'PHD': return 5;
+      case 'MCA': return 2; // Can adjust logic here if MCA was 3 years in the past
+      default: return 2; // Default fallback
+    }
+  };
+
+  const duration = getCourseDuration(selectedCourse);
+
+  // Generate batch options (1998-2030)
+  const batchOptions = Array.from({ length: 33 }, (_, i) => {
     const start = 1998 + i;
-    const end = start + (start >= 2020 ? 2 : 3);
+    // Specific logic for MCA: 3 years before 2020, 2 years from 2020 onwards
+    const end = (selectedCourse === 'MCA' && start < 2020) ? start + 3 : start + duration;
     return { label: `${start}-${end}`, value: `${start}-${end}` };
-  }).filter((option, index, self) => 
-    index === self.findIndex((t) => t.value === option.value)
-  );
+  });
 
   const courseOptions = ['BCA', 'MCA', 'B.TECH', 'M.TECH', 'PHD'];
   const professionOptions = [

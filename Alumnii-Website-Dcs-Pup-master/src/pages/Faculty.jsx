@@ -137,6 +137,7 @@ const FacultyTeachers = () => {
 
   useEffect(() => {
     applyFilters();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchTerm, selectedDesignation, allFaculty]);
 
   const handleSubmit = (e) => {
@@ -168,6 +169,7 @@ const FacultyTeachers = () => {
      teacher.Designation.toLowerCase() === "retired professor")
   );
 
+  // eslint-disable-next-line no-unused-vars
   const phdScholars = filteredFaculty.filter(teacher =>
     teacher.Designation &&
     teacher.Designation.toLowerCase() === "phd scholar"
@@ -282,17 +284,17 @@ const FacultyTeachers = () => {
                 placeholder="Search by name..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full px-4 py-2 border border-gray rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue"
+                className="w-full pl-10 pr-4 py-2 border border-gray rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue h-[42px]"
               />
               <FaSearch
-                className="absolute left-3 top-2.5 text-gray-400"
-                size={20}
+                className="absolute left-3 top-3 text-gray-400"
+                size={18}
               />
             </div>
             <select
               value={selectedDesignation}
               onChange={(e) => setSelectedDesignation(e.target.value)}
-              className="w-full md:w-auto px-4 py-2 border border-gray rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue"
+              className="w-full md:w-auto px-4 py-2 border border-gray rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue h-[42px]"
             >
               {designations.map((designation, index) => (
                 <option key={index} value={designation}>
@@ -302,16 +304,16 @@ const FacultyTeachers = () => {
             </select>
             <button
               type="submit"
-              className="px-4 py-2 bg-blue text-white rounded-lg shadow-md hover:bg-lightBlue flex items-center gap-2"
+              className="px-4 py-2 bg-blue text-white rounded-lg shadow-md hover:bg-lightBlue flex items-center gap-2 h-[42px]"
             >
-              <FaSearch /> Search
+              <FaSearch size={16} /> Search
             </button>
             <button
               type="button"
               onClick={handleReset}
-              className="px-4 py-2 bg-blue text-white rounded-lg shadow-md hover:bg-lightBlue flex items-center gap-2"
+              className="px-4 py-2 bg-blue text-white rounded-lg shadow-md hover:bg-lightBlue flex items-center gap-2 h-[42px]"
             >
-              <FaUndo /> Reset
+              <FaUndo size={16} /> Reset
             </button>
           </form>
         </div>
