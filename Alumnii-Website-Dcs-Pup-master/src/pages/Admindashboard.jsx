@@ -544,6 +544,7 @@ export default function Admindashboard() {
     setImage(null);
   };
 
+  // eslint-disable-next-line no-unused-vars
   const handleRemoveEvent = async (id) => {
     if (!window.confirm('Are you sure you want to remove this event?')) return;
     try {
@@ -574,7 +575,7 @@ export default function Admindashboard() {
       const token = localStorage.getItem('token');
       // Using API baseURL config usually set in axios, but fetch needs absolute URL if API is on another port.
       // We can derive it from API.defaults.baseURL.
-      const baseUrl = API.defaults.baseURL || 'http://localhost:5000/api';
+      const baseUrl = API.defaults.baseURL || 'https://dcs-alumni.vercel.app/api';
       
       const controller = new AbortController();
       setAbortController(controller);

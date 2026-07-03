@@ -83,11 +83,11 @@ exports.loginAlumni = async (req, res) => {
     }
 
     const token = jwt.sign({ userId: alumni._id, role: 'alumni' }, process.env.JWT_SECRET, { expiresIn: '1h' });
-    
+
     // Convert to object and remove password before sending to client
     const alumniObject = alumni.toObject();
     delete alumniObject.password;
-    
+
     res.json({ token, alumni: alumniObject });
   } catch (err) {
     console.error('Alumni Login Error:', err);
@@ -211,7 +211,7 @@ exports.approveAlumni = async (req, res) => {
     if (!alumni) {
       return res.status(404).json({ error: 'Alumni not found' });
     }
-    
+
     // Send approval email
     try {
       const emailHtml = `
@@ -355,7 +355,7 @@ exports.uploadExcel = async (req, res) => {
       const name = mapKey(row, ['name', 'full name', 'student name', 'candidate name', 'first name', 'alumni name', 'name of the student']);
       const fathername = mapKey(row, ['father name', "father's name", 'fathername']);
       const phone = String(mapKey(row, ['phone', 'mobile', 'contact', 'phone number', 'mobile number', 'contact number', 'phone no', 'contact no', 'mobile no.']));
-      
+
       // Use the course and batch provided from the frontend form instead of extracting from Excel
       const course = req.body.course || 'N/A';
       const batch = req.body.batch || 'N/A';
@@ -365,7 +365,7 @@ exports.uploadExcel = async (req, res) => {
       const organization = mapKey(row, ['organization', 'company', 'employer']);
       const website = mapKey(row, ['website', 'portfolio']);
       const skillsStr = mapKey(row, ['skills', 'technical skills']);
-      
+
       let skills = [];
       if (skillsStr && typeof skillsStr === 'string') {
         skills = skillsStr.split(',').map(s => s.trim()).filter(s => s);
@@ -397,7 +397,7 @@ exports.uploadExcel = async (req, res) => {
 
     if (newAlumnis.length > 0) {
       await Alumni.insertMany(newAlumnis);
-      
+
       // Send welcome emails in the background
       setTimeout(async () => {
         for (const alumni of newAlumnis) {
@@ -445,8 +445,8 @@ exports.uploadExcel = async (req, res) => {
       }, 0);
     }
 
-    res.status(200).json({ 
-      message: `Successfully imported ${newAlumnis.length} alumni records. Skipped ${skippedCount} (missing email or duplicate). Welcome emails are being sent.` 
+    res.status(200).json({
+      message: `Successfully imported ${newAlumnis.length} alumni records. Skipped ${skippedCount} (missing email or duplicate). Welcome emails are being sent.`
     });
 
   } catch (error) {
@@ -469,7 +469,7 @@ exports.forgotPassword = async (req, res) => {
 
     // Generate a temporary reset token valid for 15 minutes
     const resetToken = jwt.sign({ userId: alumni._id }, process.env.JWT_SECRET, { expiresIn: '15m' });
-    
+
     // Use FRONTEND_URL from .env if available (for Vercel deployment), otherwise default to localhost.
     // We also include the /#/ here because your React app uses HashRouter!
     const frontendUrl = process.env.FRONTEND_URL || 'http://localhost:3000';
@@ -582,7 +582,7 @@ exports.sendBulkEmail = async (req, res) => {
         console.log('Bulk email cancelled by client.');
         break;
       }
-      
+
       const email = emailList[i];
       try {
         const emailHtml = `
@@ -611,7 +611,7 @@ exports.sendBulkEmail = async (req, res) => {
         });
         sentCount++;
         res.write(`data: ${JSON.stringify({ total, sent: sentCount, failed: failedCount, status: 'sending' })}\n\n`);
-        
+
         // Add a 100ms delay between emails to avoid rate limits
         await sleep(100);
       } catch (emailErr) {
@@ -645,7 +645,7 @@ exports.resetPassword = async (req, res) => {
 
     // Verify token
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    
+
     // Find user and update password
     const alumni = await Alumni.findById(decoded.userId);
     if (!alumni) {
