@@ -228,7 +228,7 @@ exports.approveAlumni = async (req, res) => {
             <p style="font-size: 16px;">You can now log in to the portal using your registered email address and the password you created during registration.</p>
             
             <div style="text-align: center; margin: 35px 0;">
-              <a href="http://localhost:3000/#/UserLogin" style="background-color: #1e3a8a; color: #ffffff; padding: 12px 30px; text-decoration: none; border-radius: 6px; font-weight: bold; display: inline-block; font-size: 16px;">Log in to Portal</a>
+              <a href="https://dcsalumni.vishalpup.in/#/UserLogin" style="background-color: #1e3a8a; color: #ffffff; padding: 12px 30px; text-decoration: none; border-radius: 6px; font-weight: bold; display: inline-block; font-size: 16px;">Log in to Portal</a>
             </div>
             
             <hr style="border: none; border-top: 1px solid #e2e8f0; margin: 30px 0;" />
@@ -422,7 +422,7 @@ exports.uploadExcel = async (req, res) => {
                   <p style="font-size: 15px; color: #ef4444; font-weight: 500;">⚠️ Please log in and change this temporary password immediately.</p>
                   
                   <div style="text-align: center; margin: 35px 0;">
-                    <a href="http://localhost:3000/#/UserLogin" style="background-color: #1e3a8a; color: #ffffff; padding: 12px 30px; text-decoration: none; border-radius: 6px; font-weight: bold; display: inline-block; font-size: 16px;">Log in Now</a>
+                    <a href="https://dcsalumni.vishalpup.in/#/UserLogin" style="background-color: #1e3a8a; color: #ffffff; padding: 12px 30px; text-decoration: none; border-radius: 6px; font-weight: bold; display: inline-block; font-size: 16px;">Log in Now</a>
                   </div>
                   
                   <hr style="border: none; border-top: 1px solid #e2e8f0; margin: 30px 0;" />
