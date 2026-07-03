@@ -9,6 +9,8 @@ import PageLoader from './components/PageLoader';
 import { Footer } from './components/Footer';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ForgotPassword from './pages/ForgotPassword';
+import ResetPassword from './pages/ResetPassword';
 
 // Lazy loaded components
 const Home = React.lazy(() => import('./pages/Home').then(module => ({ default: module.Home })));
@@ -21,8 +23,6 @@ const AdminDashboard = React.lazy(() => import('./pages/Admindashboard'));
 const Login = React.lazy(() => import('./pages/Login'));
 const Profile = React.lazy(() => import('./pages/Profile'));
 const UserLogin = React.lazy(() => import('./pages/UserLogin'));
-const ForgotPassword = React.lazy(() => import('./pages/ForgotPassword'));
-const ResetPassword = React.lazy(() => import('./pages/ResetPassword'));
 
 function App() {
   const [isPageLoading, setIsPageLoading] = useState(false);
