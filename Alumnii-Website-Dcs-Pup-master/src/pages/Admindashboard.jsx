@@ -209,8 +209,8 @@ export default function Admindashboard() {
         err.response?.status === 401
           ? 'Unauthorized: Please log in again.'
           : err.response?.status === 404
-          ? 'Event not found.'
-          : err.message || 'Failed to delete event.'
+            ? 'Event not found.'
+            : err.message || 'Failed to delete event.'
       );
     }
   };
@@ -565,23 +565,23 @@ export default function Admindashboard() {
       setError('Subject and message are required.');
       return;
     }
-    
+
     setIsSendingBulkEmail(true);
     setError('');
     setSuccess('');
     setEmailProgress(null);
-    
+
     try {
       const token = localStorage.getItem('token');
       // Using API baseURL config usually set in axios, but fetch needs absolute URL if API is on another port.
       // We can derive it from API.defaults.baseURL.
       const baseUrl = API.defaults.baseURL || 'https://dcs-alumni.vercel.app/api';
-      
+
       const controller = new AbortController();
       setAbortController(controller);
-      
+
       let lastParsedIndex = 0;
-      
+
       await axios.post(`${baseUrl}/alumni/bulk-email`, {
         subject: bulkEmailSubject,
         message: bulkEmailMessage
@@ -592,13 +592,13 @@ export default function Admindashboard() {
         onDownloadProgress: (progressEvent) => {
           const target = progressEvent.event.target || progressEvent.event.currentTarget;
           if (!target || typeof target.responseText !== 'string') return;
-          
+
           const buffer = target.responseText;
           if (!buffer) return;
-          
+
           // Get only the new data since last parse
           const newChunks = buffer.substring(lastParsedIndex);
-          
+
           const lines = newChunks.split('\n\n');
           for (let i = 0; i < lines.length - 1; i++) {
             const line = lines[i];
@@ -695,9 +695,8 @@ export default function Admindashboard() {
           <button
             key={page}
             onClick={() => handlePageChange(section, page)}
-            className={`px-4 py-2 rounded-lg ${
-              currentPage[section] === page ? 'bg-blue text-white' : 'bg-gray-700 text-gray-300'
-            }`}
+            className={`px-4 py-2 rounded-lg ${currentPage[section] === page ? 'bg-blue text-white' : 'bg-gray-700 text-gray-300'
+              }`}
           >
             {page}
           </button>
@@ -848,11 +847,10 @@ export default function Admindashboard() {
               <button
                 key={item.id}
                 onClick={() => setActiveSection(item.id)}
-                className={`w-full text-left px-4 py-2 rounded-lg flex items-center gap-2 transition-colors transform hover:scale-105 ${
-                  activeSection === item.id
+                className={`w-full text-left px-4 py-2 rounded-lg flex items-center gap-2 transition-colors transform hover:scale-105 ${activeSection === item.id
                     ? 'bg-blue text-white'
                     : 'bg-gray-700 text-gray-300 hover:bg-lightBlue'
-                }`}
+                  }`}
               >
                 <span>{item.icon}</span>
                 {item.label}
@@ -889,7 +887,7 @@ export default function Admindashboard() {
           <section className="bg-gray-800 p-8 rounded-xl shadow-2xl animate__animated animate__fadeInUp">
             <h3 className="text-2xl font-semibold text-blue-400 mb-6">Send Bulk Email</h3>
             <p className="text-gray-300 mb-6">This will send an email to all approved alumni in the database as well as those listed in the aluminiData.json file.</p>
-            
+
             <form onSubmit={handleBulkEmailSubmit} className="space-y-6">
               <div>
                 <label className="block text-sm font-medium text-gray-300 mb-2">Subject</label>
@@ -903,11 +901,11 @@ export default function Admindashboard() {
                   disabled={isSendingBulkEmail}
                 />
               </div>
-              
+
               <div className="bg-white rounded-lg text-black overflow-hidden">
-                <ReactQuill 
-                  theme="snow" 
-                  value={bulkEmailMessage} 
+                <ReactQuill
+                  theme="snow"
+                  value={bulkEmailMessage}
                   onChange={setBulkEmailMessage}
                   className="h-64 mb-12"
                   placeholder="Type your rich text message here... (Bold, Italics, Lists, etc.)"
@@ -916,14 +914,14 @@ export default function Admindashboard() {
                     toolbar: [
                       [{ 'header': [1, 2, 3, false] }],
                       ['bold', 'italic', 'underline', 'strike'],
-                      [{'list': 'ordered'}, {'list': 'bullet'}],
+                      [{ 'list': 'ordered' }, { 'list': 'bullet' }],
                       ['link'],
                       ['clean']
                     ],
                   }}
                 />
               </div>
-              
+
               {/* Live Progress Bar */}
               {emailProgress && (
                 <div className="bg-gray-800 border border-gray-700 rounded-lg p-6 mb-6 mt-6 shadow-lg animate__animated animate__fadeIn">
@@ -951,12 +949,12 @@ export default function Admindashboard() {
                     <span>{emailProgress.total} Total Recipients</span>
                   </div>
                   <div className="w-full bg-gray-700 rounded-full h-4 mb-2 shadow-inner overflow-hidden flex">
-                    <div 
-                      className="bg-green-500 h-4 transition-all duration-500 ease-out" 
+                    <div
+                      className="bg-green-500 h-4 transition-all duration-500 ease-out"
                       style={{ width: `${emailProgress.total > 0 ? (emailProgress.sent / emailProgress.total) * 100 : 0}%` }}
                     ></div>
-                    <div 
-                      className="bg-red-500 h-4 transition-all duration-500 ease-out" 
+                    <div
+                      className="bg-red-500 h-4 transition-all duration-500 ease-out"
                       style={{ width: `${emailProgress.total > 0 ? (emailProgress.failed / emailProgress.total) * 100 : 0}%` }}
                     ></div>
                   </div>
@@ -973,9 +971,8 @@ export default function Admindashboard() {
 
               <button
                 type="submit"
-                className={`w-full bg-blue hover:bg-blue text-white font-semibold rounded-lg py-3 px-4 transition-colors transform ${
-                  isSendingBulkEmail || !bulkEmailSubject.trim() || !bulkEmailMessage.trim() ? 'opacity-50 cursor-not-allowed' : 'animate__animated animate__pulse animate__infinite'
-                }`}
+                className={`w-full bg-blue hover:bg-blue text-white font-semibold rounded-lg py-3 px-4 transition-colors transform ${isSendingBulkEmail || !bulkEmailSubject.trim() || !bulkEmailMessage.trim() ? 'opacity-50 cursor-not-allowed' : 'animate__animated animate__pulse animate__infinite'
+                  }`}
                 disabled={isSendingBulkEmail || !bulkEmailSubject.trim() || !bulkEmailMessage.trim()}
               >
                 {isSendingBulkEmail ? 'Broadcasting...' : 'Send Bulk Email to All Alumni'}
@@ -1040,9 +1037,8 @@ export default function Admindashboard() {
               <div className="flex gap-4">
                 <button
                   type="submit"
-                  className={`flex-1 bg-blue text-white font-semibold rounded-lg py-3 px-4 transition-colors transform hover:scale-105 animate__animated animate__pulse animate__infinite ${
-                    isUploading ? 'opacity-50 cursor-not-allowed' : 'opacity-100'
-                  }`}
+                  className={`flex-1 bg-blue text-white font-semibold rounded-lg py-3 px-4 transition-colors transform hover:scale-105 animate__animated animate__pulse animate__infinite ${isUploading ? 'opacity-50 cursor-not-allowed' : 'opacity-100'
+                    }`}
                   disabled={isUploading}
                 >
                   {isUploading ? 'Processing...' : editingNotification ? 'Update Notification' : 'Upload Notification'}
@@ -1224,9 +1220,8 @@ export default function Admindashboard() {
               <div className="flex gap-4">
                 <button
                   type="submit"
-                  className={`flex-1 bg-blue hover:bg-lightBlue text-white font-semibold rounded-lg py-3 px-4 transition-colors transform hover:scale-105 animate__animated animate__pulse animate__infinite ${
-                    isUploading ? 'opacity-50 cursor-not-allowed' : 'opacity-100'
-                  }`}
+                  className={`flex-1 bg-blue hover:bg-lightBlue text-white font-semibold rounded-lg py-3 px-4 transition-colors transform hover:scale-105 animate__animated animate__pulse animate__infinite ${isUploading ? 'opacity-50 cursor-not-allowed' : 'opacity-100'
+                    }`}
                   disabled={isUploading}
                 >
                   {isUploading ? 'Processing...' : editingFaculty ? 'Update Faculty' : 'Add Faculty'}
@@ -1361,9 +1356,8 @@ export default function Admindashboard() {
               </div>
               <button
                 type="submit"
-                className={`w-full bg-blue hover:bg-lightBlue text-white font-semibold rounded-lg py-3 px-4 transition-colors transform hover:scale-105 animate__animated animate__pulse animate__infinite ${
-                  isUploading ? 'opacity-50 cursor-not-allowed' : 'opacity-100'
-                }`}
+                className={`w-full bg-blue hover:bg-lightBlue text-white font-semibold rounded-lg py-3 px-4 transition-colors transform hover:scale-105 animate__animated animate__pulse animate__infinite ${isUploading ? 'opacity-50 cursor-not-allowed' : 'opacity-100'
+                  }`}
                 disabled={isUploading}
               >
                 {isUploading ? 'Uploading...' : 'Upload Event'}
@@ -1469,9 +1463,8 @@ export default function Admindashboard() {
                 />
                 <button
                   type="submit"
-                  className={`px-6 py-2 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg transition-colors ${
-                    isUploading ? 'opacity-50 cursor-not-allowed' : ''
-                  }`}
+                  className={`px-6 py-2 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg transition-colors ${isUploading ? 'opacity-50 cursor-not-allowed' : ''
+                    }`}
                   disabled={isUploading || !excelFile}
                 >
                   {isUploading ? 'Uploading...' : 'Upload Excel'}
