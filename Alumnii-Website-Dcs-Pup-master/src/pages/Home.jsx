@@ -1,6 +1,8 @@
 import React from 'react'
 import ParallaxSection from '../components/ParallaxSection'
 import { Team } from '../components/Team'
+import JobBoard from './JobBoard'
+
 
 export const Home = () => {
     return (
@@ -72,6 +74,11 @@ export const Home = () => {
             </div>
 
             <Team />
+            <div className="-mt-20 md:-mt-24">
+                <JobBoard isComponent={true} />
+            </div>
+
+
 
         </div>
     )

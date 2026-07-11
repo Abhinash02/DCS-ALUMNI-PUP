@@ -23,6 +23,7 @@ const AdminDashboard = React.lazy(() => import('./pages/Admindashboard'));
 const Login = React.lazy(() => import('./pages/Login'));
 const Profile = React.lazy(() => import('./pages/Profile'));
 const UserLogin = React.lazy(() => import('./pages/UserLogin'));
+const JobBoard = React.lazy(() => import('./pages/JobBoard'));
 
 function App() {
   const [isPageLoading, setIsPageLoading] = useState(false);
@@ -56,6 +57,7 @@ function App() {
             <Route path="/UserLogin" element={<UserLogin/>} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/reset-password/:token" element={<ResetPassword />} />
+            <Route path="/jobs" element={<JobBoard />} />
           </Routes>
         </Suspense>
       </div>

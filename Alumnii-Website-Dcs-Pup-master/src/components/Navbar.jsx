@@ -409,7 +409,7 @@
 // //               >
 // //                 <FaInstagram />
 // //               </a>
-              
+
 // //               <button
 // //                 onClick={toggleNotificationModal}
 // //                 className="relative text-2xl text-white hover:text-lightBlue"
@@ -693,7 +693,7 @@
 //               <a href="https://www.instagram.com/dcs.pupatiala?igsh=ejUwNG4waTR4Ym1r" className="hover:text-[#e1306c] transition-colors" target="_blank" rel="noopener noreferrer">
 //                 <FaInstagram />
 //               </a>
-             
+
 //             </div>
 //           </ul>
 //         </div>
@@ -1054,23 +1054,28 @@ export const Navbar = () => {
         </div>
 
         {/* Mobile Menu Icons */}
-        <div className="md:hidden flex items-center gap-4">
+        <div className="md:hidden flex items-center gap-2 xs:gap-3">
+          <Link to="/UserLogin" className="text-xl xs:text-2xl p-1 hover:text-lightBlue transition-colors text-darkBlue" title="Login">
+            <FaUserAlt className="w-5 h-5" />
+          </Link>
+          <Link to="/Register">
+            <button className="bg-darkBlue hover:bg-blue text-white text-xs xs:text-sm font-bold rounded-md py-1.5 px-2 xs:px-3 shadow-md animate-pulse whitespace-nowrap">
+              Register
+            </button>
+          </Link>
           <button
             onClick={toggleNotificationModal}
-            className="relative text-2xl p-2 hover:text-lightBlue transition-colors"
+            className="relative text-xl xs:text-2xl p-1 hover:text-lightBlue transition-colors"
           >
-            <FaBell className="w-6 h-6" />
+            <FaBell className="w-5 h-5" />
             {activeNotificationCount > 0 && (
-              <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 min-w-[1.25rem] px-1 flex items-center justify-center">
+              <span className="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] rounded-full h-4 min-w-[1rem] px-1 flex items-center justify-center">
                 {activeNotificationCount}
               </span>
             )}
           </button>
-          <Link to="/UserLogin" className="text-2xl p-2 hover:text-lightBlue transition-colors">
-            <FaUserAlt className="w-6 h-6" />
-          </Link>
-          <button onClick={toggleMenu} className="text-2xl p-2 hover:text-lightBlue transition-colors">
-            <GiHamburgerMenu className="w-6 h-6" />
+          <button onClick={toggleMenu} className="text-xl xs:text-2xl p-1 hover:text-lightBlue transition-colors">
+            <GiHamburgerMenu className="w-5 h-5" />
           </button>
         </div>
 
@@ -1081,45 +1086,48 @@ export const Navbar = () => {
           >
             <ul className="flex flex-col gap-4 text-[#fff] font-medium items-center py-4">
               <li
-                className={`hover:underline hover:text-lightBlue decoration-2 ${
-                  isActive("/") ? "underline text-lightBlue" : ""
-                }`}
+                className={`hover:underline hover:text-lightBlue decoration-2 ${isActive("/") ? "underline text-lightBlue" : ""
+                  }`}
               >
                 <Link to="/" onClick={toggleMenu}>
                   Home
                 </Link>
               </li>
               <li
-                className={`hover:underline hover:text-lightBlue decoration-2 ${
-                  isActive("/Alumni") ? "underline text-lightBlue" : ""
-                }`}
+                className={`hover:underline hover:text-lightBlue decoration-2 ${isActive("/Alumni") ? "underline text-lightBlue" : ""
+                  }`}
               >
                 <Link to="/Alumni" onClick={toggleMenu}>
                   Alumni
                 </Link>
               </li>
               <li
-                className={`hover:underline hover:text-lightBlue decoration-2 ${
-                  isActive("/Events") ? "underline text-lightBlue" : ""
-                }`}
+                className={`hover:underline hover:text-lightBlue decoration-2 ${isActive("/Events") ? "underline text-lightBlue" : ""
+                  }`}
               >
                 <Link to="/Events" onClick={toggleMenu}>
                   Events
                 </Link>
               </li>
               <li
-                className={`hover:underline hover:text-darkBlue decoration-2 ${
-                  isActive("/Faculty") ? "underline text-darkBlue" : ""
-                }`}
+                className={`hover:underline hover:text-lightBlue decoration-2 ${isActive("/jobs") ? "underline text-lightBlue" : ""
+                  }`}
+              >
+                <Link to="/jobs" onClick={toggleMenu}>
+                  Jobs
+                </Link>
+              </li>
+              <li
+                className={`hover:underline hover:text-darkBlue decoration-2 ${isActive("/Faculty") ? "underline text-darkBlue" : ""
+                  }`}
               >
                 <Link to="/Faculty" onClick={toggleMenu}>
                   Faculty
                 </Link>
               </li>
               <li
-                className={`hover:underline hover:text-lightBlue decoration-2 ${
-                  isActive("/ReachUs") ? "underline text-lightBlue" : ""
-                }`}
+                className={`hover:underline hover:text-lightBlue decoration-2 ${isActive("/ReachUs") ? "underline text-lightBlue" : ""
+                  }`}
               >
                 <Link to="/ReachUs" onClick={toggleMenu}>
                   Reach Us
@@ -1169,37 +1177,38 @@ export const Navbar = () => {
         <div className="hidden md:flex">
           <ul className="flex gap-6 font-medium items-center underline-offset-8">
             <li
-              className={`hover:underline hover:text-darkBlue decoration-2 ${
-                isActive("/") ? "underline text-darkBlue" : ""
-              }`}
+              className={`hover:underline hover:text-darkBlue decoration-2 ${isActive("/") ? "underline text-darkBlue" : ""
+                }`}
             >
               <Link to="/">Home</Link>
             </li>
             <li
-              className={`hover:underline hover:text-darkBlue decoration-2 ${
-                isActive("/Alumni") ? "underline text-darkBlue" : ""
-              }`}
+              className={`hover:underline hover:text-darkBlue decoration-2 ${isActive("/Alumni") ? "underline text-darkBlue" : ""
+                }`}
             >
               <Link to="/Alumni">Alumni</Link>
             </li>
             <li
-              className={`hover:underline hover:text-darkBlue decoration-2 ${
-                isActive("/Events") ? "underline text-darkBlue" : ""
-              }`}
+              className={`hover:underline hover:text-darkBlue decoration-2 ${isActive("/Events") ? "underline text-darkBlue" : ""
+                }`}
             >
               <Link to="/Events">Events</Link>
             </li>
             <li
-              className={`hover:underline hover:text-darkBlue decoration-2 ${
-                isActive("/Faculty") ? "underline text-darkBlue" : ""
-              }`}
+              className={`hover:underline hover:text-darkBlue decoration-2 ${isActive("/jobs") ? "underline text-darkBlue" : ""
+                }`}
+            >
+              <Link to="/jobs">Jobs</Link>
+            </li>
+            <li
+              className={`hover:underline hover:text-darkBlue decoration-2 ${isActive("/Faculty") ? "underline text-darkBlue" : ""
+                }`}
             >
               <Link to="/Faculty">Faculty</Link>
             </li>
             <li
-              className={`hover:underline hover:text-darkBlue decoration-2 ${
-                isActive("/ReachUs") ? "underline text-darkBlue" : ""
-              }`}
+              className={`hover:underline hover:text-darkBlue decoration-2 ${isActive("/ReachUs") ? "underline text-darkBlue" : ""
+                }`}
             >
               <Link to="/ReachUs">Reach Us</Link>
             </li>
@@ -1224,7 +1233,7 @@ export const Navbar = () => {
               </button>
             </li>
             <li>
-              <Link to="/UserLogin" className="text-2xl text-darkBlue hover:text-lightBlue p-2">
+              <Link to="/UserLogin" className="text-2xl text-darkBlue hover:text-lightBlue p-2" title="Login">
                 <FaUserAlt className="w-6 h-6" />
               </Link>
             </li>

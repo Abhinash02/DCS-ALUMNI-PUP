@@ -4,6 +4,9 @@ import { useNavigate } from 'react-router-dom';
 import API from '../api/api';
 import { toast } from 'react-toastify';
 import { FaUserEdit, FaSignOutAlt, FaGraduationCap, FaBriefcase, FaStar } from 'react-icons/fa';
+import JobForm from '../components/JobForm';
+import { FaTrash, FaEdit } from 'react-icons/fa';
+
 
 // UI Components
 const Container = ({ children }) => {
@@ -214,7 +217,10 @@ const ProfilePage = () => {
       sessionConsent: '',
       photo: null
     });
-  
+    const [myJobs, setMyJobs] = useState([]);
+    const [editingJob, setEditingJob] = useState(null);
+    const [editFormData, setEditFormData] = useState({});
+
     const navigate = useNavigate();
   
     useEffect(() => {
@@ -224,8 +230,62 @@ const ProfilePage = () => {
         navigate('/UserLogin'); // Redirect if no token
       } else {
         loadProfileData();
+        fetchMyJobs(token);
       }
-    }, []);
+    }, [navigate]);
+
+    const fetchMyJobs = async (token) => {
+      try {
+        const response = await API.get('/jobs/myjobs', {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+        setMyJobs(response.data);
+      } catch (error) {
+        console.error('Error fetching my jobs', error);
+      }
+    };
+
+    const handleDeleteJob = async (jobId) => {
+      if (window.confirm('Are you sure you want to delete this job posting?')) {
+        try {
+          const token = localStorage.getItem('token');
+          await API.delete(`/jobs/${jobId}`, {
+            headers: { Authorization: `Bearer ${token}` }
+          });
+          setMyJobs(myJobs.filter(job => job._id !== jobId));
+          toast.success('Job deleted successfully');
+        } catch (error) {
+          toast.error('Failed to delete job');
+        }
+      }
+    };
+
+    const handleEditClick = (job) => {
+      setEditingJob(job._id);
+      setEditFormData({
+        title: job.title,
+        company: job.company,
+        location: job.location,
+        type: job.type,
+        description: job.description,
+        applyLink: job.applyLink
+      });
+    };
+
+    const handleUpdateJob = async (e) => {
+      e.preventDefault();
+      try {
+        const token = localStorage.getItem('token');
+        const response = await API.put(`/jobs/${editingJob}`, editFormData, {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+        setMyJobs(myJobs.map(job => job._id === editingJob ? response.data : job));
+        setEditingJob(null);
+        toast.success('Job updated successfully');
+      } catch (error) {
+        toast.error('Failed to update job');
+      }
+    };
   
     const loadProfileData = () => {
       const alumni = JSON.parse(localStorage.getItem('alumni'));
@@ -297,15 +357,73 @@ const ProfilePage = () => {
         <Card>
           <ProfileHeader onLogout={handleLogout} />
   
-          <ProfileForm
-            formData={formData}
-            onChange={handleChange}
-            onSkillsChange={handleSkillsChange}
-            onFileChange={handleFileChange}
-            onSubmit={handleSubmit}
-          />
-        </Card>
-      </Container>
+        <ProfileForm
+          formData={formData}
+          onChange={handleChange}
+          onSkillsChange={handleSkillsChange}
+          onFileChange={handleFileChange}
+          onSubmit={handleSubmit}
+        />
+      </Card>
+      
+      {/* My Posted Jobs Section */}
+      <div className="mt-8 bg-white p-8 rounded-xl shadow-2xl border-t-4 border-green-600">
+        <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-2">
+          <FaBriefcase className="text-green-600" /> My Posted Jobs
+        </h2>
+        {myJobs.length === 0 ? (
+          <p className="text-gray-500 italic">You haven't posted any jobs yet.</p>
+        ) : (
+          <div className="space-y-4">
+            {myJobs.map(job => (
+              <div key={job._id} className="border border-gray-200 rounded-lg p-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 hover:shadow-md transition-shadow">
+                {editingJob === job._id ? (
+                  <form onSubmit={handleUpdateJob} className="w-full space-y-3">
+                    <input type="text" name="title" value={editFormData.title} onChange={e => setEditFormData({...editFormData, title: e.target.value})} className="w-full px-3 py-2 border rounded" placeholder="Job Title" required />
+                    <input type="text" name="company" value={editFormData.company} onChange={e => setEditFormData({...editFormData, company: e.target.value})} className="w-full px-3 py-2 border rounded" placeholder="Company" required />
+                    <input type="text" name="location" value={editFormData.location} onChange={e => setEditFormData({...editFormData, location: e.target.value})} className="w-full px-3 py-2 border rounded" placeholder="Location" required />
+                    <select name="type" value={editFormData.type} onChange={e => setEditFormData({...editFormData, type: e.target.value})} className="w-full px-3 py-2 border rounded">
+                      <option value="Full-Time">Full-Time</option>
+                      <option value="Part-Time">Part-Time</option>
+                      <option value="Internship">Internship</option>
+                      <option value="Remote">Remote</option>
+                    </select>
+                    <textarea name="description" value={editFormData.description} onChange={e => setEditFormData({...editFormData, description: e.target.value})} className="w-full px-3 py-2 border rounded" rows="3" placeholder="Description" required></textarea>
+                    <input type="url" name="applyLink" value={editFormData.applyLink} onChange={e => setEditFormData({...editFormData, applyLink: e.target.value})} className="w-full px-3 py-2 border rounded" placeholder="Application URL" required />
+                    <div className="flex gap-2">
+                      <button type="submit" className="bg-green-600 text-white px-4 py-2 rounded font-bold hover:bg-green-700">Save</button>
+                      <button type="button" onClick={() => setEditingJob(null)} className="bg-gray-400 text-white px-4 py-2 rounded font-bold hover:bg-gray-500">Cancel</button>
+                    </div>
+                  </form>
+                ) : (
+                  <>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold text-gray-800">{job.title}</h3>
+                      <p className="text-gray-600 font-semibold">{job.company} • {job.location}</p>
+                      <span className="inline-block mt-1 px-2 py-1 bg-blue-100 text-blue-800 text-xs font-bold rounded-full">{job.type}</span>
+                    </div>
+                    <div className="flex gap-3">
+                      <button onClick={() => handleEditClick(job)} className="text-blue-500 hover:text-blue-700 flex items-center gap-1 bg-blue-50 px-3 py-2 rounded-lg transition-colors">
+                        <FaEdit /> Edit
+                      </button>
+                      <button onClick={() => handleDeleteJob(job._id)} className="text-red-500 hover:text-red-700 flex items-center gap-1 bg-red-50 px-3 py-2 rounded-lg transition-colors">
+                        <FaTrash /> Delete
+                      </button>
+                    </div>
+                  </>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* Job Form Component for Posting Opportunities */}
+      <div className="mt-8">
+        <JobForm />
+      </div>
+    </Container>
+
     );
   };
   
