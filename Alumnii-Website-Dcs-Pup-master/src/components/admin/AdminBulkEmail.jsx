@@ -7,6 +7,7 @@ import 'react-quill/dist/quill.snow.css';
 const AdminBulkEmail = () => {
   const [bulkEmailSubject, setBulkEmailSubject] = useState('');
   const [bulkEmailMessage, setBulkEmailMessage] = useState('');
+  const [resumeEmail, setResumeEmail] = useState('');
   const [isSendingBulkEmail, setIsSendingBulkEmail] = useState(false);
   const [emailProgress, setEmailProgress] = useState(null);
   const [abortController, setAbortController] = useState(null);
@@ -37,7 +38,8 @@ const AdminBulkEmail = () => {
 
       await axios.post(`${baseUrl}/alumni/bulk-email`, {
         subject: bulkEmailSubject,
-        message: bulkEmailMessage
+        message: bulkEmailMessage,
+        resumeFromEmail: resumeEmail
       }, {
         headers: { Authorization: `Bearer ${token}` },
         signal: controller.signal,
@@ -124,6 +126,18 @@ const AdminBulkEmail = () => {
           />
         </div>
 
+        <div>
+          <label className="block text-sm font-medium text-gray-300 mb-2">Resume After Email Address (Optional)</label>
+          <input
+            type="email"
+            value={resumeEmail}
+            onChange={(e) => setResumeEmail(e.target.value)}
+            className="mt-1 block w-full bg-gray-700 border-1.5 border-black rounded-lg text-black shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm p-3"
+            placeholder="e.g., failed_email@example.com (Leaves out everyone before this email)"
+            disabled={isSendingBulkEmail}
+          />
+        </div>
+
         <div className="bg-white rounded-lg text-black overflow-hidden">
           <ReactQuill
             theme="snow"
@@ -180,6 +194,11 @@ const AdminBulkEmail = () => {
                 style={{ width: `${emailProgress.total > 0 ? (emailProgress.failed / emailProgress.total) * 100 : 0}%` }}
               ></div>
             </div>
+            {emailProgress.lastEmail && (
+              <div className="text-center text-xs text-yellow-400 font-mono mb-2 bg-gray-900 p-1 rounded">
+                Last Processed: {emailProgress.lastEmail}
+              </div>
+            )}
             <div className="flex justify-between text-xs mt-3">
               <span className="text-gray-400">Status: <span className="text-blue-400 capitalize">{emailProgress.status}</span></span>
               {emailProgress.failed > 0 && (

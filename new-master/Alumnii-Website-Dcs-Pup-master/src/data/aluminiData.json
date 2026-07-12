@@ -639,11 +639,13 @@
         "Occupation": "Semi-Govt Employee",
         "PhoneNo": "8146340296",
         "WebsiteLink": "Bbsbec.ac.in",
+        "Batch": 2010,
         "Skill": "Data Science, Artificial Intelligence",
         "Image": "/images/Jaswinder Dhaliwal.jpeg"
+       
     },
     {
-        "Year": 2010,
+        "Batch": 2010,
         "Certified": "Yes",
         "Name": "Jagwinder Singh",
         "FatherName": "Jaswant Singh",
@@ -660,7 +662,7 @@
         "Image": "/images/Jagwinder.jpeg"
     },
     {
-        "Year": 2019,
+        "Batch": 2019,
         "Certified": "Yes",
         "Name": "Dr. Meenakshi Sharma",
         "FatherName": "Sh. K. B. Sharma",
@@ -1287,21 +1289,7 @@
         "Batch": 2018,
         "Image": ""
     },
-    {
-        "Name": "Dr. Rakesh Kumar",
-        "FatherName": "VInod Kumar",
-        "Course": "PHD",
-        "PhoneNo": 8146602204,
-        "Address": "Vidya Nagar Punjabi University Patiala",
-        "Email ": "rakesh1404@gmail.com",
-        "Profession": "Teaching",
-        "Occupation": "Assistant Professor",
-        "InstituteName": "University College Miranpur, Patiala",
-        "WebsiteLink": "ucmiranpur.ac.in",
-        "Skill": "Machine Translation",
-        "Batch": 2023,
-        "Image": ""
-    },
+
     {
         "Name": "Inderjeet kaur",
         "FatherName": "Gursewak singh",
@@ -1742,7 +1730,7 @@
         "Profession": "Teaching",
         "Occupation": "Mansa",
         "InstituteName": "Mata sundari University girls college mansa",
-        "Skill": "Two year",
+        "Skill": "Two Batch",
         "Batch": "2015-2018",
         "Image": ""
     },
@@ -1818,7 +1806,7 @@
         "Profession": "Teaching",
         "Occupation": "Assistant professor of computer applications",
         "InstituteName": "Tara Vivek College Gajjanmajra",
-        "Skill": "1.5 years",
+        "Skill": "1.5 Batchs",
         "Batch": "May-18",
         "Course": "MCA",
         "Image": ""
@@ -2302,7 +2290,7 @@
     },
     {
         "RegisterationNo": "717-16-904",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2022",
         "Name": "RIYA GUPTA",
         "FatherName": "AJAY  GUPTA",
@@ -2316,7 +2304,7 @@
     },
     {
         "RegisterationNo": "9797-2019-766",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2022",
         "Name": "LOVEDEEP KAUR",
         "FatherName": "DARSHAN SINGH  ",
@@ -2330,7 +2318,7 @@
     },
     {
         "RegisterationNo": "9797-2019-767",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2022",
         "Name": "ANUPRIYA GOYAL",
         "FatherName": "SUSHIL KUMAR GOYAL",
@@ -2344,7 +2332,7 @@
     },
     {
         "RegisterationNo": "9797-2019-768",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2022",
         "Name": "BALJEET KAUR",
         "FatherName": "KULWANT SINGH",
@@ -2358,7 +2346,7 @@
     },
     {
         "RegisterationNo": "915-16-283",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2022",
         "Name": "MANPREET KAUR",
         "FatherName": "MANWINDER SINGH",
@@ -2372,7 +2360,7 @@
     },
     {
         "RegisterationNo": "915-16-265",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2022",
         "Name": "HARPREET KAUR",
         "FatherName": "RAGHVIR CHAND",
@@ -2386,7 +2374,7 @@
     },
     {
         "RegisterationNo": "716-16-2366",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2022",
         "Name": "YOGITA",
         "FatherName": "NARESH KUMAR",
@@ -2400,7 +2388,7 @@
     },
     {
         "RegisterationNo": "915-16-288",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2022",
         "Name": "HARPREET KAUR",
         "FatherName": "BHARPUR SINGH",
@@ -2414,7 +2402,7 @@
     },
     {
         "RegisterationNo": "9797-2019-769",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2022",
         "Name": "KRISHMA",
         "FatherName": "PAPPU",
@@ -2428,7 +2416,7 @@
     },
     {
         "RegisterationNo": "717-16-1490",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "",
         "Name": "ABHIMANYU BADLIA",
         "FatherName": "ANIL KUMAR",
@@ -2442,7 +2430,7 @@
     },
     {
         "RegisterationNo": "7126-16-1041",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2022",
         "Name": "SAGAR SHARMA",
         "FatherName": "RAJINDER KUMAR",
@@ -2456,7 +2444,7 @@
     },
     {
         "RegisterationNo": "7135-2015-236",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2022",
         "Name": "SAPNA WADHERA",
         "FatherName": "DALIP KUMAR",
@@ -2470,7 +2458,7 @@
     },
     {
         "RegisterationNo": "9797-2019-770",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2022",
         "Name": "RUVINA KHAN",
         "FatherName": "SHER ALI KHAN",
@@ -2484,7 +2472,7 @@
     },
     {
         "RegisterationNo": "815-16-227",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2022",
         "Name": "SUNITA RANI",
         "FatherName": "JAGDISH KUMAR",
@@ -2498,7 +2486,7 @@
     },
     {
         "RegisterationNo": "9797-2019-771",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2022",
         "Name": "ARSHPREET",
         "FatherName": "JAGROOP LAL",
@@ -2512,7 +2500,7 @@
     },
     {
         "RegisterationNo": "9797-2019-772",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2022",
         "Name": "SIMRAN KAUR",
         "FatherName": "AVTAR SINGH ",
@@ -2526,7 +2514,7 @@
     },
     {
         "RegisterationNo": "9797-2019-773",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "",
         "Name": "TARJAN SINGH",
         "FatherName": "CHIRANJI LAL",
@@ -2540,7 +2528,7 @@
     },
     {
         "RegisterationNo": "9797-2019-774",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2022",
         "Name": "AAKRITI GULERIA",
         "FatherName": "RAJESH GULERIA",
@@ -2554,7 +2542,7 @@
     },
     {
         "RegisterationNo": "9797-2019-775",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2022",
         "Name": "ARSH",
         "FatherName": "KULDEEP SINGH GROVER",
@@ -2568,7 +2556,7 @@
     },
     {
         "RegisterationNo": "9797-2019-776",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "",
         "Name": "AMANPREET KAUR",
         "FatherName": "JASWINDER SINGH",
@@ -2582,7 +2570,7 @@
     },
     {
         "RegisterationNo": "5111-16-2118",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "EKNOOR KAUR",
         "FatherName": "SATNAM SINGH",
@@ -2596,7 +2584,7 @@
     },
     {
         "RegisterationNo": "9797-2019-778",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "RINKU HAYER",
         "FatherName": "GURWINDER SINGH",
@@ -2610,7 +2598,7 @@
     },
     {
         "RegisterationNo": "9797-2019-779",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "RAMAN KAUR",
         "FatherName": "JASWINDER SINGH",
@@ -2624,7 +2612,7 @@
     },
     {
         "RegisterationNo": "412-12-713",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "MANDEEP KAUR",
         "FatherName": "JASWINDER SINGH",
@@ -2638,7 +2626,7 @@
     },
     {
         "RegisterationNo": "9797-2019-780",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "MANSI",
         "FatherName": "VIPEN KUMAR GOYAL",
@@ -2652,7 +2640,7 @@
     },
     {
         "RegisterationNo": "9797-2019-781",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "MANPREET KAUR",
         "FatherName": "PREM CHAND",
@@ -2666,7 +2654,7 @@
     },
     {
         "RegisterationNo": "5111-15-1957",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "KHUSHPREET KAUR",
         "FatherName": "HARJIWAN SINGH",
@@ -2680,7 +2668,7 @@
     },
     {
         "RegisterationNo": "7145-16-577",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "KIRANDEEP KAUR",
         "FatherName": "BAHADAR SINGH",
@@ -2694,7 +2682,7 @@
     },
     {
         "RegisterationNo": "9797-2019-782",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "ANJU RANI",
         "FatherName": "BALJIT SINGH",
@@ -2708,7 +2696,7 @@
     },
     {
         "RegisterationNo": "5119-16-114",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "GURWINDER KAUR",
         "FatherName": "BUTA SINGH",
@@ -2722,7 +2710,7 @@
     },
     {
         "RegisterationNo": "2112-16-933",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "ANMOLPREET KAUR",
         "FatherName": "GURTEJ SINGH",
@@ -2736,7 +2724,7 @@
     },
     {
         "RegisterationNo": "9152-16-136",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "RAMAN",
         "FatherName": "SWARAN SINGH",
@@ -2750,7 +2738,7 @@
     },
     {
         "RegisterationNo": "716-16-395",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "RAJWINDER KAUR",
         "FatherName": "HARDEV SINGH",
@@ -2764,7 +2752,7 @@
     },
     {
         "RegisterationNo": "7111-16-113",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "ANJU RANI",
         "FatherName": "JAI BHAGWAN",
@@ -2778,7 +2766,7 @@
     },
     {
         "RegisterationNo": "914-16-103",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "GAGANDEEP KAUR",
         "FatherName": "RAGHBIR SINGH",
@@ -2792,7 +2780,7 @@
     },
     {
         "RegisterationNo": "5119-16-121",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "KULVEER KAUR",
         "FatherName": "JAGDEV SINGH",
@@ -2806,7 +2794,7 @@
     },
     {
         "RegisterationNo": "9797-2019-783",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "SHIVAM",
         "FatherName": "VARINDER KUMAR",
@@ -2820,7 +2808,7 @@
     },
     {
         "RegisterationNo": "717-16-1488",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "SIMRAN SODHI",
         "FatherName": "MANVINDER SINGH SODHI",
@@ -2834,7 +2822,7 @@
     },
     {
         "RegisterationNo": "4120-15-130",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "RANVEER KAUR",
         "FatherName": "MAHINDER SINGH",
@@ -2848,7 +2836,7 @@
     },
     {
         "RegisterationNo": "9797-2019-784",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "SANDEEP KAUR",
         "FatherName": "RAMDHAN SINGH",
@@ -2862,7 +2850,7 @@
     },
     {
         "RegisterationNo": "714-16-142",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "SIMRANPREET KAUR",
         "FatherName": "HARJEET SINGH",
@@ -2876,7 +2864,7 @@
     },
     {
         "RegisterationNo": "9797-2019-785",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "AMRINDER SINGH",
         "FatherName": "HARINDER SINGH",
@@ -2890,7 +2878,7 @@
     },
     {
         "RegisterationNo": "9797-2019-786",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "ARPIT",
         "FatherName": "PARDEEP KUMAR",
@@ -2904,7 +2892,7 @@
     },
     {
         "RegisterationNo": "9153-2018-101",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "NAVDEEP KAUR",
         "FatherName": "BALWINDER SINGH",
@@ -2918,7 +2906,7 @@
     },
     {
         "RegisterationNo": "7145-16-583",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "RIMPY DEVI",
         "FatherName": "JASPAL SINGH",
@@ -2932,7 +2920,7 @@
     },
     {
         "RegisterationNo": "9797-2019-788",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "SONAM",
         "FatherName": "AMBIKA SINGH YADAV",
@@ -2946,7 +2934,7 @@
     },
     {
         "RegisterationNo": "9797-2019-789",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "NEETU BALA",
         "FatherName": "CHOTTU RAM",
@@ -2960,7 +2948,7 @@
     },
     {
         "RegisterationNo": "9797-2019-790",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "RAMANDEEP KAUR",
         "FatherName": "PAL SINGH",
@@ -2974,7 +2962,7 @@
     },
     {
         "RegisterationNo": "9161-16-139",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "PRIYANKA GULATI",
         "FatherName": "RAKESH KUMAR GULATI",
@@ -2988,7 +2976,7 @@
     },
     {
         "RegisterationNo": "114-16-1055",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "KOMAL",
         "FatherName": "HARNEK SINGH",
@@ -3002,7 +2990,7 @@
     },
     {
         "RegisterationNo": "9797-2019-791",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "RAVI KUMAR",
         "FatherName": "DALIP KUMAR",
@@ -3016,7 +3004,7 @@
     },
     {
         "RegisterationNo": "9797-2019-792",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "RADHIKA SHARMA",
         "FatherName": "SANJAY KUMAR",
@@ -3030,7 +3018,7 @@
     },
     {
         "RegisterationNo": "5135-16-111",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "GAGANDEEP KAUR",
         "FatherName": "JASVIR SINGH",
@@ -3044,7 +3032,7 @@
     },
     {
         "RegisterationNo": "511-14-122",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "JASPREET SINGH",
         "FatherName": "BALDEV SINGH",
@@ -3058,7 +3046,7 @@
     },
     {
         "RegisterationNo": "9152-15-155",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "MANISHA RISHI",
         "FatherName": "JAGDISH CHAND",
@@ -3072,7 +3060,7 @@
     },
     {
         "RegisterationNo": "7145-16-580",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "DALJEET KAUR",
         "FatherName": "HARBANS SINGH",
@@ -3086,7 +3074,7 @@
     },
     {
         "RegisterationNo": "9797-2019-793",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "AMANJOT KAUR",
         "FatherName": "KASHMIR SINGH",
@@ -3100,7 +3088,7 @@
     },
     {
         "RegisterationNo": "2114-16-702",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "AMANDEEP KAUR",
         "FatherName": "MALKIT SINGH",
@@ -3114,7 +3102,7 @@
     },
     {
         "RegisterationNo": "714-16-174",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "LIVLEEN KAUR",
         "FatherName": "TEJINDER SINGH",
@@ -3128,7 +3116,7 @@
     },
     {
         "RegisterationNo": "9797-2019-794",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "AYUSHI PAL",
         "FatherName": "ASHOK KUMAR",
@@ -3142,7 +3130,7 @@
     },
     {
         "RegisterationNo": "5119-12-116",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "MANPREET KAUR",
         "FatherName": "NAGAR SINGH",
@@ -3156,7 +3144,7 @@
     },
     {
         "RegisterationNo": "6125-16-181",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "SIMRAN SINGH",
         "FatherName": "PARDEEP SINGH",
@@ -3170,7 +3158,7 @@
     },
     {
         "RegisterationNo": "7117-16-1194",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "RAJAT SHARMA",
         "FatherName": "AMARJEET SINGH",
@@ -3184,7 +3172,7 @@
     },
     {
         "RegisterationNo": "5111-15-1993",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "SUKHCHAIN SINGH",
         "FatherName": "HARCHARAN SINGH",
@@ -3198,7 +3186,7 @@
     },
     {
         "RegisterationNo": "714-16-182",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "GURPREET SINGH",
         "FatherName": "MALKIT SINGH",
@@ -3212,7 +3200,7 @@
     },
     {
         "RegisterationNo": "9152-16-144",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "PRABHJOT KAUR",
         "FatherName": "SANTOKH SINGH",
@@ -3226,7 +3214,7 @@
     },
     {
         "RegisterationNo": "7145-16-589",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "TABBASUM",
         "FatherName": "RURA KHAN",
@@ -3240,7 +3228,7 @@
     },
     {
         "RegisterationNo": "9797-2019-795",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "PREET KAMAL",
         "FatherName": "GURDAS SINGH",
@@ -3254,7 +3242,7 @@
     },
     {
         "RegisterationNo": "9797-2019-796",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "RAVINDER KAUR",
         "FatherName": "JASPAL SINGH",
@@ -3268,7 +3256,7 @@
     },
     {
         "RegisterationNo": "9149-16-639",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "HANISH KUMAR",
         "FatherName": "SHINDER PAL",
@@ -3282,7 +3270,7 @@
     },
     {
         "RegisterationNo": "9797-2019-797",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "JASPREET KAUR",
         "FatherName": "GURDEV SINGH",
@@ -3296,7 +3284,7 @@
     },
     {
         "RegisterationNo": "114-15-1105",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "NEETU PARBHAKER",
         "FatherName": "BALWINDER KUMAR",
@@ -3310,7 +3298,7 @@
     },
     {
         "RegisterationNo": "9147-14-101",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "KIRANPAL KAUR",
         "FatherName": "BORIA RAM",
@@ -3324,7 +3312,7 @@
     },
     {
         "RegisterationNo": "9797-2019-798",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "PRIYA SHARMA",
         "FatherName": "SURINDER KUMAR",
@@ -3338,7 +3326,7 @@
     },
     {
         "RegisterationNo": "9127-15-8",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "TEJINDER SINGH",
         "FatherName": "SATPAL SINGH",
@@ -3352,7 +3340,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-2557",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "AASHIMA",
         "FatherName": "TARSEM KUMAR",
@@ -3366,7 +3354,7 @@
     },
     {
         "RegisterationNo": "9797-2019-799",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "VARUN SHARMA",
         "FatherName": "SURINDER SHARMA",
@@ -3380,7 +3368,7 @@
     },
     {
         "RegisterationNo": "7145-16-573",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "PURNIMA",
         "FatherName": "RAJESH KUMAR",
@@ -3394,7 +3382,7 @@
     },
     {
         "RegisterationNo": "716-16-487",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "MANPREET SINGH",
         "FatherName": "BALJINDER SINGH",
@@ -3408,7 +3396,7 @@
     },
     {
         "RegisterationNo": "9797-2019-800",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "MOHIT CHOUDHARY",
         "FatherName": "KISHORE KUMAR",
@@ -3422,7 +3410,7 @@
     },
     {
         "RegisterationNo": "9797-2019-801",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "DOLLY SETHI",
         "FatherName": "DALIP SETHI",
@@ -3436,7 +3424,7 @@
     },
     {
         "RegisterationNo": "712-16-407",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "NISHA RANI",
         "FatherName": "GURCHARAN SINGH",
@@ -3450,7 +3438,7 @@
     },
     {
         "RegisterationNo": "9797-2019-802",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "GAGANDEEP KAUR",
         "FatherName": "JAGRAJ SINGH",
@@ -3464,7 +3452,7 @@
     },
     {
         "RegisterationNo": "9797-2019-803",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "KULWINDER KAUR",
         "FatherName": "BABU SINGH",
@@ -3478,7 +3466,7 @@
     },
     {
         "RegisterationNo": "9136-16-408",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "PARWINDER KAUR",
         "FatherName": "HARBANS SINGH",
@@ -3492,7 +3480,7 @@
     },
     {
         "RegisterationNo": "5128-16-410",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "MONIKA",
         "FatherName": "RAJ KUMAR",
@@ -3506,7 +3494,7 @@
     },
     {
         "RegisterationNo": "9797-2019-804",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "MANDEEP KAUR",
         "FatherName": "RAM SINGH",
@@ -3520,7 +3508,7 @@
     },
     {
         "RegisterationNo": "9797-2019-805",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "YASHPREET KAUR",
         "FatherName": "MAJOR SINGH",
@@ -3534,7 +3522,7 @@
     },
     {
         "RegisterationNo": "114-16-1047",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "HARMANPREET KAUR",
         "FatherName": "RAM SINGH",
@@ -3548,7 +3536,7 @@
     },
     {
         "RegisterationNo": "9152-16-130",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "ISHIKA GOYAL",
         "FatherName": "YASHPAL GOYAL",
@@ -3562,7 +3550,7 @@
     },
     {
         "RegisterationNo": "9797-2019-806",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "NIMARDEEP KAUR",
         "FatherName": "SATVEER SINGH",
@@ -3576,7 +3564,7 @@
     },
     {
         "RegisterationNo": "9110-16-107",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "MANSI",
         "FatherName": "PREM SINGH",
@@ -3590,7 +3578,7 @@
     },
     {
         "RegisterationNo": "7157-16-339",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "AMANDEEP KAUR",
         "FatherName": "NAIB SINGH",
@@ -3604,7 +3592,7 @@
     },
     {
         "RegisterationNo": "9797-2019-807",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "NAVNEET SINGH",
         "FatherName": "MAHINDER SINGH",
@@ -3618,7 +3606,7 @@
     },
     {
         "RegisterationNo": "9797-2019-808",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "KANCHAN SAINI",
         "FatherName": "KAMAL",
@@ -3632,7 +3620,7 @@
     },
     {
         "RegisterationNo": "9797-2019-809",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "SAMIKSHA AYRI",
         "FatherName": "SURESH CHAND",
@@ -3646,7 +3634,7 @@
     },
     {
         "RegisterationNo": "9797-2019-810",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "MANDEEP KAUR",
         "FatherName": "BHAN SINGH",
@@ -3660,7 +3648,7 @@
     },
     {
         "RegisterationNo": "9797-2019-811",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "NISHA RANI",
         "FatherName": "HARMEL RAM",
@@ -3674,7 +3662,7 @@
     },
     {
         "RegisterationNo": "9797-2019-812",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "PARDEEP SINGH",
         "FatherName": "JASVIR SINGH",
@@ -3688,7 +3676,7 @@
     },
     {
         "RegisterationNo": "714-16-122",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "MUKESH KUMAR",
         "FatherName": "SHIV KUMAR",
@@ -3702,7 +3690,7 @@
     },
     {
         "RegisterationNo": "2124-16-107",
-        "AdmissionYear": "2019",
+        "AdmissionBatch": "2019",
         "Batch": "2021",
         "Name": "AMRITPAL KAUR",
         "FatherName": "GURDAS SINGH",
@@ -5643,7 +5631,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-838",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "NAV NEET KAUR",
         "FatherName": "SUKHVIR SINGH",
@@ -5656,7 +5644,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-839",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "JASPREET KAUR",
         "FatherName": "SATNAM SINGH",
@@ -5669,7 +5657,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-840",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "PALWINDER KAUR",
         "FatherName": "GURDIT SINGH",
@@ -5682,7 +5670,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-841",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "SUKHDEEP KAUR",
         "FatherName": "KABAL SINGH",
@@ -5695,7 +5683,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-842",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "MANLEEN KAUR",
         "FatherName": "MALKIAT SINGH",
@@ -5708,7 +5696,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-843",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "VISHALI AGGARWAL",
         "FatherName": "VINOD KUMAR",
@@ -5721,7 +5709,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-844",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "ANAM SINGLA",
         "FatherName": "SATISH SINGLA",
@@ -5734,7 +5722,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-845",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "AMANJOT KAUR",
         "FatherName": "BANT SINGH",
@@ -5747,7 +5735,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-846",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "HARPREET KAUR",
         "FatherName": "AMARJEET SINGH",
@@ -5760,7 +5748,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-847",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "KHUSHKIRAT SINGH",
         "FatherName": "IQBAL SINGH",
@@ -5773,7 +5761,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-848",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "JASPREET KAUR",
         "FatherName": "PARAMJIT SINGH",
@@ -5786,7 +5774,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-850",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "SAURAV SINGLA",
         "FatherName": "VINOD KUMAR",
@@ -5799,7 +5787,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-851",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "PARWINDER KAUR",
         "FatherName": "AMRIK SINGH",
@@ -5812,7 +5800,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-852",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "SUKHDEEP KAUR",
         "FatherName": "TEK SINGH",
@@ -5825,7 +5813,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-853",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "GURDEEP SINGH",
         "FatherName": "RANVIR SINGH",
@@ -5838,7 +5826,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-854",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "RAVNEET KAUR",
         "FatherName": "MANINDER SINGH",
@@ -5851,7 +5839,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-855",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "PREETINDER KAUR",
         "FatherName": "BALJINDER SINGH",
@@ -5864,7 +5852,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-856",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "TSARBJEET KAUR",
         "FatherName": "JANGPAL SINGH BOPARAI",
@@ -5877,7 +5865,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-857",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "GURPREET SINGH",
         "FatherName": "HARJEET SINGH",
@@ -5890,7 +5878,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-858",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "SUPRIYA SHARMA",
         "FatherName": "SURINDER KUMAR",
@@ -5903,7 +5891,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-859",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "GURWINDER SINGH BAINS",
         "FatherName": "HARINDER SINGH",
@@ -5916,7 +5904,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-860",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "ALISHA DOOMRA",
         "FatherName": "RAJINDER KUMAR",
@@ -5929,7 +5917,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-861",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "GURPREET KAUR",
         "FatherName": "RAJINDER SINGH",
@@ -5942,7 +5930,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-862",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "RAJINDERPAL KAUR",
         "FatherName": "DALJIT SINGH",
@@ -5955,7 +5943,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-863",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "ASHISH GARG",
         "FatherName": "RAJ KUMAR",
@@ -5968,7 +5956,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-864",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "NEHA",
         "FatherName": "GORA LAL",
@@ -5981,7 +5969,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-865",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "AKASH SHARMA",
         "FatherName": "ANIL KUMAR",
@@ -5994,7 +5982,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-866",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "ARVIND KAUR",
         "FatherName": "BHUPINDER SINGH",
@@ -6007,7 +5995,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-867",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "RAJINDER KAUR",
         "FatherName": "GURMEET SINGH",
@@ -6020,7 +6008,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-868",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "MANDEEP KAUR",
         "FatherName": "PARGAT SINGH",
@@ -6033,7 +6021,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-869",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "JASVEER KAUR",
         "FatherName": "BALDEV SINGH",
@@ -6046,7 +6034,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-870",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "PRABHJOT KAUR",
         "FatherName": "PARMJIT SINGH",
@@ -6059,7 +6047,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-871",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "GURPREM KAUR",
         "FatherName": "JAGTAR SINGH",
@@ -6072,7 +6060,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-872",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "PRATIBHA",
         "FatherName": "BALWAN SINGH",
@@ -6085,7 +6073,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-873",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "SIMMY SHARMA",
         "FatherName": "ANIL KUMAR",
@@ -6098,7 +6086,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-874",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "HARPREET SINGH",
         "FatherName": "HARDIAL SINGH",
@@ -6111,7 +6099,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-875",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "JASPREET KAUR",
         "FatherName": "HARMAIL SINGH",
@@ -6124,7 +6112,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-876",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "HARINDER KAUR",
         "FatherName": "KULDIP SINGH",
@@ -6137,7 +6125,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-877",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "DAVINDERJEET KAUR",
         "FatherName": "BALVEER SINGH",
@@ -6150,7 +6138,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-878",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "PARVEEN KUMAR",
         "FatherName": "DEWA RAM",
@@ -6163,7 +6151,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-879",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "MANJOT KAUR",
         "FatherName": "MANPREET SINGH",
@@ -6176,7 +6164,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-880",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "DAVINDER KAUR",
         "FatherName": "RANJEET SINGH",
@@ -6189,7 +6177,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-881",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "JASPREET KAUR",
         "FatherName": "SEWA SINGH",
@@ -6202,7 +6190,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-882",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "RAMANJIT KAUR",
         "FatherName": "SURINDER SINGH",
@@ -6215,7 +6203,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-883",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "NEHA",
         "FatherName": "NARESH KUMAR CHAWLA",
@@ -6228,7 +6216,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-885",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "HASHIM ABDI",
         "FatherName": "ABDI",
@@ -6241,7 +6229,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-887",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "SARA SIME",
         "FatherName": "SIME",
@@ -6254,7 +6242,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-892",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "ABDELA AMAN WAYO",
         "FatherName": "AMAN WAYO",
@@ -6267,7 +6255,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-893",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "ABDETA HUSSIEN GAMESA",
         "FatherName": "HUSSIEN GAMESA",
@@ -6280,7 +6268,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-896",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "BETELEHEM ASSEFA YIMER",
         "FatherName": "ASSEFA",
@@ -6293,7 +6281,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-897",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "JEMAL AYDERUS SHEIK OMER",
         "FatherName": "AYDERUS",
@@ -6306,7 +6294,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-903",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "SISAYI WEGARI MEKONNEN",
         "FatherName": "WEGARI",
@@ -6319,7 +6307,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-907",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "SARA",
         "FatherName": "MESFIN",
@@ -6332,7 +6320,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-913",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "MISRAK ASSEFA WERDOFA",
         "FatherName": "TESFU MOLLY",
@@ -6345,7 +6333,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-914",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "RAKEB DABA TUGIE",
         "FatherName": "DABA TUGIE BONGE",
@@ -6358,7 +6346,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-936",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "GETNET ASSEFA HABETE ",
         "FatherName": "ASSEFA HABETE",
@@ -6371,7 +6359,7 @@
     },
     {
         "RegisterationNo": "PU(P)2016-943",
-        "YEAR ADMITTED": "2016",
+        "Batch ADMITTED": "2016",
         "Batch": "2018",
         "Name": "ZIGIU DEMISSIE",
         "FatherName": "DEMISSIE BAYE",
@@ -6384,7 +6372,7 @@
     },
     {
         "RegisterationNo": "296-PU(P)2000",
-        "AdmissionYear": "1999",
+        "AdmissionBatch": "1999",
         "Batch": "2003",
         "Name": "GAURAV GHAI",
         "FatherName": "SH. RAJ KRISHAN GHAI",
@@ -6397,7 +6385,7 @@
     },
     {
         "RegisterationNo": "297-PU(P)2000",
-        "AdmissionYear": "1999",
+        "AdmissionBatch": "1999",
         "Batch": "2003",
         "Name": "RAMANDEEP SINGH",
         "FatherName": "SH. AVINDER SINGH",
@@ -6410,7 +6398,7 @@
     },
     {
         "RegisterationNo": "298-PU(P)2000",
-        "AdmissionYear": "1999",
+        "AdmissionBatch": "1999",
         "Batch": "2003",
         "Name": "SHIVNEET KAUR",
         "FatherName": "SH. JASWINDER SINGH",
@@ -6423,7 +6411,7 @@
     },
     {
         "RegisterationNo": "299-PU(P)2000",
-        "AdmissionYear": "1999",
+        "AdmissionBatch": "1999",
         "Batch": "2003",
         "Name": "SHEFALI BHARTI",
         "FatherName": "SH. GULSHAN KUMAR",
@@ -6436,7 +6424,7 @@
     },
     {
         "RegisterationNo": "300-PU(P)2000",
-        "AdmissionYear": "1999",
+        "AdmissionBatch": "1999",
         "Batch": "2003",
         "Name": "JAGTESHWAR SINGH",
         "FatherName": "SH. KULDIP SINGH",
@@ -6449,7 +6437,7 @@
     },
     {
         "RegisterationNo": "301-PU(P)2000",
-        "AdmissionYear": "1999",
+        "AdmissionBatch": "1999",
         "Batch": "2003",
         "Name": "HARMANJOT SINGH",
         "FatherName": "SH.BALTEJ SINGH",
@@ -6462,7 +6450,7 @@
     },
     {
         "RegisterationNo": "302-PU(P)2000",
-        "AdmissionYear": "1999",
+        "AdmissionBatch": "1999",
         "Batch": "2003",
         "Name": "ANUGEETA JASWAL",
         "FatherName": "SH. A.K. JASWAL",
@@ -6475,7 +6463,7 @@
     },
     {
         "RegisterationNo": "303-PU(P)2000",
-        "AdmissionYear": "1999",
+        "AdmissionBatch": "1999",
         "Batch": "2003",
         "Name": "JEETINDER SINGH",
         "FatherName": "SH. NARINDER SINGH",
@@ -6488,7 +6476,7 @@
     },
     {
         "RegisterationNo": "304-PU(P)2000",
-        "AdmissionYear": "1999",
+        "AdmissionBatch": "1999",
         "Batch": "2003",
         "Name": "DEEPTA",
         "FatherName": "SH. GURSHARANJIT SINGH",
@@ -6501,7 +6489,7 @@
     },
     {
         "RegisterationNo": "305-PU(P)2000",
-        "AdmissionYear": "1999",
+        "AdmissionBatch": "1999",
         "Batch": "2003",
         "Name": "SANJAM SIKRI",
         "FatherName": "SH. A.K. SIKRI",
@@ -6514,7 +6502,7 @@
     },
     {
         "RegisterationNo": "306-PU(P)2000",
-        "AdmissionYear": "1999",
+        "AdmissionBatch": "1999",
         "Batch": "2003",
         "Name": "PRABHJOT SINGH",
         "FatherName": "SH. PRITAM SINGH",
@@ -6527,7 +6515,7 @@
     },
     {
         "RegisterationNo": "307-PU(P)2000",
-        "AdmissionYear": "1999",
+        "AdmissionBatch": "1999",
         "Batch": "2003",
         "Name": "KUNWAR NISHANT SINGH",
         "FatherName": "SH. PREM KUMAR",
@@ -6540,7 +6528,7 @@
     },
     {
         "RegisterationNo": "308-PU(P)2000",
-        "AdmissionYear": "1999",
+        "AdmissionBatch": "1999",
         "Batch": "2003",
         "Name": "JASPREET KAUR",
         "FatherName": "SH. MAN SINGH DHINDSA",
@@ -6553,7 +6541,7 @@
     },
     {
         "RegisterationNo": "309-PU(P)2000",
-        "AdmissionYear": "1999",
+        "AdmissionBatch": "1999",
         "Batch": "2003",
         "Name": "SHIVJEET SINGH SIDHU",
         "FatherName": "SH. HARMINDER SINGH SIDHU",
@@ -6566,7 +6554,7 @@
     },
     {
         "RegisterationNo": "310-PU(P)2000",
-        "AdmissionYear": "1999",
+        "AdmissionBatch": "1999",
         "Batch": "2003",
         "Name": "ROHINI SHARMA",
         "FatherName": "SH. PRREM CHAND SHARMA",
@@ -6579,7 +6567,7 @@
     },
     {
         "RegisterationNo": "311-PU(P)2000",
-        "AdmissionYear": "1999",
+        "AdmissionBatch": "1999",
         "Batch": "2003",
         "Name": "MANISH GOYAL",
         "FatherName": "SH. KRISHAN GOPAL GOYAL",
@@ -6592,7 +6580,7 @@
     },
     {
         "RegisterationNo": "312-PU(P)2000",
-        "AdmissionYear": "1999",
+        "AdmissionBatch": "1999",
         "Batch": "2003",
         "Name": "SUKHPREET KAUR KANG",
         "FatherName": "SH. SUKHPAL SINGH KANG",
@@ -6605,7 +6593,7 @@
     },
     {
         "RegisterationNo": "313-PU(P)2000",
-        "AdmissionYear": "1999",
+        "AdmissionBatch": "1999",
         "Batch": "2003",
         "Name": "NITIN MAGOTRA",
         "FatherName": "SH. RAVI MAGOTRA",
@@ -6618,7 +6606,7 @@
     },
     {
         "RegisterationNo": "314-PU(P)2000",
-        "AdmissionYear": "1999",
+        "AdmissionBatch": "1999",
         "Batch": "2003",
         "Name": "PREETINDER SINGH BHINDER",
         "FatherName": "SH. AMARINDER SINGH BHINDER",
@@ -6631,7 +6619,7 @@
     },
     {
         "RegisterationNo": "315-PU(P)2000",
-        "AdmissionYear": "1999",
+        "AdmissionBatch": "1999",
         "Batch": "2003",
         "Name": "DEEPIKA GANDHI",
         "FatherName": "SH. S.K. GANDHI",
@@ -6644,7 +6632,7 @@
     },
     {
         "RegisterationNo": "316-PU(P)2000",
-        "AdmissionYear": "1999",
+        "AdmissionBatch": "1999",
         "Batch": "2003",
         "Name": "LALIT KUMAR AGGARWAL",
         "FatherName": "SH. SUDESH KUMAR AGGARWAL",
@@ -6657,7 +6645,7 @@
     },
     {
         "RegisterationNo": "317-PU(P)2000",
-        "AdmissionYear": "1999",
+        "AdmissionBatch": "1999",
         "Batch": "2003",
         "Name": "AVNEET",
         "FatherName": "SH. SUKHWINDER SINGH SANDHU",
@@ -6670,7 +6658,7 @@
     },
     {
         "RegisterationNo": "318-PU(P)2000",
-        "AdmissionYear": "1999",
+        "AdmissionBatch": "1999",
         "Batch": "2003",
         "Name": "PREET KAMAL DHILLON",
         "FatherName": "SH. RAGHBIR SINGH DHILLON",
@@ -6683,7 +6671,7 @@
     },
     {
         "RegisterationNo": "319-PU(P)2000",
-        "AdmissionYear": "1999",
+        "AdmissionBatch": "1999",
         "Batch": "2003",
         "Name": "ABHISHEK VERMA",
         "FatherName": "SH. BHUPER PAL VERMA",
@@ -6696,7 +6684,7 @@
     },
     {
         "RegisterationNo": "320-PU(P)2000",
-        "AdmissionYear": "1999",
+        "AdmissionBatch": "1999",
         "Batch": "2003",
         "Name": "ALMITRA PRABHAKAR",
         "FatherName": "SH. PARKASH CHANDER PRABHAKER",
@@ -6709,7 +6697,7 @@
     },
     {
         "RegisterationNo": "321-PU(P)2000",
-        "AdmissionYear": "1999",
+        "AdmissionBatch": "1999",
         "Batch": "2003",
         "Name": "DAMANDEEP SINGH GREWAL",
         "FatherName": "SH. GURMIT SINGH",
@@ -6722,7 +6710,7 @@
     },
     {
         "RegisterationNo": "322-PU(P)2000",
-        "AdmissionYear": "1999",
+        "AdmissionBatch": "1999",
         "Batch": "2003",
         "Name": "VIJAY INDERPAL SINGH",
         "FatherName": "SH. DARSHAN SINGH",
@@ -6735,7 +6723,7 @@
     },
     {
         "RegisterationNo": "323-PU(P)2000",
-        "AdmissionYear": "1999",
+        "AdmissionBatch": "1999",
         "Batch": "2003",
         "Name": "NISHANT AGGARWAL",
         "FatherName": "SH. O.K. AGGARWAL",
@@ -6748,7 +6736,7 @@
     },
     {
         "RegisterationNo": "586-PU(P)2000",
-        "AdmissionYear": "1999",
+        "AdmissionBatch": "1999",
         "Batch": "2003",
         "Name": "RAHUL ALLAWADHI",
         "FatherName": "SH. K.L. ALLAWADHI",
@@ -6761,7 +6749,7 @@
     },
     {
         "RegisterationNo": "PU(P)2000",
-        "AdmissionYear": "1999",
+        "AdmissionBatch": "1999",
         "Batch": "2003",
         "Name": "BHUPINDER BIR SINGH A",
         "FatherName": "SH. K.B.S. A" ,
@@ -6774,7 +6762,7 @@
     },
     {
         "RegisterationNo": "714-15-462",
-        "YEAR ADMITTED": "2018",
+        "Batch ADMITTED": "2018",
         "Batch": "2020",
         "Name": "AMANPREET KAUR",
         "FatherName": "HARPAL KAUR",
@@ -6784,7 +6772,7 @@
     },
     {
         "RegisterationNo": "GRC(S)2009-830",
-        "YEAR ADMITTED": "2018",
+        "Batch ADMITTED": "2018",
         "Batch": "2020",
         "Name": "AMRITPAL SINGH",
         "FatherName": "HARBHAJAN KAUR",
@@ -6794,7 +6782,7 @@
     },
     {
         "RegisterationNo": "9797-2020-1675",
-        "YEAR ADMITTED": "2018",
+        "Batch ADMITTED": "2018",
         "Batch": "2020",
         "Name": "JAGJIT KAUR",
         "FatherName": "KAMALJIT KAUR",
@@ -6804,7 +6792,7 @@
     },
     {
         "RegisterationNo": "9797-2020-1676",
-        "YEAR ADMITTED": "2018",
+        "Batch ADMITTED": "2018",
         "Batch": "2020",
         "Name": "M. PREMSANKAR",
         "FatherName": "KALYANI",
@@ -6814,7 +6802,7 @@
     },
     {
         "RegisterationNo": "9797-2020-1677",
-        "YEAR ADMITTED": "2018",
+        "Batch ADMITTED": "2018",
         "Batch": "2020",
         "Name": "V. MENAKA",
         "FatherName": "SUBBULAKSHMI",
@@ -6824,7 +6812,7 @@
     },
     {
         "RegisterationNo": "9797-2020-1678",
-        "YEAR ADMITTED": "2018",
+        "Batch ADMITTED": "2018",
         "Batch": "2020",
         "Name": "ADITYA SINGH RANA",
         "FatherName": "NEELAM RANA",
@@ -6834,7 +6822,7 @@
     },
     {
         "RegisterationNo": "9797-2020-1679",
-        "YEAR ADMITTED": "2018",
+        "Batch ADMITTED": "2018",
         "Batch": "2020",
         "Name": "TANVI",
         "FatherName": "KIRAN GUPTA",
@@ -6844,7 +6832,7 @@
     },
     {
         "RegisterationNo": "9797-2020-1680",
-        "YEAR ADMITTED": "2018",
+        "Batch ADMITTED": "2018",
         "Batch": "2020",
         "Name": "HIMANI GUPTA",
         "FatherName": "SUCHILA GUPTA",
@@ -6854,7 +6842,7 @@
     },
     {
         "RegisterationNo": "PU(P)2004-651",
-        "AdmissionYear": "2003",
+        "AdmissionBatch": "2003",
         "Batch": "2005",
         "Name": "PARVINDER SINGH",
         "FatherName": "ZORA SINGH",
@@ -6867,7 +6855,7 @@
     },
     {
         "RegisterationNo": "PU(P)2004-652",
-        "AdmissionYear": "2003",
+        "AdmissionBatch": "2003",
         "Batch": "2005",
         "Name": "HARMANDEEP SINGH",
         "FatherName": "VIRDEVINDER SINGH",
@@ -6880,7 +6868,7 @@
     },
     {
         "RegisterationNo": "PU(P)2004-653",
-        "AdmissionYear": "2003",
+        "AdmissionBatch": "2003",
         "Batch": "2005",
         "Name": "GURPREET SINGH ",
         "FatherName": "JASWANT SINGH",
@@ -6893,7 +6881,7 @@
     },
     {
         "RegisterationNo": "PU(P)2002-437",
-        "AdmissionYear": "2003",
+        "AdmissionBatch": "2003",
         "Batch": "2005",
         "Name": "RAVINDER KUMAR VASHISHT",
         "FatherName": "M.R.VASHISHT",
@@ -6906,7 +6894,7 @@
     },
     {
         "RegisterationNo": "GRC(S)97-641",
-        "AdmissionYear": "2003",
+        "AdmissionBatch": "2003",
         "Batch": "2005",
         "Name": "SANDEEP BANSAL",
         "FatherName": "TARSEM CHAND",
@@ -6919,7 +6907,7 @@
     },
     {
         "RegisterationNo": "PU(P)2004-654",
-        "AdmissionYear": "2003",
+        "AdmissionBatch": "2003",
         "Batch": "2005",
         "Name": "PRABHJOT KAUR",
         "FatherName": "SUCHA SINGH KAHCON",
@@ -6932,7 +6920,7 @@
     },
     {
         "RegisterationNo": "PU(P)2004-655",
-        "AdmissionYear": "2003",
+        "AdmissionBatch": "2003",
         "Batch": "2005",
         "Name": "INDERPREET KAUR",
         "FatherName": "H.S.LAMBA",
@@ -6945,7 +6933,7 @@
     },
     {
         "RegisterationNo": "PU(P)2004-656",
-        "AdmissionYear": "2003",
+        "AdmissionBatch": "2003",
         "Batch": "2005",
         "Name": "ANNIE ",
         "FatherName": "VINAY MOHAN NAYYAR",
@@ -6958,7 +6946,7 @@
     },
     {
         "RegisterationNo": "PU(P)2004-657",
-        "AdmissionYear": "2003",
+        "AdmissionBatch": "2003",
         "Batch": "2005",
         "Name": "ANURADHA RANI",
         "FatherName": "D LAL BAGHLA",
@@ -6971,7 +6959,7 @@
     },
     {
         "RegisterationNo": "PU(P)2004-658",
-        "AdmissionYear": "2003",
+        "AdmissionBatch": "2003",
         "Batch": "2005",
         "Name": "GURPREET KAUR ",
         "FatherName": "SUKHJIWAN SINGH",
@@ -6984,7 +6972,7 @@
     },
     {
         "RegisterationNo": "PU(P)2004-659",
-        "AdmissionYear": "2003",
+        "AdmissionBatch": "2003",
         "Batch": "2005",
         "Name": "AMANPREET KAUR",
         "FatherName": "AVTAR SINGH",
@@ -6997,7 +6985,7 @@
     },
     {
         "RegisterationNo": "PU(P)2004-660",
-        "AdmissionYear": "2003",
+        "AdmissionBatch": "2003",
         "Batch": "2005",
         "Name": "AMARVIR SINGH",
         "FatherName": "JAGRUP SINGH",
@@ -7010,7 +6998,7 @@
     },
     {
         "RegisterationNo": "PU(P)2004-661",
-        "AdmissionYear": "2003",
+        "AdmissionBatch": "2003",
         "Batch": "2005",
         "Name": "RAJESH KUMAR VERMA",
         "FatherName": "BALDEV KRISHAN",
@@ -7023,7 +7011,7 @@
     },
     {
         "RegisterationNo": "PU(P)2004-662",
-        "AdmissionYear": "2003",
+        "AdmissionBatch": "2003",
         "Batch": "2005",
         "Name": "APOORVA BASANDRAI",
         "FatherName": "PARMOD KUMAR",
@@ -7036,7 +7024,7 @@
     },
     {
         "RegisterationNo": "PU(P)2004-663",
-        "AdmissionYear": "2003",
+        "AdmissionBatch": "2003",
         "Batch": "2005",
         "Name": "RAVINDER SINGH",
         "FatherName": "DILBAGH SINGH",
@@ -7049,7 +7037,7 @@
     },
     {
         "RegisterationNo": "PU(P)2004-664",
-        "AdmissionYear": "2003",
+        "AdmissionBatch": "2003",
         "Batch": "2005",
         "Name": "MUNISH KUMAR",
         "FatherName": "JIWAN KUMAR",
@@ -7062,7 +7050,7 @@
     },
     {
         "RegisterationNo": "PU(P)2004-665",
-        "AdmissionYear": "2003",
+        "AdmissionBatch": "2003",
         "Batch": "2005",
         "Name": "POONAM BRAR",
         "FatherName": "TEJ SINGH",
@@ -7075,7 +7063,7 @@
     },
     {
         "RegisterationNo": "PU(P)2004-666",
-        "AdmissionYear": "2003",
+        "AdmissionBatch": "2003",
         "Batch": "2005",
         "Name": "VARINDER KAUR JASSAR",
         "FatherName": "JASBHINDER SINGH ",
@@ -7088,7 +7076,7 @@
     },
     {
         "RegisterationNo": "PU(P)2004-667",
-        "AdmissionYear": "2003",
+        "AdmissionBatch": "2003",
         "Batch": "2005",
         "Name": "JUJHVIR SINGH",
         "FatherName": "BALWANT SINGH",
@@ -7101,7 +7089,7 @@
     },
     {
         "RegisterationNo": "PU(P)2004-668",
-        "AdmissionYear": "2003",
+        "AdmissionBatch": "2003",
         "Batch": "2005",
         "Name": "DHEERAJ KUMAR JAIN ",
         "FatherName": "RAMESH KUMAR JAIN",
@@ -7114,7 +7102,7 @@
     },
     {
         "RegisterationNo": "PU(P)2004-669",
-        "AdmissionYear": "2003",
+        "AdmissionBatch": "2003",
         "Batch": "2005",
         "Name": "BIR DALVINDER SINGH ",
         "FatherName": "JAGDEV SINGH",
@@ -7127,7 +7115,7 @@
     },
     {
         "RegisterationNo": "PU(P)2004-670",
-        "AdmissionYear": "2003",
+        "AdmissionBatch": "2003",
         "Batch": "2005",
         "Name": "SUKHVIR SINGH",
         "FatherName": "PAL SINGH",
@@ -7140,7 +7128,7 @@
     },
     {
         "RegisterationNo": "PU(P)2004-671",
-        "AdmissionYear": "2003",
+        "AdmissionBatch": "2003",
         "Batch": "2005",
         "Name": "SARU BAJWA",
         "FatherName": "GURBACHAN SINGH",
@@ -7153,7 +7141,7 @@
     },
     {
         "RegisterationNo": "PU(P)2004-672",
-        "AdmissionYear": "2003",
+        "AdmissionBatch": "2003",
         "Batch": "2005",
         "Name": "NITIN SABHARWAL",
         "FatherName": "KRISHAN KUMAR",
@@ -7166,7 +7154,7 @@
     },
     {
         "RegisterationNo": "PU(P)2004-673",
-        "AdmissionYear": "2003",
+        "AdmissionBatch": "2003",
         "Batch": "2005",
         "Name": "AMARDEEP SINGH  KHAIRA",
         "FatherName": "BALBIR SINGH KHAIRA",
@@ -7179,7 +7167,7 @@
     },
     {
         "RegisterationNo": "UCE(P)2005-114",
-        "YEAR ADMITTED": "2009",
+        "Batch ADMITTED": "2009",
         "Batch": "2011",
         "Name": "KAMALDEEP",
         "FatherName": "NARINDER KUMAR",
@@ -7192,7 +7180,7 @@
     },
     {
         "RegisterationNo": "MG(FS)2006-73",
-        "YEAR ADMITTED": "2009",
+        "Batch ADMITTED": "2009",
         "Batch": "2011",
         "Name": "GURVIR KAUR GILL",
         "FatherName": "ZORA SINGH GILL",
@@ -7205,7 +7193,7 @@
     },
     {
         "RegisterationNo": "PU(P)2009-573",
-        "YEAR ADMITTED": "2009",
+        "Batch ADMITTED": "2009",
         "Batch": "2011",
         "Name": "GURDEEPAK SINGH",
         "FatherName": "SUKHDEV SINGH",
@@ -7218,7 +7206,7 @@
     },
     {
         "RegisterationNo": "PU(P)2009-574",
-        "YEAR ADMITTED": "2009",
+        "Batch ADMITTED": "2009",
         "Batch": "2011",
         "Name": "NAVJOT KAUR",
         "FatherName": "HARBANS SINGH",
@@ -7231,7 +7219,7 @@
     },
     {
         "RegisterationNo": "PU(P)2009-575",
-        "YEAR ADMITTED": "2009",
+        "Batch ADMITTED": "2009",
         "Batch": "2011",
         "Name": "ROOCHIE",
         "FatherName": "RISHIPAL SINGH",
@@ -7244,7 +7232,7 @@
     },
     {
         "RegisterationNo": "YCE(TS)2005-163",
-        "YEAR ADMITTED": "2009",
+        "Batch ADMITTED": "2009",
         "Batch": "2011",
         "Name": "KIRTIKA",
         "FatherName": "ASHOK KUMAR",
@@ -7257,7 +7245,7 @@
     },
     {
         "RegisterationNo": "PU(P)2009-576",
-        "YEAR ADMITTED": "2009",
+        "Batch ADMITTED": "2009",
         "Batch": "2011",
         "Name": "RAJAN GOYAL ",
         "FatherName": "HANS RAJ",
@@ -7270,7 +7258,7 @@
     },
     {
         "RegisterationNo": "PU(P)2009-577",
-        "YEAR ADMITTED": "2009",
+        "Batch ADMITTED": "2009",
         "Batch": "2011",
         "Name": "AARTI ",
         "FatherName": "GURBACHAN SINGH",
@@ -7283,7 +7271,7 @@
     },
     {
         "RegisterationNo": "PU(P)2009-578",
-        "YEAR ADMITTED": "2009",
+        "Batch ADMITTED": "2009",
         "Batch": "2011",
         "Name": "NAVDEEP KAUR WALIA",
         "FatherName": "DHARAM SINGH",
@@ -7296,7 +7284,7 @@
     },
     {
         "RegisterationNo": "PU(P)2009-579",
-        "YEAR ADMITTED": "2009",
+        "Batch ADMITTED": "2009",
         "Batch": "2011",
         "Name": "MANJOT KAUR BOLA",
         "FatherName": "GURDEEP SINGH",
@@ -7309,7 +7297,7 @@
     },
     {
         "RegisterationNo": "PU(P)2009-580",
-        "YEAR ADMITTED": "2009",
+        "Batch ADMITTED": "2009",
         "Batch": "2011",
         "Name": "RANJODH KAUR",
         "FatherName": "JOGA SINGH",
@@ -7322,7 +7310,7 @@
     },
     {
         "RegisterationNo": "PU(P)2009-581",
-        "YEAR ADMITTED": "2009",
+        "Batch ADMITTED": "2009",
         "Batch": "2011",
         "Name": "HARMANDEEP KAUR",
         "FatherName": "KANWALJIT SINGH",
@@ -7335,7 +7323,7 @@
     },
     {
         "RegisterationNo": "PU(P)2009-582",
-        "YEAR ADMITTED": "2009",
+        "Batch ADMITTED": "2009",
         "Batch": "2011",
         "Name": "NAVJEET KAUR",
         "FatherName": "MANJIT SINGH",
@@ -7348,7 +7336,7 @@
     },
     {
         "RegisterationNo": "PU(P)2009-583",
-        "YEAR ADMITTED": "2009",
+        "Batch ADMITTED": "2009",
         "Batch": "2011",
         "Name": "SUKHDEEP SINGH",
         "FatherName": "DALBIR SINGH",
@@ -7361,7 +7349,7 @@
     },
     {
         "RegisterationNo": "UCE(P)2003-128",
-        "YEAR ADMITTED": "2009",
+        "Batch ADMITTED": "2009",
         "Batch": "2011",
         "Name": "SUPREET KAUR",
         "FatherName": "BALWINDER SINGH",
@@ -7374,7 +7362,7 @@
     },
     {
         "RegisterationNo": "PU(P)2009-584",
-        "YEAR ADMITTED": "2009",
+        "Batch ADMITTED": "2009",
         "Batch": "2011",
         "Name": "AMRITPAL SINGH",
         "FatherName": "MEHAR SINGH GILL",
@@ -7387,7 +7375,7 @@
     },
     {
         "RegisterationNo": "SD(B)2002-550",
-        "YEAR ADMITTED": "2009",
+        "Batch ADMITTED": "2009",
         "Batch": "2011",
         "Name": "CHETAN SHARMA",
         "FatherName": "AMRIT PAL SINGH",
@@ -7400,7 +7388,7 @@
     },
     {
         "RegisterationNo": "GCG(P)2003-408",
-        "YEAR ADMITTED": "2009",
+        "Batch ADMITTED": "2009",
         "Batch": "2011",
         "Name": "RUPINDER KAUR",
         "FatherName": "SHVINDER SINGH",
@@ -7413,7 +7401,7 @@
     },
     {
         "RegisterationNo": "PU(P)2009-585",
-        "YEAR ADMITTED": "2009",
+        "Batch ADMITTED": "2009",
         "Batch": "2011",
         "Name": "SWAROOP KAUR",
         "FatherName": "AMARJIT SINGH",
@@ -7426,7 +7414,7 @@
     },
     {
         "RegisterationNo": "PU(P)2009-586",
-        "YEAR ADMITTED": "2009",
+        "Batch ADMITTED": "2009",
         "Batch": "2011",
         "Name": "AMANDEEP KAUR GREWAL",
         "FatherName": "BAHADUR SINGH",
@@ -7439,7 +7427,7 @@
     },
     {
         "RegisterationNo": "PU(P)2009-587",
-        "YEAR ADMITTED": "2009",
+        "Batch ADMITTED": "2009",
         "Batch": "2011",
         "Name": "RAJBIR KAUR",
         "FatherName": "HARPAL SINGH",
@@ -7452,7 +7440,7 @@
     },
     {
         "RegisterationNo": "UCE(P)2005-114",
-        "YEAR ADMITTED": "2009",
+        "Batch ADMITTED": "2009",
         "Batch": "2011",
         "Name": "KAMALDEEP",
         "FatherName": "NARINDER KUMAR",
@@ -7465,7 +7453,7 @@
     },
     {
         "RegisterationNo": "PU(P)2009-572",
-        "YEAR ADMITTED": "2009",
+        "Batch ADMITTED": "2009",
         "Batch": "2011",
         "Name": "ANKUR RANA",
         "FatherName": "MANOHAR LAL",
@@ -7478,7 +7466,7 @@
     },
     {
         "RegisterationNo": "MG(FS)2006-73",
-        "YEAR ADMITTED": "2009",
+        "Batch ADMITTED": "2009",
         "Batch": "2011",
         "Name": "GURVIR KAUR GILL",
         "FatherName": "ZORA SINGH GILL",
@@ -7491,7 +7479,7 @@
     },
     {
         "RegisterationNo": "PU(P)2009-573",
-        "YEAR ADMITTED": "2009",
+        "Batch ADMITTED": "2009",
         "Batch": "2011",
         "Name": "GURDEEPAK SINGH",
         "FatherName": "SUKHDEV SINGH",
@@ -7504,7 +7492,7 @@
     },
     {
         "RegisterationNo": "PU(P)2009-574",
-        "YEAR ADMITTED": "2009",
+        "Batch ADMITTED": "2009",
         "Batch": "2011",
         "Name": "NAVJOT KAUR",
         "FatherName": "HARBANS SINGH",
@@ -7517,7 +7505,7 @@
     },
     {
         "RegisterationNo": "PU(P)2009-575",
-        "YEAR ADMITTED": "2009",
+        "Batch ADMITTED": "2009",
         "Batch": "2011",
         "Name": "ROOCHIE",
         "FatherName": "RISHIPAL SINGH",
@@ -7530,7 +7518,7 @@
     },
     {
         "RegisterationNo": "YCE(TS)2005-163",
-        "YEAR ADMITTED": "2009",
+        "Batch ADMITTED": "2009",
         "Batch": "2011",
         "Name": "KIRTIKA",
         "FatherName": "ASHOK KUMAR",
@@ -7543,7 +7531,7 @@
     },
     {
         "RegisterationNo": "PU(P)2009-576",
-        "YEAR ADMITTED": "2009",
+        "Batch ADMITTED": "2009",
         "Batch": "2011",
         "Name": "RAJAN GOYAL ",
         "FatherName": "HANS RAJ",
@@ -7556,7 +7544,7 @@
     },
     {
         "RegisterationNo": "PU(P)2009-577",
-        "YEAR ADMITTED": "2009",
+        "Batch ADMITTED": "2009",
         "Batch": "2011",
         "Name": "AARTI ",
         "FatherName": "GURBACHAN SINGH",
@@ -7569,7 +7557,7 @@
     },
     {
         "RegisterationNo": "PU(P)2009-578",
-        "YEAR ADMITTED": "2009",
+        "Batch ADMITTED": "2009",
         "Batch": "2011",
         "Name": "NAVDEEP KAUR WALIA",
         "FatherName": "DHARAM SINGH",
@@ -7582,7 +7570,7 @@
     },
     {
         "RegisterationNo": "PU(P)2009-579",
-        "YEAR ADMITTED": "2009",
+        "Batch ADMITTED": "2009",
         "Batch": "2011",
         "Name": "MANJOT KAUR BOLA",
         "FatherName": "GURDEEP SINGH",
@@ -7595,7 +7583,7 @@
     },
     {
         "RegisterationNo": "PU(P)2009-580",
-        "YEAR ADMITTED": "2009",
+        "Batch ADMITTED": "2009",
         "Batch": "2011",
         "Name": "RANJODH KAUR",
         "FatherName": "JOGA SINGH",
@@ -7608,7 +7596,7 @@
     },
     {
         "RegisterationNo": "PU(P)2009-581",
-        "YEAR ADMITTED": "2009",
+        "Batch ADMITTED": "2009",
         "Batch": "2011",
         "Name": "HARMANDEEP KAUR",
         "FatherName": "KANWALJIT SINGH",
@@ -7621,7 +7609,7 @@
     },
     {
         "RegisterationNo": "PU(P)2009-582",
-        "YEAR ADMITTED": "2009",
+        "Batch ADMITTED": "2009",
         "Batch": "2011",
         "Name": "NAVJEET KAUR",
         "FatherName": "MANJIT SINGH",
@@ -7634,7 +7622,7 @@
     },
     {
         "RegisterationNo": "PU(P)2009-583",
-        "YEAR ADMITTED": "2009",
+        "Batch ADMITTED": "2009",
         "Batch": "2011",
         "Name": "SUKHDEEP SINGH",
         "FatherName": "DALBIR SINGH",
@@ -7647,7 +7635,7 @@
     },
     {
         "RegisterationNo": "UCE(P)2003-128",
-        "YEAR ADMITTED": "2009",
+        "Batch ADMITTED": "2009",
         "Batch": "2011",
         "Name": "SUPREET KAUR",
         "FatherName": "BALWINDER SINGH",
@@ -7660,7 +7648,7 @@
     },
     {
         "RegisterationNo": "SD(B)2002-550",
-        "YEAR ADMITTED": "2009",
+        "Batch ADMITTED": "2009",
         "Batch": "2011",
         "Name": "CHETAN SHARMA",
         "FatherName": "AMRIT PAL SINGH",
@@ -7673,7 +7661,7 @@
     },
     {
         "RegisterationNo": "GCG(P)2003-408",
-        "YEAR ADMITTED": "2009",
+        "Batch ADMITTED": "2009",
         "Batch": "2011",
         "Name": "RUPINDER KAUR",
         "FatherName": "SHVINDER SINGH",
@@ -7686,7 +7674,7 @@
     },
     {
         "RegisterationNo": "PU(P)2009-585",
-        "YEAR ADMITTED": "2009",
+        "Batch ADMITTED": "2009",
         "Batch": "2011",
         "Name": "SWAROOP KAUR",
         "FatherName": "AMARJIT SINGH",
@@ -7699,7 +7687,7 @@
     },
     {
         "RegisterationNo": "PU(P)2009-586",
-        "YEAR ADMITTED": "2009",
+        "Batch ADMITTED": "2009",
         "Batch": "2011",
         "Name": "AMANDEEP KAUR GREWAL",
         "FatherName": "BAHADUR SINGH",
@@ -7712,7 +7700,7 @@
     },
     {
         "RegisterationNo": "PU(P)2009-587",
-        "YEAR ADMITTED": "2009",
+        "Batch ADMITTED": "2009",
         "Batch": "2011",
         "Name": "RAJBIR KAUR",
         "FatherName": "HARPAL SINGH",
@@ -7725,7 +7713,7 @@
     },
     {
         "RegisterationNo": "PU(P)2012-1305",
-        "YEAR ADMITTED": 2012,
+        "Batch ADMITTED": 2012,
         "Batch": 2014,
         "Name": "AMANJOT KAUR",
         "FatherName": "DHARAMPAL SINGH",
@@ -7738,7 +7726,7 @@
     },
     {
         "RegisterationNo": "PU(P)2012-1306",
-        "YEAR ADMITTED": 2012,
+        "Batch ADMITTED": 2012,
         "Batch": 2014,
         "Name": "RAJVEER KAUR",
         "FatherName": "MANJIT SINGH",
@@ -7751,7 +7739,7 @@
     },
     {
         "RegisterationNo": "UCE(P)2008-262",
-        "YEAR ADMITTED": 2012,
+        "Batch ADMITTED": 2012,
         "Batch": 2014,
         "Name": "ARSHDEEP KAUR",
         "FatherName": "PARMINDER SINGH",
@@ -7764,7 +7752,7 @@
     },
     {
         "RegisterationNo": "PU(P)2012-1307",
-        "YEAR ADMITTED": 2012,
+        "Batch ADMITTED": 2012,
         "Batch": 2014,
         "Name": "SWARANJEET KAUR",
         "FatherName": "RAJINDER SINGH",
@@ -7777,7 +7765,7 @@
     },
     {
         "RegisterationNo": "PU(P)2012-1308",
-        "YEAR ADMITTED": 2012,
+        "Batch ADMITTED": 2012,
         "Batch": 2014,
         "Name": "RAMANDEEP KAUR",
         "FatherName": "GURMAIL SINGH",
@@ -7790,7 +7778,7 @@
     },
     {
         "RegisterationNo": "UCE(P)2008-255",
-        "YEAR ADMITTED": 2012,
+        "Batch ADMITTED": 2012,
         "Batch": 2014,
         "Name": "NIMRAT KAUR KEHAL",
         "FatherName": "JAGWINDER SINGH",
@@ -7803,7 +7791,7 @@
     },
     {
         "RegisterationNo": "UCE(P)2008-199",
-        "YEAR ADMITTED": 2012,
+        "Batch ADMITTED": 2012,
         "Batch": 2014,
         "Name": "SIMARPREET SINGH",
         "FatherName": "BHUPINDER SINGH",
@@ -7816,7 +7804,7 @@
     },
     {
         "RegisterationNo": "UCE(P)2008-288",
-        "YEAR ADMITTED": 2012,
+        "Batch ADMITTED": 2012,
         "Batch": 2014,
         "Name": "DINESH KUMAR",
         "FatherName": "SHANTI SAROOP",
@@ -7829,7 +7817,7 @@
     },
     {
         "RegisterationNo": "PU(P)2012-1309",
-        "YEAR ADMITTED": 2012,
+        "Batch ADMITTED": 2012,
         "Batch": 2014,
         "Name": "RABIA SEHGEL",
         "FatherName": "SUSHIL KUMAR",
@@ -7842,7 +7830,7 @@
     },
     {
         "RegisterationNo": "PU(P)2012-1310",
-        "YEAR ADMITTED": 2012,
+        "Batch ADMITTED": 2012,
         "Batch": 2014,
         "Name": "SUMANPREET KAUR",
         "FatherName": "GURMEET SINGH",
@@ -7855,7 +7843,7 @@
     },
     {
         "RegisterationNo": "PU(P)2012-1311",
-        "YEAR ADMITTED": 2012,
+        "Batch ADMITTED": 2012,
         "Batch": 2014,
         "Name": "NEHA GARG",
         "FatherName": "LAXMAN DASS GARG",
@@ -7868,7 +7856,7 @@
     },
     {
         "RegisterationNo": "PU(P)2012-1312",
-        "YEAR ADMITTED": 2012,
+        "Batch ADMITTED": 2012,
         "Batch": 2014,
         "Name": "RICHA ",
         "FatherName": "ASHOK KUMAR",
@@ -7881,7 +7869,7 @@
     },
     {
         "RegisterationNo": "PU(P)2012-1313",
-        "YEAR ADMITTED": 2012,
+        "Batch ADMITTED": 2012,
         "Batch": 2014,
         "Name": "SHYNA MITTAL",
         "FatherName": "SURINDER KUMAR",
@@ -7894,7 +7882,7 @@
     },
     {
         "RegisterationNo": "GRC(S)2006-269",
-        "YEAR ADMITTED": 2012,
+        "Batch ADMITTED": 2012,
         "Batch": 2014,
         "Name": "AMANDEEP SINGH",
         "FatherName": "MOHINDER SINGH",
@@ -7907,7 +7895,7 @@
     },
     {
         "RegisterationNo": "PU(P)2012-1314",
-        "YEAR ADMITTED": 2012,
+        "Batch ADMITTED": 2012,
         "Batch": 2014,
         "Name": "RAKHI RANI ",
         "FatherName": "KESHAV ",
@@ -7920,7 +7908,7 @@
     },
     {
         "RegisterationNo": "PU(P)2012-1315",
-        "YEAR ADMITTED": 2012,
+        "Batch ADMITTED": 2012,
         "Batch": 2014,
         "Name": "ROMIKA GARG",
         "FatherName": "RAMESH GARG",
@@ -7933,7 +7921,7 @@
     },
     {
         "RegisterationNo": "PU(P)2012-1316",
-        "YEAR ADMITTED": 2012,
+        "Batch ADMITTED": 2012,
         "Batch": 2014,
         "Name": "BHAWNA SINGLA ",
         "FatherName": "PARSHOTAM SINGLA ",
@@ -7946,7 +7934,7 @@
     },
     {
         "RegisterationNo": "PU(P)2012-1636",
-        "YEAR ADMITTED": 2012,
+        "Batch ADMITTED": 2012,
         "Batch": 2014,
         "Name": "RUBINA",
         "FatherName": "BAL BAHADUR SINGH",
@@ -7959,7 +7947,7 @@
     },
     {
         "RegisterationNo": "PU(P)2012-1635",
-        "YEAR ADMITTED": 2012,
+        "Batch ADMITTED": 2012,
         "Batch": 2014,
         "Name": "ISHNEET KAUR",
         "FatherName": "AMARJEET SINGH",
@@ -7972,7 +7960,7 @@
     },
     {
         "RegisterationNo": "PU(P)2012-2087",
-        "YEAR ADMITTED": 2012,
+        "Batch ADMITTED": 2012,
         "Batch": 2014,
         "Name": "NETARDEEP SINGH",
         "FatherName": "BUTA SINGH",
@@ -7985,7 +7973,7 @@
     },
     {
         "RegisterationNo": "PU(P)2012-2088",
-        "YEAR ADMITTED": 2012,
+        "Batch ADMITTED": 2012,
         "Batch": 2014,
         "Name": "SOURABH WATTS",
         "FatherName": "SURESH KUMAR",
@@ -7998,7 +7986,7 @@
     },
     {
         "RegisterationNo": "PU(P)2012-1295",
-        "YEAR ADMITTED": 2012,
+        "Batch ADMITTED": 2012,
         "Batch": 2014,
         "Name": "NITESH SHARMA ",
         "FatherName": "VEER CHAND SHARMA",

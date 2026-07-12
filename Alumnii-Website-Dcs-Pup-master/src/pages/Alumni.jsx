@@ -38,7 +38,7 @@ export default function Alumni() {
 
   // Normalize batch field
   const getBatch = (item) => {
-    const batch = item.Batch || item.batch || '';
+    const batch = item.Batch || item.batch || item.Year || item['year of admitted'] || item['addmission year'] || item['year admitted'] || item.addmissionyear || '';
     const batchStr = String(batch); // Convert to string to handle numbers or other types
     return batchStr.trim();
   };
@@ -182,8 +182,8 @@ export default function Alumni() {
       if (!aIsTop && bIsTop) return 1;
       if (aIsTop && bIsTop) return nameA.localeCompare(nameB);
 
-      const yearA = extractYear(a.Batch || a.batch);
-      const yearB = extractYear(b.Batch || b.batch);
+      const yearA = extractYear(getBatch(a));
+      const yearB = extractYear(getBatch(b));
 
       // Sort by year in descending order (2024 > 2023 > 2022)
       if (yearB !== yearA) return yearB - yearA;
@@ -363,7 +363,7 @@ export default function Alumni() {
                 <div className="p-4 text-sm md:text-base">
                   <h3 className="text-lg md:text-xl font-bold">{item.Name || item.name}</h3>
                   {(item.Course || item.course) && <p><strong>Course:</strong> {item.Course || item.course}</p>}
-                  {(item.Batch || item.batch) && <p><strong>Batch:</strong> {item.Batch || item.batch}</p>}
+                  {getBatch(item) && <p><strong>Batch:</strong> {getBatch(item)}</p>}
                   {(item.Class || item.class) && <p><strong>Class:</strong> {item.Class || item.class}</p>}
                   {getProfession(item) && <p><strong>Profession:</strong> {getProfession(item).charAt(0).toUpperCase() + getProfession(item).slice(1)}</p>}
                   {item.organization && <p><strong>Organization:</strong> {item.organization}</p>}

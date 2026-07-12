@@ -604,12 +604,14 @@
         "FatherName": "Avtar Singh",
         "Email": "jaswinder.kaur@bbsbec.ac.in",
         "Address": "Vill Chehal",
+        "Year": 2010,
         "Location": "Patiala",
         "Occupation": "Semi-Govt Employee",
         "PhoneNo": "8146340296",
         "WebsiteLink": "Bbsbec.ac.in",
         "Skill": "Data Science, Artificial Intelligence",
         "Image": "/images/Jaswinder Dhaliwal.jpeg"
+        
     },
     {
         "Year": 2010,
@@ -1253,21 +1255,7 @@
         "Batch": 2018,
         "Image": ""
     },
-    {
-        "Name": "Dr. Rakesh Kumar",
-        "FatherName": "VInod Kumar",
-        "Course": "PHD",
-        "PhoneNo": 8146602204,
-        "Address": "Vidya Nagar Punjabi University Patiala",
-        "Email ": "rakesh1404@gmail.com",
-        "Profession": "Teaching",
-        "Occupation": "Assistant Professor",
-        "InstituteName": "University College Miranpur, Patiala",
-        "WebsiteLink": "ucmiranpur.ac.in",
-        "Skill": "Machine Translation",
-        "Batch": 2023,
-        "Image": ""
-    },
+    
     {
         "Name": "Inderjeet kaur",
         "FatherName": "Gursewak singh",
@@ -35135,24 +35123,6 @@
         "LinkedIn": "",
         "State": "PUNJAB",
         "UniversityRegNo": "912-12-157"
-    },
-    {
-        "Name": "MALOOK SINGH",
-        "FatherName": "KULWANT SINGH ",
-        "PhoneNo": "M.No. 9041287914",
-        "Address": "VPO Nial, Tehsil Patran, Distt. Patiala",
-        "Email": "singhmalook99@gmail.com",
-        "Profession": "",
-        "Occupation": "",
-        "InstituteName": "",
-        "WebsiteLink": "",
-        "Skill": "",
-        "Batch": "2015-2016",
-        "Course": "MCA",
-        "Image": "",
-        "LinkedIn": "",
-        "State": "PUNJAB",
-        "UniversityRegNo": "7116-12-127"
     },
     {
         "Name": "MANDEEP SINGH",

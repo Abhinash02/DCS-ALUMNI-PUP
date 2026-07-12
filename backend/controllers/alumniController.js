@@ -518,7 +518,7 @@ exports.forgotPassword = async (req, res) => {
 
 exports.sendBulkEmail = async (req, res) => {
   try {
-    const { subject, message } = req.body;
+    const { subject, message, resumeFromEmail } = req.body;
 
     if (!subject || !message) {
       return res.status(400).json({ error: 'Subject and message are required' });
@@ -556,10 +556,22 @@ exports.sendBulkEmail = async (req, res) => {
       console.error('Error reading aluminiData.json:', jsonErr);
     }
 
-    const emailList = Array.from(emails);
+    let emailList = Array.from(emails);
     if (emailList.length === 0) {
       res.write(`data: ${JSON.stringify({ error: 'No valid recipient email addresses found', status: 'error' })}\n\n`);
       return res.end();
+    }
+
+    if (resumeFromEmail && resumeFromEmail.trim()) {
+      const resumeIndex = emailList.findIndex(e => e.toLowerCase() === resumeFromEmail.trim().toLowerCase());
+      if (resumeIndex !== -1) {
+        // Slice to start FROM the next email
+        emailList = emailList.slice(resumeIndex + 1);
+        if (emailList.length === 0) {
+          res.write(`data: ${JSON.stringify({ error: 'No emails left to send after the resume point', status: 'error' })}\n\n`);
+          return res.end();
+        }
+      }
     }
 
     const total = emailList.length;
@@ -610,14 +622,19 @@ exports.sendBulkEmail = async (req, res) => {
           html: emailHtml
         });
         sentCount++;
-        res.write(`data: ${JSON.stringify({ total, sent: sentCount, failed: failedCount, status: 'sending' })}\n\n`);
+        res.write(`data: ${JSON.stringify({ total, sent: sentCount, failed: failedCount, status: 'sending', lastEmail: email })}\n\n`);
 
-        // Add a 100ms delay between emails to avoid rate limits
-        await sleep(100);
+        // Add a 1500ms delay between emails to avoid rate limits
+        await sleep(1500);
+
+        // Batch cooling: every 50 emails, rest for 15 seconds
+        if (i > 0 && i % 50 === 0) {
+          await sleep(15000);
+        }
       } catch (emailErr) {
         console.error(`Failed to send to ${email}:`, emailErr.message);
         failedCount++;
-        res.write(`data: ${JSON.stringify({ total, sent: sentCount, failed: failedCount, status: 'sending' })}\n\n`);
+        res.write(`data: ${JSON.stringify({ total, sent: sentCount, failed: failedCount, status: 'sending', lastEmail: email })}\n\n`);
       }
     }
 
