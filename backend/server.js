@@ -206,14 +206,18 @@ const connectDB = async () => {
   }
 };
 
-// Connect to the database before handling any requests
-app.use(async (req, res, next) => {
-  await connectDB();
-  next();
+// --- Fast Response Routes (No DB Required) ---
+// Ping Route (to prevent cold starts from timing out ping services)
+app.get('/ping', (req, res) => {
+  res.status(200).send('pong');
 });
 
+// Root Route (Required by Vercel/Cron)
+app.get('/', (req, res) => {
+  res.status(200).send('Backend API is running flawlessly! 🚀');
+});
 
-// Root Route
+// Health Route
 app.get('/api/health', (req, res) => {
   res.status(200).json({
     ok: true,
@@ -223,14 +227,10 @@ app.get('/api/health', (req, res) => {
   });
 });
 
-// Ping Route (to prevent cold starts)
-app.get('/ping', (req, res) => {
-  res.status(200).send('pong');
-});
-
-// Root Route (Required by Vercel/Cron)
-app.get('/', (req, res) => {
-  res.status(200).send('Backend API is running flawlessly! 🚀');
+// Connect to the database before handling any API requests
+app.use(async (req, res, next) => {
+  await connectDB();
+  next();
 });
 
 
