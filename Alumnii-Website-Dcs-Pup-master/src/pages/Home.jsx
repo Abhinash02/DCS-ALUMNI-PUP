@@ -74,7 +74,7 @@ export const Home = () => {
             </div>
 
             <Team />
-            <div className="-mt-20 md:-mt-24">
+            <div className="-mt-10 md:-mt-24">
                 <JobBoard isComponent={true} />
             </div>
 

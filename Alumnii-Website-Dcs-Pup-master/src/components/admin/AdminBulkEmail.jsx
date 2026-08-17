@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import API from '../../api/api';
 import ReactQuill from 'react-quill';
@@ -13,6 +13,21 @@ const AdminBulkEmail = () => {
   const [abortController, setAbortController] = useState(null);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  const [batches, setBatches] = useState([]);
+  const [selectedBatch, setSelectedBatch] = useState('All Batches');
+
+  useEffect(() => {
+    const fetchBatches = async () => {
+      try {
+        const baseUrl = API.defaults.baseURL || 'https://dcs-alumni.vercel.app/api';
+        const response = await axios.get(`${baseUrl}/alumni/batches`);
+        setBatches(response.data);
+      } catch (err) {
+        console.error('Failed to fetch batches:', err);
+      }
+    };
+    fetchBatches();
+  }, []);
 
   const handleBulkEmailSubmit = async (e) => {
     e.preventDefault();
@@ -39,7 +54,8 @@ const AdminBulkEmail = () => {
       await axios.post(`${baseUrl}/alumni/bulk-email`, {
         subject: bulkEmailSubject,
         message: bulkEmailMessage,
-        resumeFromEmail: resumeEmail
+        resumeFromEmail: resumeEmail,
+        batch: selectedBatch
       }, {
         headers: { Authorization: `Bearer ${token}` },
         signal: controller.signal,
@@ -124,6 +140,21 @@ const AdminBulkEmail = () => {
             required
             disabled={isSendingBulkEmail}
           />
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium text-gray-300 mb-2">Target Batch</label>
+          <select
+            value={selectedBatch}
+            onChange={(e) => setSelectedBatch(e.target.value)}
+            className="mt-1 block w-full bg-gray-700 border-1.5 border-black rounded-lg text-black shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm p-3"
+            disabled={isSendingBulkEmail}
+          >
+            <option value="All Batches">All Batches</option>
+            {batches.map((b, i) => (
+              <option key={i} value={b}>{b}</option>
+            ))}
+          </select>
         </div>
 
         <div>

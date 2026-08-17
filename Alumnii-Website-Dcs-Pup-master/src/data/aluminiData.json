@@ -713,19 +713,6 @@
         "Image": "/images/mehakmahotra.jpeg"
     },
     {
-        "Name": "Mohit Kumar",
-        "FatherName": "Vijay Kumar",
-        "PhoneNo": 7696594066,
-        "Address": "Mohali",
-        "Email ": "mohit.kumar@careerbuilder.com",
-        "Profession": "Industry",
-        "Occupation": "Software Engineer 2",
-        "InstituteName": "Career Builder",
-        "Skill": "Backend : NodeJS, NestJS, MongoDB, MySQL, Solr",
-        "Batch": 2019,
-        "Image": "/images/mohitkumar.jpg"
-    },
-    {
         "Name": "Jaspreet Kaur",
         "FatherName": "Mewa Singh",
         "PhoneNo": 4915901796669,
@@ -44107,24 +44094,6 @@
         "UniversityRegNo": "9797-2020-1671"
     },
     {
-        "Name": "NITIN KUMAR",
-        "FatherName": "BITTU KUMAR",
-        "PhoneNo": "9779311902",
-        "Address": "Near Som Hospital, Ward No. 3, Bhikhi, Distt. Mansa (151504)",
-        "Email": "nitingoyal658930@gmail.com",
-        "Profession": "",
-        "Occupation": "",
-        "InstituteName": "",
-        "WebsiteLink": "",
-        "Skill": "",
-        "Batch": "2020-2022",
-        "Course": "MCA",
-        "Image": "",
-        "LinkedIn": "",
-        "State": "Punjab",
-        "UniversityRegNo": "714-2017-403"
-    },
-    {
         "Name": "VARUN K DILEEP",
         "FatherName": "K P DILEEEP",
         "PhoneNo": "9539251482",
@@ -48139,24 +48108,6 @@
         "UniversityRegNo": "6128-2020-118"
     },
     {
-        "Name": "ALINA",
-        "FatherName": "SAJID",
-        "PhoneNo": "7986555153, 9888168147",
-        "Address": "# 398, Maler, Afghan Chowk, Malerkotla (148023)",
-        "Email": "1134alina@gmail.com, asaify789@gmail.com",
-        "Profession": "",
-        "Occupation": "",
-        "InstituteName": "",
-        "WebsiteLink": "",
-        "Skill": "",
-        "Batch": "2023-2025",
-        "Course": "MCA",
-        "Image": "",
-        "LinkedIn": "",
-        "State": "Punjab",
-        "UniversityRegNo": "9797-2023-1329"
-    },
-    {
         "Name": "MANPREET SINGH",
         "FatherName": "SUKHWINDER SINGH",
         "PhoneNo": "8847594919, 9646337526",
@@ -48371,24 +48322,6 @@
         "LinkedIn": "",
         "State": "Punjab",
         "UniversityRegNo": "717-2020-1233"
-    },
-    {
-        "Name": "MOHIT KUMAR",
-        "FatherName": "BRIJ DAN SHARMA",
-        "PhoneNo": "8935832240",
-        "Address": "# 101, Village, Manwa, PO Punthar, Distt. Nawada (Bihar) (805103)",
-        "Email": "mk079823@gmail.com",
-        "Profession": "",
-        "Occupation": "",
-        "InstituteName": "",
-        "WebsiteLink": "",
-        "Skill": "",
-        "Batch": "2023-2025",
-        "Course": "MCA",
-        "Image": "",
-        "LinkedIn": "",
-        "State": "Bihar",
-        "UniversityRegNo": "9797-2023-1341"
     },
     {
         "Name": "HIMANSHU CHEHAL",

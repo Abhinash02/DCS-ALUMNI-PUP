@@ -77,8 +77,8 @@ const JobBoard = ({ isComponent = false }) => {
   if (loading) return <PageLoader />;
 
   return (
-    <div className={`w-full bg-gray-50 ${isComponent ? 'pt-0 pb-12' : 'min-h-screen pt-12 pb-15'}`}>
-      <div className="max-w-6xl mx-auto px-4 md:px-5">
+    <div className={`w-full bg-gray-50 ${isComponent ? 'pt-0 pb-12' : 'min-h-screen pt-8 pb-15'}`}>
+      <div className="max-w-6xl mx-auto px-4 md:px-8">
         
         {/* Header */}
         <div className={`text-center ${isComponent ? 'mb-5' : 'mb-5'}`}>

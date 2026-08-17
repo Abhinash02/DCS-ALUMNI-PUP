@@ -12,15 +12,19 @@ const storage = new CloudinaryStorage({
   params: {
     folder: 'alumni',
     allowed_formats: ['jpg', 'png', 'jpeg'],
-    transformation: [{ quality: 'auto', fetch_format: 'auto' }]
+    transformation: [{ width: 1000, crop: 'limit', quality: 'auto:best', fetch_format: 'auto' }]
   },
 });
 
-const upload = multer({ storage });
+const upload = multer({ 
+  storage,
+  limits: { fileSize: 10 * 1024 * 1024 } // 10MB limit
+});
 
 const memoryStorage = multer.memoryStorage();
 const uploadExcel = multer({ storage: memoryStorage });
 
+router.get('/batches', alumniController.getUniqueBatches);
 router.get('/pending', alumniController.getPending);
 router.get('/approved', alumniController.getApproved);
 router.get('/denied',  alumniController.getDenied);

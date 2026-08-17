@@ -767,7 +767,7 @@ export default function Admindashboard() {
 
       {/* Main Content */}
       <div className="flex-1 p-8 overflow-auto animate__animated animate__fadeIn">
-        <header className="bg-gray-800 rounded-xl shadow-lg pb-3 mb-3 mt-16 text-center animate__animated animate__fadeInTop">
+        <header className="bg-gray-800 rounded-xl shadow-lg pb-3 mb-3 mt-20 text-center animate__animated animate__fadeInTop">
           <h1 className="text-3xl font-bold text-blue font-poppins">
             Welcome Admin DCS Punjabi University, Patiala
           </h1>

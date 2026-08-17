@@ -12,6 +12,9 @@ const Register = () => {
     watch,
     formState: { errors, isSubmitting },
     setValue,
+    trigger,
+    setError,
+    clearErrors
   } = useForm({
     defaultValues: {
       name: '',
@@ -78,9 +81,32 @@ const Register = () => {
     'Cloud & Security', 'Database Management & Backend Development', 'Others',
   ];
 
-  const nextStep = () => {
-    setActiveStep((prev) => prev + 1);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  const nextStep = async () => {
+    let isValid = false;
+    if (activeStep === 1) {
+      isValid = await trigger(['name', 'fathername', 'email', 'phone', 'password', 'address']);
+    } else if (activeStep === 2) {
+      isValid = await trigger(['course', 'batch', 'profession', 'organization', 'linkedin', 'website']);
+    } else if (activeStep === 3) {
+      isValid = await trigger(['skills', 'otherSkill', 'sessionConsent']);
+      const photo = watch('photo');
+      if (!photo) {
+        setError('photo', { type: 'manual', message: 'Profile photo is required' });
+        isValid = false;
+      } else if (photo.size > 10 * 1024 * 1024) {
+        setError('photo', { type: 'manual', message: 'File size must be less than 10MB' });
+        isValid = false;
+      } else {
+        clearErrors('photo');
+      }
+    } else {
+      isValid = true;
+    }
+
+    if (isValid) {
+      setActiveStep((prev) => prev + 1);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   const prevStep = () => {
@@ -613,7 +639,17 @@ const Register = () => {
                           accept="image/*"
                           className="sr-only"
                           onChange={(e) => {
-                            setValue('photo', e.target.files[0]);
+                            const file = e.target.files[0];
+                            setValue('photo', file);
+                            if (file) {
+                              if (file.size > 10 * 1024 * 1024) {
+                                setError('photo', { type: 'manual', message: 'File size must be less than 10MB' });
+                              } else {
+                                clearErrors('photo');
+                              }
+                            } else {
+                               setError('photo', { type: 'manual', message: 'Profile photo is required' });
+                            }
                           }}
                         />
                       </label>

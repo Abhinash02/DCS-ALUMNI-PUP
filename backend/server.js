@@ -169,7 +169,7 @@ const corsOptions = {
   origin: (origin, callback) => {
     // Allow requests with no origin, matched in allowedOrigins list, or any local dev server port
     if (
-      !origin || 
+      !origin ||
       allowedOrigins.includes(origin) ||
       /^http:\/\/localhost:\d+$/.test(origin) ||
       /^http:\/\/127\.0\.0\.1:\d+$/.test(origin)
@@ -226,6 +226,11 @@ app.get('/api/health', (req, res) => {
 // Ping Route (to prevent cold starts)
 app.get('/ping', (req, res) => {
   res.status(200).send('pong');
+});
+
+// Root Route (Required by Vercel/Cron)
+app.get('/', (req, res) => {
+  res.status(200).send('Backend API is running flawlessly! 🚀');
 });
 
 

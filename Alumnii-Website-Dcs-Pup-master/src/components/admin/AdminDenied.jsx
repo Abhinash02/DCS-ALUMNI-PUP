@@ -49,10 +49,10 @@ const AdminDenied = () => {
   const renderAlumniCard = (a) => (
     <div key={a._id} className="border p-6 rounded-xl shadow-lg bg-white transform hover:scale-105 transition-transform duration-300 animate__animated animate__fadeIn">
       <img
-        src={a.photo}
+        src={a.photo || '/images/user.jpg'}
         alt={a.name}
         className="w-24 h-24 object-cover rounded-full mb-4 mx-auto"
-        onError={(e) => (e.target.src = '/images/placeholder.png')}
+        onError={(e) => (e.target.src = '/images/user.jpg')}
       />
       <p className="text-gray-700"><strong>Name:</strong> {a.name}</p>
       <p className="text-gray-700"><strong>Class:</strong> {a.course}</p>

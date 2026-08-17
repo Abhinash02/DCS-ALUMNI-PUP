@@ -40,25 +40,30 @@ const sendEmail = async ({ to, subject, html }) => {
     html,
   };
 
-  // Try Brevo first if available
+  // Try Gmail first (Primary)
+  let gmailErrorMsg = '';
+  try {
+    await gmailTransporter.sendMail(mailOptions);
+    console.log(`Email sent successfully to ${to} via Gmail`);
+    return; // Exit if successful
+  } catch (gmailError) {
+    gmailErrorMsg = gmailError.message;
+    console.warn(`Gmail failed for ${to} (${gmailErrorMsg}). Falling back to Brevo...`);
+    // Proceed to fallback
+  }
+
+  // Fallback to Brevo
   if (brevoTransporter) {
     try {
       await brevoTransporter.sendMail(mailOptions);
-      console.log(`Email sent successfully to ${to} via Brevo`);
+      console.log(`Email sent successfully to ${to} via Brevo (Fallback)`);
       return; // Exit if successful
     } catch (brevoError) {
-      console.warn(`Brevo failed for ${to} (${brevoError.message}). Falling back to Gmail...`);
-      // Proceed to fallback
+      console.error(`Brevo fallback also failed for ${to}:`, brevoError.message);
+      throw new Error(`Could not send email. Both Gmail and Brevo failed.`);
     }
-  }
-
-  // Fallback to Gmail
-  try {
-    await gmailTransporter.sendMail(mailOptions);
-    console.log(`Email sent successfully to ${to} via Gmail (Fallback)`);
-  } catch (gmailError) {
-    console.error(`Gmail fallback also failed for ${to}:`, gmailError.message);
-    throw new Error(`Could not send email. Both Brevo and Gmail failed. (${gmailError.message})`);
+  } else {
+    throw new Error(`Could not send email. Gmail failed and Brevo is not configured. (${gmailErrorMsg})`);
   }
 };
 

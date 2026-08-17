@@ -28,9 +28,18 @@ exports.createAlumni = async (req, res) => {
       password // Added password
     } = req.body;
 
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email || !emailRegex.test(email.trim())) {
+      return res.status(400).json({ message: 'A valid email address is required' });
+    }
+
     // Hash the password
     const saltRounds = 10;
     const hashedPassword = await bcrypt.hash(password, saltRounds);
+
+    if (!req.file) {
+      return res.status(400).json({ message: 'Profile photo is required' });
+    }
 
     const alumniData = {
       name,
@@ -516,9 +525,45 @@ exports.forgotPassword = async (req, res) => {
   }
 };
 
+exports.getUniqueBatches = async (req, res) => {
+  try {
+    const batches = new Set();
+    
+    // Get from DB
+    const dbBatches = await Alumni.find({ approved: true }).distinct('batch');
+    dbBatches.forEach(b => {
+      if (b && b.toString().trim()) {
+        batches.add(b.toString().trim());
+      }
+    });
+
+    // Get from JSON
+    try {
+      const fs = require('fs');
+      const path = require('path');
+      const jsonPath = path.join(__dirname, '../../Alumnii-Website-Dcs-Pup-master/src/data/aluminiData.json');
+      const jsonData = fs.readFileSync(jsonPath, 'utf8');
+      const parsedData = JSON.parse(jsonData);
+      parsedData.forEach(a => {
+        if (a.Batch && a.Batch.toString().trim()) {
+          batches.add(a.Batch.toString().trim());
+        }
+      });
+    } catch (jsonErr) {
+      console.error('Error reading aluminiData.json for batches:', jsonErr);
+    }
+
+    const uniqueBatches = Array.from(batches).sort();
+    res.json(uniqueBatches);
+  } catch (err) {
+    console.error('Error fetching unique batches:', err);
+    res.status(500).json({ error: 'Failed to fetch batches' });
+  }
+};
+
 exports.sendBulkEmail = async (req, res) => {
   try {
-    const { subject, message, resumeFromEmail } = req.body;
+    const { subject, message, resumeFromEmail, batch } = req.body;
 
     if (!subject || !message) {
       return res.status(400).json({ error: 'Subject and message are required' });
@@ -536,11 +581,18 @@ exports.sendBulkEmail = async (req, res) => {
     res.write(':' + ' '.repeat(1024) + '\n\n');
 
     const emails = new Set();
+    const isValidEmail = (email) => {
+      return email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+    };
 
     // 1. Fetch from DB
-    const approvedAlumni = await Alumni.find({ approved: true });
+    const dbQuery = { approved: true };
+    if (batch && batch !== 'All Batches') {
+      dbQuery.batch = batch;
+    }
+    const approvedAlumni = await Alumni.find(dbQuery);
     approvedAlumni.forEach(a => {
-      if (a.email && a.email.trim()) emails.add(a.email.trim());
+      if (isValidEmail(a.email)) emails.add(a.email.trim());
     });
 
     // 2. Fetch from aluminiData.json
@@ -549,8 +601,12 @@ exports.sendBulkEmail = async (req, res) => {
       const jsonData = fs.readFileSync(jsonPath, 'utf8');
       const parsedData = JSON.parse(jsonData);
       parsedData.forEach(a => {
+        if (batch && batch !== 'All Batches') {
+           const aBatch = a.Batch ? a.Batch.toString().trim() : '';
+           if (aBatch !== batch) return;
+        }
         const email = a.Email || a['Email '];
-        if (email && email.trim()) emails.add(email.trim());
+        if (isValidEmail(email)) emails.add(email.trim());
       });
     } catch (jsonErr) {
       console.error('Error reading aluminiData.json:', jsonErr);
