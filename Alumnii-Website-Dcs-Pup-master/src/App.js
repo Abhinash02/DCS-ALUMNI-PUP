@@ -27,20 +27,33 @@ const JobBoard = React.lazy(() => import('./pages/JobBoard'));
 
 function App() {
   const [isPageLoading, setIsPageLoading] = useState(false);
+  const [isExiting, setIsExiting] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
     setIsPageLoading(true);
-    const timer = setTimeout(() => {
+    setIsExiting(false);
+
+    // Trigger smooth exit transition before unmounting
+    const exitTimer = setTimeout(() => {
+      setIsExiting(true);
+    }, 450);
+
+    const removeTimer = setTimeout(() => {
       setIsPageLoading(false);
-    }, 600);
-    return () => clearTimeout(timer);
+      setIsExiting(false);
+    }, 750);
+
+    return () => {
+      clearTimeout(exitTimer);
+      clearTimeout(removeTimer);
+    };
   }, [location.pathname]);
 
   return (
     <div className='relative overflow-hidden font-poppins' >
       <ToastContainer position="top-right" autoClose={3000} />
-      {isPageLoading && <PageLoader />}
+      {isPageLoading && <PageLoader isExiting={isExiting} />}
       <Navbar />
       <div className=' mx-auto z-0'>
         <Suspense fallback={<PageLoader />}>
