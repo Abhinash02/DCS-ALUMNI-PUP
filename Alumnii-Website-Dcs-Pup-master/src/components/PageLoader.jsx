@@ -1,10 +1,35 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+
+const DEPARTMENT_FACTS = [
+  "Connecting 35+ batches of DCS alumni across 20+ countries worldwide",
+  "Established in July 1987 — over 38+ years of pioneering computing education",
+  "Pioneered northern India's very first 4-year B.Tech in Computer Science in 1987",
+  "Accredited with NAAC 'A+' Grade with a CGPA of 3.37",
+  "Global leaders in Punjabi Language NLP, Gurmukhi OCR & Speech Synthesis",
+  "UGC-SAP (DSA Level) and DST-FIST sponsored research department",
+  "Empowering students through Coder's Club & Career Development Cell",
+  "Over 120+ high-performance workstations and modern computing labs"
+];
 
 const PageLoader = ({ 
   isExiting = false, 
   text = "DCS ALUMNI PORTAL", 
   subtext = "Punjabi University, Patiala" 
 }) => {
+  const [factIndex, setFactIndex] = useState(() => Math.floor(Math.random() * DEPARTMENT_FACTS.length));
+  const [fadeState, setFadeState] = useState(true);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFadeState(false);
+      setTimeout(() => {
+        setFactIndex((prev) => (prev + 1) % DEPARTMENT_FACTS.length);
+        setFadeState(true);
+      }, 250);
+    }, 3500);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div 
       className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-white/80 backdrop-blur-xl transition-all duration-300 ease-out ${
@@ -121,6 +146,20 @@ const PageLoader = ({
             className="w-1.5 h-1.5 rounded-full bg-blue" 
             style={{ animation: 'loaderDotBounce 1.2s infinite ease-in-out', animationDelay: '400ms' }} 
           />
+        </div>
+
+        {/* Inspiring Department Milestones & Facts Ticker */}
+        <div className="mt-4 max-w-xs sm:max-w-md mx-4 px-3.5 py-1.5 rounded-full bg-white/80 backdrop-blur-md border border-blue/15 shadow-[0_2px_8px_rgba(0,91,150,0.08)] flex items-center gap-2">
+          <span className="flex-shrink-0 text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-blue text-white shadow-sm">
+            Milestone
+          </span>
+          <p 
+            className={`text-[11px] sm:text-xs text-slate-700 font-medium truncate transition-all duration-300 ${
+              fadeState ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-1'
+            }`}
+          >
+            {DEPARTMENT_FACTS[factIndex]}
+          </p>
         </div>
       </div>
     </div>
