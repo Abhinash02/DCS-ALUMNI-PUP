@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import API from '../api/api';
 import { FaMapMarkerAlt, FaBriefcase, FaBuilding, FaClock } from 'react-icons/fa';
-import PageLoader from '../components/PageLoader';
+import { JobGridSkeleton } from '../components/skeletons/JobCardSkeleton';
 
 const JobBoard = ({ isComponent = false }) => {
   const [jobs, setJobs] = useState([]);
@@ -74,8 +74,6 @@ const JobBoard = ({ isComponent = false }) => {
     return pages;
   };
 
-  if (loading) return <PageLoader />;
-
   return (
     <div className={`w-full bg-gray-50 ${isComponent ? 'pt-0 pb-12' : 'min-h-screen pt-8 pb-15'}`}>
       <div className="max-w-6xl mx-auto px-4 md:px-8">
@@ -91,7 +89,9 @@ const JobBoard = ({ isComponent = false }) => {
         </div>
 
         {/* Job Listings */}
-        {jobs.length === 0 ? (
+        {loading ? (
+          <JobGridSkeleton count={6} />
+        ) : jobs.length === 0 ? (
           <div className="text-center bg-white p-12 rounded-xl shadow-sm border border-gray-100">
             <h3 className="text-2xl font-bold text-gray-700 mb-2">No Opportunities Right Now</h3>
             <p className="text-gray-500">Check back later for new roles posted by our alumni!</p>

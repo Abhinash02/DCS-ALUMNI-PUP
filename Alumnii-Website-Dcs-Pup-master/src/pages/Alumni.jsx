@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import localData from '../data/aluminiData.json';
 import API from '../api/api';
+import { AlumniGridSkeleton } from '../components/skeletons/AlumniCardSkeleton';
 
 export default function Alumni() {
+  const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCourse, setSelectedCourse] = useState('');
   const [selectedProfession, setSelectedProfession] = useState('');
@@ -75,6 +77,7 @@ export default function Alumni() {
 
   // Fetch data and initial filters
   useEffect(() => {
+    setLoading(true);
     API
       .get('/alumni/approved')
       .then((res) => {
@@ -111,6 +114,9 @@ export default function Alumni() {
         if (missingBatches.length > 0) {
           console.warn('Local items without batches:', missingBatches);
         }
+      })
+      .finally(() => {
+        setLoading(false);
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -346,7 +352,9 @@ export default function Alumni() {
 
       {/* Alumni Cards */}
       <div className="max-w-[90%] md:max-w-[85%] mx-auto my-10 md:my-24">
-        {combinedData.length > 0 ? (
+        {loading ? (
+          <AlumniGridSkeleton count={8} />
+        ) : combinedData.length > 0 ? (
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
             {combinedData.slice(0, visibleCount).map((item, index) => (
               <div
@@ -370,7 +378,7 @@ export default function Alumni() {
                   {(item.Skill || item.skill) && <p><strong>Skills:</strong> {item.Skill || item.skill}</p>}
                   {(item.LinkedIn || item.linkedin) && (
                     <p>
-                      <strong>LinkedIn:</strong>{' '}
+                       <strong>LinkedIn:</strong>{' '}
                       <a
                         href={item.LinkedIn || item.linkedin}
                         target="_blank"
