@@ -8,22 +8,34 @@ const Header = () => {
 
   useEffect(() => {
     const fetchNotificationCount = async () => {
+      // Don't poll if device is offline
+      if (typeof navigator !== "undefined" && !navigator.onLine) {
+        return;
+      }
       try {
         const response = await API.get("/notifications");
         const activeCount = response.data.filter((n) => !n.isArchived).length;
         setNotificationCount(activeCount); // Display full count
       } catch (err) {
-        console.error("Error fetching notification count:", err);
+        if (typeof navigator === "undefined" || navigator.onLine) {
+          console.warn("Could not fetch notification count:", err.message);
+        }
       }
     };
 
     // Initial fetch
     fetchNotificationCount();
 
-    // Poll every 30 seconds for real-time updates
+    // Poll every 30 seconds for real-time updates when online
     const interval = setInterval(fetchNotificationCount, 30000);
 
-    return () => clearInterval(interval); // Cleanup interval on unmount
+    const handleOnline = () => fetchNotificationCount();
+    window.addEventListener("online", handleOnline);
+
+    return () => {
+      clearInterval(interval);
+      window.removeEventListener("online", handleOnline);
+    };
   }, []);
 
   const handleOpenModal = () => {

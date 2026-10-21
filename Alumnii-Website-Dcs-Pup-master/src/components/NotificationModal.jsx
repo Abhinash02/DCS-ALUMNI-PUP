@@ -27,12 +27,18 @@ const NotificationModal = ({ onClose }) => {
 
   useEffect(() => {
     const fetchNotifications = async () => {
+      if (typeof navigator !== "undefined" && !navigator.onLine) {
+        setLoading(false);
+        return;
+      }
       try {
         const response = await API.get("/notifications");
         setNotifications(response.data || []);
         setLoading(false);
       } catch (err) {
-        setError(err.message || "Failed to load notifications");
+        if (typeof navigator === "undefined" || navigator.onLine) {
+          setError(err.message || "Failed to load notifications");
+        }
         setLoading(false);
       }
     };

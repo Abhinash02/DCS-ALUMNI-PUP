@@ -213,14 +213,24 @@ const Register = () => {
 
   const onSubmit = async (data) => {
     try {
+      const normalizedData = { ...data };
+      if (normalizedData.linkedin && typeof normalizedData.linkedin === 'string') {
+        const trimmed = normalizedData.linkedin.trim();
+        normalizedData.linkedin = trimmed && !/^https?:\/\//i.test(trimmed) ? `https://${trimmed}` : trimmed;
+      }
+      if (normalizedData.website && typeof normalizedData.website === 'string') {
+        const trimmed = normalizedData.website.trim();
+        normalizedData.website = trimmed && !/^https?:\/\//i.test(trimmed) ? `https://${trimmed}` : trimmed;
+      }
+
       const formData = new FormData();
-      for (const key in data) {
+      for (const key in normalizedData) {
         if (key === 'skills') {
-          formData.append(key, JSON.stringify(data[key]));
-        } else if (key === 'photo' && data[key]) {
-          formData.append(key, data[key]);
+          formData.append(key, JSON.stringify(normalizedData[key]));
+        } else if (key === 'photo' && normalizedData[key]) {
+          formData.append(key, normalizedData[key]);
         } else {
-          formData.append(key, data[key]);
+          formData.append(key, normalizedData[key]);
         }
       }
 
@@ -632,12 +642,13 @@ const Register = () => {
                     label="LinkedIn Profile URL"
                     id="linkedin"
                     name="linkedin"
-                    type="url"
+                    type="text"
+                    placeholder="e.g., www.linkedin.com/in/yourname"
                     control={control}
                     rules={{
                       pattern: {
                         value: /^(https?:\/\/)?([\w\d-]+\.)?linkedin\.com\/.*/i,
-                        message: 'Please enter a valid LinkedIn URL',
+                        message: 'Please enter a valid LinkedIn URL (e.g. linkedin.com/in/yourname)',
                       },
                     }}
                   />
@@ -645,7 +656,8 @@ const Register = () => {
                     label="Personal/Company Website"
                     id="website"
                     name="website"
-                    type="url"
+                    type="text"
+                    placeholder="e.g., www.yourportfolio.com"
                     control={control}
                     rules={{
                       pattern: {

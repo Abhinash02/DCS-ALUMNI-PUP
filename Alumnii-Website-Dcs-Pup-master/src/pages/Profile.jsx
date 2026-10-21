@@ -115,19 +115,33 @@ const ProfilePage = () => {
     }
   };
 
+  const normalizeUrl = (url) => {
+    if (!url) return '';
+    const trimmed = String(url).trim();
+    if (!trimmed) return '';
+    if (/^https?:\/\//i.test(trimmed)) return trimmed;
+    return `https://${trimmed}`;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSaving(true);
 
     try {
+      const normalizedFormData = {
+        ...formData,
+        linkedin: normalizeUrl(formData.linkedin),
+        website: normalizeUrl(formData.website),
+      };
+
       const data = new FormData();
-      Object.keys(formData).forEach(key => {
+      Object.keys(normalizedFormData).forEach(key => {
         if (key === 'skills') {
-          data.append(key, JSON.stringify(formData[key]));
-        } else if (key === 'photo' && formData[key]) {
-          data.append(key, formData[key]);
-        } else if (formData[key] !== null && formData[key] !== undefined) {
-          data.append(key, formData[key]);
+          data.append(key, JSON.stringify(normalizedFormData[key]));
+        } else if (key === 'photo' && normalizedFormData[key]) {
+          data.append(key, normalizedFormData[key]);
+        } else if (normalizedFormData[key] !== null && normalizedFormData[key] !== undefined) {
+          data.append(key, normalizedFormData[key]);
         }
       });
 
@@ -558,12 +572,22 @@ const ProfilePage = () => {
                       <Linkedin className="w-4 h-4" />
                     </span>
                     <input
-                      type="url"
+                      type="text"
                       name="linkedin"
                       value={formData.linkedin || ''}
                       onChange={handleChange}
+                      onBlur={(e) => {
+                        const val = e.target.value.trim();
+                        if (val && !/^https?:\/\//i.test(val)) {
+                          setFormData(prev => ({ ...prev, linkedin: `https://${val}` }));
+                        }
+                      }}
+                      data-codeium="false"
+                      data-gramm="false"
+                      data-enable-grammarly="false"
+                      spellCheck={false}
                       className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-300 dark:border-slate-600 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:bg-white dark:focus:bg-slate-900 focus:border-blue-600 focus:ring-2 focus:ring-blue-500/20 outline-none transition text-sm shadow-sm"
-                      placeholder="https://linkedin.com/in/yourname"
+                      placeholder="linkedin.com/in/yourname (e.g. www.linkedin.com/in/abhinash99)"
                     />
                   </div>
                 </div>
@@ -577,12 +601,22 @@ const ProfilePage = () => {
                       <Globe className="w-4 h-4" />
                     </span>
                     <input
-                      type="url"
+                      type="text"
                       name="website"
                       value={formData.website || ''}
                       onChange={handleChange}
+                      onBlur={(e) => {
+                        const val = e.target.value.trim();
+                        if (val && !/^https?:\/\//i.test(val)) {
+                          setFormData(prev => ({ ...prev, website: `https://${val}` }));
+                        }
+                      }}
+                      data-codeium="false"
+                      data-gramm="false"
+                      data-enable-grammarly="false"
+                      spellCheck={false}
                       className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-300 dark:border-slate-600 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:bg-white dark:focus:bg-slate-900 focus:border-blue-600 focus:ring-2 focus:ring-blue-500/20 outline-none transition text-sm shadow-sm"
-                      placeholder="https://yourportfolio.com"
+                      placeholder="yourportfolio.com or https://yourportfolio.com"
                     />
                   </div>
                 </div>

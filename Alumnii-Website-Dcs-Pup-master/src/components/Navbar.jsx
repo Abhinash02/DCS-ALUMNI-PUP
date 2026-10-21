@@ -998,11 +998,17 @@ export const Navbar = () => {
 
   useEffect(() => {
     const fetchNotifications = async () => {
+      // Don't poll if device is offline
+      if (typeof navigator !== "undefined" && !navigator.onLine) {
+        return;
+      }
       try {
         const response = await API.get("/notifications");
         setNotifications(response.data);
       } catch (err) {
-        console.error("Error fetching notifications:", err);
+        if (typeof navigator === "undefined" || navigator.onLine) {
+          console.warn("Could not fetch notifications:", err.message);
+        }
       }
     };
 
@@ -1012,7 +1018,13 @@ export const Navbar = () => {
     // Poll every 30 seconds for real-time updates
     const interval = setInterval(fetchNotifications, 30000);
 
-    return () => clearInterval(interval); // Cleanup interval on unmount
+    const handleOnline = () => fetchNotifications();
+    window.addEventListener("online", handleOnline);
+
+    return () => {
+      clearInterval(interval);
+      window.removeEventListener("online", handleOnline);
+    };
   }, []);
 
   useEffect(() => {
