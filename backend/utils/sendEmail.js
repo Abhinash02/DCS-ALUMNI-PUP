@@ -32,12 +32,13 @@ if (process.env.BREVO_EMAIL && process.env.BREVO_SMTP_PASS) {
   });
 }
 
-const sendEmail = async ({ to, subject, html }) => {
+const sendEmail = async ({ to, subject, html, replyTo }) => {
   const mailOptions = {
-    from: process.env.EMAIL_USER || 'csepupalumni@gmail.com',
+    from: `"DCS PUP Alumni Portal" <${process.env.EMAIL_USER || 'csepupalumni@gmail.com'}>`,
     to,
     subject,
     html,
+    ...(replyTo ? { replyTo } : {}),
   };
 
   // Try Gmail first (Primary)

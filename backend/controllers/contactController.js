@@ -22,24 +22,39 @@ exports.submitContact = async (req, res) => {
 
     // 2. Dispatch Email Asynchronously in background (doesn't block the HTTP response)
     const fullName = `${from_fname} ${from_lname || ''}`.trim();
-    const departmentEmail = process.env.DEPARTMENT_EMAIL || process.env.EMAIL_USER || 'head_cs@pbi.ac.in';
+    const adminEmail = process.env.ALUMNI_ADMIN_EMAIL || process.env.EMAIL_USER || 'csepupalumni@gmail.com';
+    const departmentEmail = process.env.DEPARTMENT_EMAIL || 'head_cs@pbi.ac.in';
+    const recipientList = [adminEmail, departmentEmail].filter(Boolean).join(', ');
 
     const notificationHtml = `
-      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e2e8f0; rounded: 12px;">
-        <h2 style="color: #002147; border-bottom: 2px solid #0284c7; padding-bottom: 8px;">New Alumni Inquiry Received</h2>
-        <p><strong>From:</strong> ${fullName} (&lt;${from_email}&gt;)</p>
-        <p><strong>Topic / Area of Help:</strong> ${selected_option}</p>
-        <div style="background-color: #f8fafc; padding: 15px; border-radius: 8px; margin: 15px 0;">
-          <p style="margin: 0; color: #334155; line-height: 1.6;">${message.replace(/\n/g, '<br/>')}</p>
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; border: 1px solid #e2e8f0; border-radius: 16px; background-color: #ffffff;">
+        <div style="background-color: #002147; padding: 16px 20px; border-radius: 12px; margin-bottom: 20px; color: #ffffff;">
+          <h2 style="margin: 0; font-size: 18px; color: #ffffff;">New Contact Inquiry Received</h2>
+          <p style="margin: 4px 0 0; font-size: 12px; color: #7dd3fc;">DCS Alumni Portal • Punjabi University Patiala</p>
         </div>
-        <p style="font-size: 12px; color: #64748b;">Submitted via DCS PUP Alumni Portal.</p>
+
+        <div style="margin-bottom: 16px; font-size: 14px; line-height: 1.6; color: #1e293b;">
+          <p style="margin: 6px 0;"><strong>Sender Name:</strong> ${fullName}</p>
+          <p style="margin: 6px 0;"><strong>Sender Email:</strong> <a href="mailto:${from_email}" style="color: #0284c7; text-decoration: underline;">${from_email}</a></p>
+          <p style="margin: 6px 0;"><strong>Category / Topic:</strong> <span style="background-color: #e0f2fe; color: #0369a1; padding: 2px 8px; border-radius: 6px; font-size: 12px; font-weight: bold;">${selected_option}</span></p>
+        </div>
+
+        <div style="background-color: #f8fafc; border-left: 4px solid #0284c7; padding: 16px; border-radius: 8px; margin: 20px 0;">
+          <p style="margin: 0 0 6px; font-size: 11px; text-transform: uppercase; font-weight: bold; color: #64748b;">Message Content:</p>
+          <p style="margin: 0; font-size: 14px; color: #334155; line-height: 1.6; white-space: pre-wrap;">${message}</p>
+        </div>
+
+        <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid #e2e8f0; font-size: 12px; color: #64748b;">
+          <p style="margin: 0;">💡 <em>You can reply directly to this email to respond to <strong>${fullName}</strong> (${from_email}).</em></p>
+        </div>
       </div>
     `;
 
-    // Attempt to send email to Department
+    // Send email to csepupalumni@gmail.com and department head
     sendEmail({
-      to: departmentEmail,
-      subject: `[DCS Alumni Portal] New Contact Inquiry: ${selected_option} from ${fullName}`,
+      to: recipientList,
+      replyTo: from_email,
+      subject: `[DCS Alumni Portal] New Inquiry: ${selected_option} from ${fullName}`,
       html: notificationHtml,
     }).catch((emailErr) => {
       console.warn('Background contact email notification error:', emailErr.message);
