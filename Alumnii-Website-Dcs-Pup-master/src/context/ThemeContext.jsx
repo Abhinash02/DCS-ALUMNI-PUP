@@ -141,9 +141,26 @@ export const ThemeProvider = ({ children }) => {
     }
   });
 
-  // Synchronize with global theme from backend (MongoDB)
+  // Synchronize with global theme from backend (MongoDB) and across browser tabs
   useEffect(() => {
     let isMounted = true;
+    const PROD_THEME_URL = 'https://dcs-alumni.vercel.app/api/theme';
+
+    const applyRemotePalette = (remotePalette) => {
+      if (remotePalette && THEME_PALETTES[remotePalette]) {
+        setActivePaletteId((prev) => {
+          if (prev !== remotePalette) {
+            const pal = THEME_PALETTES[remotePalette];
+            applyPaletteVariables(pal);
+            try {
+              localStorage.setItem('dcs_portal_color_theme', remotePalette);
+            } catch {}
+            return remotePalette;
+          }
+          return prev;
+        });
+      }
+    };
 
     const fetchGlobalTheme = async () => {
       // Don't poll if device is offline
@@ -153,23 +170,17 @@ export const ThemeProvider = ({ children }) => {
       try {
         const res = await API.get('/theme');
         if (res.data && res.data.activePaletteId && isMounted) {
-          const remotePalette = res.data.activePaletteId;
-          if (THEME_PALETTES[remotePalette]) {
-            setActivePaletteId((prev) => {
-              if (prev !== remotePalette) {
-                const pal = THEME_PALETTES[remotePalette];
-                applyPaletteVariables(pal);
-                try {
-                  localStorage.setItem('dcs_portal_color_theme', remotePalette);
-                } catch {}
-                return remotePalette;
-              }
-              return prev;
-            });
-          }
+          applyRemotePalette(res.data.activePaletteId);
+          return;
         }
       } catch (err) {
-        // Silently use cached/default theme if backend is unreachable
+        // Fallback to production theme endpoint if local dev API fails
+        try {
+          const fallbackRes = await API.get(PROD_THEME_URL);
+          if (fallbackRes.data && fallbackRes.data.activePaletteId && isMounted) {
+            applyRemotePalette(fallbackRes.data.activePaletteId);
+          }
+        } catch {}
       }
     };
 
@@ -182,13 +193,39 @@ export const ThemeProvider = ({ children }) => {
       }
     };
     document.addEventListener('visibilitychange', handleVisibility);
+    window.addEventListener('focus', handleVisibility);
 
-    // Sync periodically every 45 seconds for real-time live synchronization across visitors
-    const interval = setInterval(fetchGlobalTheme, 45000);
+    // Instant cross-tab synchronization using BroadcastChannel & storage events (0ms latency across tabs)
+    let channel = null;
+    try {
+      if (typeof window !== 'undefined' && 'BroadcastChannel' in window) {
+        channel = new BroadcastChannel('dcs_portal_theme_sync');
+        channel.onmessage = (event) => {
+          if (event.data && event.data.paletteId && isMounted) {
+            applyRemotePalette(event.data.paletteId);
+          }
+        };
+      }
+    } catch {}
+
+    const handleStorageEvent = (e) => {
+      if (e.key === 'dcs_portal_color_theme' && e.newValue && isMounted) {
+        applyRemotePalette(e.newValue);
+      }
+    };
+    window.addEventListener('storage', handleStorageEvent);
+
+    // Sync periodically every 15 seconds for real-time live synchronization across all visitors
+    const interval = setInterval(fetchGlobalTheme, 15000);
 
     return () => {
       isMounted = false;
       document.removeEventListener('visibilitychange', handleVisibility);
+      window.removeEventListener('focus', handleVisibility);
+      window.removeEventListener('storage', handleStorageEvent);
+      if (channel) {
+        channel.close();
+      }
       clearInterval(interval);
     };
   }, []);
@@ -222,10 +259,10 @@ export const ThemeProvider = ({ children }) => {
     setIsDark((prev) => !prev);
   };
 
-  // Change color palette with IMMEDIATE local effect + instant backend broadcast to all visitors
+  // Change color palette with IMMEDIATE local effect + instant broadcast to all tabs + live backend persistence
   const changeColorPalette = useCallback(async (paletteId) => {
     if (THEME_PALETTES[paletteId]) {
-      // 1. Immediate local effect (0ms delay for user/admin)
+      // 1. Immediate local effect in this tab (0ms delay for user/admin)
       setActivePaletteId(paletteId);
       const palette = THEME_PALETTES[paletteId];
       applyPaletteVariables(palette);
@@ -233,11 +270,31 @@ export const ThemeProvider = ({ children }) => {
         localStorage.setItem('dcs_portal_color_theme', paletteId);
       } catch {}
 
-      // 2. Broadcast and persist to MongoDB so live site (vercel & vishalpup.in) immediately updates for all visitors!
+      // 2. Broadcast immediately across open tabs/windows in this browser (0ms delay)
       try {
+        if (typeof window !== 'undefined' && 'BroadcastChannel' in window) {
+          const channel = new BroadcastChannel('dcs_portal_theme_sync');
+          channel.postMessage({ paletteId });
+          channel.close();
+        }
+      } catch {}
+
+      // 3. Broadcast and persist to MongoDB so live site (vercel & vishalpup.in) immediately updates for all visitors!
+      const PROD_THEME_URL = 'https://dcs-alumni.vercel.app/api/theme';
+      try {
+        // Send to configured API baseURL
         await API.put('/theme', { paletteId });
       } catch (err) {
-        console.warn('Theme updated locally. Could not sync with backend:', err.message);
+        console.warn('Configured API update failed, trying direct production sync...', err.message);
+      }
+
+      // If running on localhost, ALSO directly update production Vercel backend so live URL updates immediately!
+      if (typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')) {
+        try {
+          await API.put(PROD_THEME_URL, { paletteId });
+        } catch (err) {
+          console.warn('Direct live theme sync failed:', err.message);
+        }
       }
     }
   }, []);
