@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import API from '../api/api';
-import emailjs from '@emailjs/browser';
 import { toast } from 'react-toastify';
 import {
     MapPin,
@@ -73,31 +72,19 @@ export const ReachUs = () => {
         const senderFullName = `${formData.from_fname} ${formData.from_lname || ''}`.trim();
 
         try {
-            // 1. Submit to reliable backend API first (stores in MongoDB and triggers async email)
-            const response = await API.post('/contact', formData, { timeout: 8000 });
+            // Submit to internal backend API (stores in MongoDB and sends notifications via backend nodemailer)
+            const response = await API.post('/contact', formData, { timeout: 10000 });
             if (response.data?.success || response.status === 200) {
                 setSubmittedName(senderFullName);
                 setPopup(true);
                 toast.success('Your message has been delivered successfully!');
-                return;
+            } else {
+                throw new Error(response.data?.error || 'Failed to submit inquiry.');
             }
-        } catch (backendError) {
-            console.warn('Backend contact submission fallback:', backendError.message);
-
-            // 2. Fallback to client-side EmailJS with a safe 5-second timeout
-            try {
-                await Promise.race([
-                    emailjs.send('service_apu5zy4', 'template_g7qzrrj', formData, '5PrHo6XQmfc1vb4mT'),
-                    new Promise((_, reject) => setTimeout(() => reject(new Error('EmailJS timeout')), 5000)),
-                ]);
-                setSubmittedName(senderFullName);
-                setPopup(true);
-                toast.success('Your message has been delivered successfully!');
-                return;
-            } catch (emailjsError) {
-                console.error('All contact submission channels failed:', emailjsError);
-                toast.error('Unable to send at the moment. Please email csepupalumni@gmail.com directly or call 0175-5136313.');
-            }
+        } catch (error) {
+            console.error('Contact submission error:', error);
+            const errMsg = error.response?.data?.error || error.message;
+            toast.error(errMsg || 'Unable to send message right now. Please email csepupalumni@gmail.com directly.');
         } finally {
             setIsSubmitting(false);
         }
