@@ -5,14 +5,14 @@
 @tailwind utilities;
 
 :root {
-  --portal-primary: #005b96;
-  --portal-dark-blue: #2E5090;
-  --portal-light-blue: #aec8e2;
-  --portal-hover-blue: #eaf1fe;
-  --portal-steel-blue: #B0C4DE;
-  --portal-accent: #00BFFF;
-  --portal-dark-blue-alt: #1E3A8A;
-  --portal-light-blue-alt: #60A5FA;
+  --portal-primary: #b91c1c;
+  --portal-dark-blue: #881337;
+  --portal-light-blue: #fecdd3;
+  --portal-hover-blue: #fff1f2;
+  --portal-steel-blue: #fca5a5;
+  --portal-accent: #e11d48;
+  --portal-dark-blue-alt: #7f1d1d;
+  --portal-light-blue-alt: #fb7185;
 }
 
 /* Universal Typography: Poppins for body/controls, Montserrat for headings */
@@ -92,7 +92,7 @@ html.dark .bg-LightSteelBlue {
 
 /* Dark mode dynamic color enhancements */
 html.dark .text-darkBlue {
-  color: #38bdf8;
+  color: var(--portal-light-blue-alt, #fb7185);
 }
 
 /* Only apply dark:text-white and dark:text-black when dark mode is explicitly active */

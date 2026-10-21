@@ -1,10 +1,38 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
 export const THEME_PALETTES = {
+  maroon: {
+    id: 'maroon',
+    name: 'Ruby Crimson / Maroon (Default)',
+    subtitle: 'Heritage Crimson & Academic Stole Maroon (Official)',
+    primary: '#b91c1c',
+    darkBlue: '#881337',
+    lightBlue: '#fecdd3',
+    hoverBlue: '#fff1f2',
+    steelBlue: '#fca5a5',
+    accent: '#e11d48',
+    darkBlueAlt: '#7f1d1d',
+    lightBlueAlt: '#fb7185',
+    colorCircle: '#b91c1c',
+  },
   default: {
     id: 'default',
-    name: 'Royal DCS Blue (Default)',
-    subtitle: 'Official Punjabi University Patiala Blue',
+    name: 'Ruby Crimson / Maroon (Default)',
+    subtitle: 'Heritage Crimson & Academic Stole Maroon (Official)',
+    primary: '#b91c1c',
+    darkBlue: '#881337',
+    lightBlue: '#fecdd3',
+    hoverBlue: '#fff1f2',
+    steelBlue: '#fca5a5',
+    accent: '#e11d48',
+    darkBlueAlt: '#7f1d1d',
+    lightBlueAlt: '#fb7185',
+    colorCircle: '#b91c1c',
+  },
+  blue: {
+    id: 'blue',
+    name: 'Royal DCS Blue',
+    subtitle: 'Classic Punjabi University Blue',
     primary: '#005b96',
     darkBlue: '#2E5090',
     lightBlue: '#aec8e2',
@@ -42,20 +70,6 @@ export const THEME_PALETTES = {
     darkBlueAlt: '#4c1d95',
     lightBlueAlt: '#a78bfa',
     colorCircle: '#7c3aed',
-  },
-  maroon: {
-    id: 'maroon',
-    name: 'Ruby Crimson / Maroon',
-    subtitle: 'Heritage Crimson & Academic Stole Maroon',
-    primary: '#b91c1c',
-    darkBlue: '#881337',
-    lightBlue: '#fecdd3',
-    hoverBlue: '#fff1f2',
-    steelBlue: '#fca5a5',
-    accent: '#e11d48',
-    darkBlueAlt: '#7f1d1d',
-    lightBlueAlt: '#fb7185',
-    colorCircle: '#b91c1c',
   },
   ocean: {
     id: 'ocean',
@@ -116,9 +130,13 @@ export const ThemeProvider = ({ children }) => {
 
   const [activePaletteId, setActivePaletteId] = useState(() => {
     try {
-      return localStorage.getItem('dcs_portal_color_theme') || 'default';
+      const saved = localStorage.getItem('dcs_portal_color_theme');
+      if (!saved || saved === 'default') {
+        return 'maroon';
+      }
+      return saved;
     } catch {
-      return 'default';
+      return 'maroon';
     }
   });
 
@@ -140,7 +158,7 @@ export const ThemeProvider = ({ children }) => {
 
   // Apply color palette variables whenever activePaletteId changes
   useEffect(() => {
-    const palette = THEME_PALETTES[activePaletteId] || THEME_PALETTES.default;
+    const palette = THEME_PALETTES[activePaletteId] || THEME_PALETTES.maroon;
     applyPaletteVariables(palette);
     try {
       localStorage.setItem('dcs_portal_color_theme', activePaletteId);
@@ -158,10 +176,10 @@ export const ThemeProvider = ({ children }) => {
   };
 
   const resetToDefaultColor = () => {
-    setActivePaletteId('default');
+    setActivePaletteId('maroon');
   };
 
-  const activePalette = THEME_PALETTES[activePaletteId] || THEME_PALETTES.default;
+  const activePalette = THEME_PALETTES[activePaletteId] || THEME_PALETTES.maroon;
 
   return (
     <ThemeContext.Provider value={{ 
@@ -184,8 +202,8 @@ export const useTheme = () => {
     return { 
       isDark: false, 
       toggleTheme: () => {}, 
-      activePaletteId: 'default',
-      activePalette: THEME_PALETTES.default,
+      activePaletteId: 'maroon',
+      activePalette: THEME_PALETTES.maroon,
       changeColorPalette: () => {},
       resetToDefaultColor: () => {},
       palettes: THEME_PALETTES
