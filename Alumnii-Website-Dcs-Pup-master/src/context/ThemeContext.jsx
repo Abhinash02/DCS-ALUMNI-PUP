@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
+import API from '../api/api';
 
 export const THEME_PALETTES = {
   maroon: {
@@ -140,6 +141,58 @@ export const ThemeProvider = ({ children }) => {
     }
   });
 
+  // Synchronize with global theme from backend (MongoDB)
+  useEffect(() => {
+    let isMounted = true;
+
+    const fetchGlobalTheme = async () => {
+      // Don't poll if device is offline
+      if (typeof navigator !== 'undefined' && !navigator.onLine) {
+        return;
+      }
+      try {
+        const res = await API.get('/theme');
+        if (res.data && res.data.activePaletteId && isMounted) {
+          const remotePalette = res.data.activePaletteId;
+          if (THEME_PALETTES[remotePalette]) {
+            setActivePaletteId((prev) => {
+              if (prev !== remotePalette) {
+                const pal = THEME_PALETTES[remotePalette];
+                applyPaletteVariables(pal);
+                try {
+                  localStorage.setItem('dcs_portal_color_theme', remotePalette);
+                } catch {}
+                return remotePalette;
+              }
+              return prev;
+            });
+          }
+        }
+      } catch (err) {
+        // Silently use cached/default theme if backend is unreachable
+      }
+    };
+
+    fetchGlobalTheme();
+
+    // Re-check when window or tab regains focus
+    const handleVisibility = () => {
+      if (document.visibilityState === 'visible') {
+        fetchGlobalTheme();
+      }
+    };
+    document.addEventListener('visibilitychange', handleVisibility);
+
+    // Sync periodically every 45 seconds for real-time live synchronization across visitors
+    const interval = setInterval(fetchGlobalTheme, 45000);
+
+    return () => {
+      isMounted = false;
+      document.removeEventListener('visibilitychange', handleVisibility);
+      clearInterval(interval);
+    };
+  }, []);
+
   // Apply dark mode class
   useEffect(() => {
     const root = document.documentElement;
@@ -169,15 +222,29 @@ export const ThemeProvider = ({ children }) => {
     setIsDark((prev) => !prev);
   };
 
-  const changeColorPalette = (paletteId) => {
+  // Change color palette with IMMEDIATE local effect + instant backend broadcast to all visitors
+  const changeColorPalette = useCallback(async (paletteId) => {
     if (THEME_PALETTES[paletteId]) {
+      // 1. Immediate local effect (0ms delay for user/admin)
       setActivePaletteId(paletteId);
-    }
-  };
+      const palette = THEME_PALETTES[paletteId];
+      applyPaletteVariables(palette);
+      try {
+        localStorage.setItem('dcs_portal_color_theme', paletteId);
+      } catch {}
 
-  const resetToDefaultColor = () => {
-    setActivePaletteId('maroon');
-  };
+      // 2. Broadcast and persist to MongoDB so live site (vercel & vishalpup.in) immediately updates for all visitors!
+      try {
+        await API.put('/theme', { paletteId });
+      } catch (err) {
+        console.warn('Theme updated locally. Could not sync with backend:', err.message);
+      }
+    }
+  }, []);
+
+  const resetToDefaultColor = useCallback(async () => {
+    await changeColorPalette('maroon');
+  }, [changeColorPalette]);
 
   const activePalette = THEME_PALETTES[activePaletteId] || THEME_PALETTES.maroon;
 

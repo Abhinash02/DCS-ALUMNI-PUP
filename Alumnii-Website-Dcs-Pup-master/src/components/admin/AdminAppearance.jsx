@@ -35,7 +35,7 @@ const AdminAppearance = () => {
 
   const handleReset = () => {
     resetToDefaultColor();
-    setNotification('Website color theme reset to Royal DCS Blue (Default)!');
+    setNotification('Website color theme reset to Ruby Crimson / Maroon (Default)!');
     setTimeout(() => {
       setNotification('');
     }, 3500);

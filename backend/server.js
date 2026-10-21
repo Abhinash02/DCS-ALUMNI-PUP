@@ -10,6 +10,7 @@ const events = require('./routes/events');
 const notificationRoutes = require('./routes/notificationRoutes');
 const jobRoutes = require('./routes/jobRoutes');
 const contactRoutes = require('./routes/contactRoutes');
+const themeRoutes = require('./routes/themeRoutes');
 
 dotenv.config();
 
@@ -138,6 +139,7 @@ app.use('/api/events', events);
 app.use('/api/notifications', notificationRoutes);
 app.use('/api/jobs', jobRoutes);
 app.use('/api/contact', contactRoutes);
+app.use('/api/theme', themeRoutes);
 
 // Global Error Handler (Guarantees CORS headers even on 500 error responses)
 app.use((err, req, res, next) => {
