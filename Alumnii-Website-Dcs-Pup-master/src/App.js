@@ -9,6 +9,8 @@ import PageLoader from './components/PageLoader';
 import { Footer } from './components/Footer';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { ThemeProvider } from './context/ThemeContext';
+import MobileBottomNav from './components/common/MobileBottomNav';
 import ForgotPassword from './pages/ForgotPassword';
 import ResetPassword from './pages/ResetPassword';
 
@@ -51,31 +53,46 @@ function App() {
   }, [location.pathname]);
 
   return (
-    <div className='relative overflow-hidden font-poppins' >
-      <ToastContainer position="top-right" autoClose={3000} />
-      {isPageLoading && <PageLoader isExiting={isExiting} />}
-      <Navbar />
-      <div className=' mx-auto z-0'>
-        <Suspense fallback={<PageLoader />}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path='/Alumni' element={<Alumni/>} />
-            <Route path='/Events' element={<Events/>} />
-            <Route path='/Faculty' element={<Faculty/>} />
-            <Route path="/ReachUs" element={<ReachUs />} />
-            <Route path="/Register" element={<Register/>} />
-            <Route path="/Admindashboard" element={<AdminDashboard />} />
-            <Route path="/Login" element={<Login/>} />
-            <Route path="/Profile" element={<Profile/>} />
-            <Route path="/UserLogin" element={<UserLogin/>} />
-            <Route path="/forgot-password" element={<ForgotPassword />} />
-            <Route path="/reset-password/:token" element={<ResetPassword />} />
-            <Route path="/jobs" element={<JobBoard />} />
-          </Routes>
-        </Suspense>
+    <ThemeProvider>
+      <div className='relative overflow-hidden font-poppins min-h-screen bg-white dark:bg-[#0b1120] text-slate-800 dark:text-slate-100 transition-colors duration-300' >
+        <ToastContainer position="top-right" autoClose={3000} />
+        {isPageLoading && <PageLoader isExiting={isExiting} />}
+        <Navbar />
+        <div className=' mx-auto z-0'>
+          <Suspense fallback={<PageLoader />}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path='/Alumni' element={<Alumni/>} />
+              <Route path='/alumni' element={<Alumni/>} />
+              <Route path='/Events' element={<Events/>} />
+              <Route path='/events' element={<Events/>} />
+              <Route path='/Faculty' element={<Faculty/>} />
+              <Route path='/faculty' element={<Faculty/>} />
+              <Route path="/ReachUs" element={<ReachUs />} />
+              <Route path="/reach-us" element={<ReachUs />} />
+              <Route path="/reachus" element={<ReachUs />} />
+              <Route path="/Register" element={<Register/>} />
+              <Route path="/register" element={<Register/>} />
+              <Route path="/Admindashboard" element={<AdminDashboard />} />
+              <Route path="/admindashboard" element={<AdminDashboard />} />
+              <Route path="/Login" element={<Login/>} />
+              <Route path="/login" element={<Login/>} />
+              <Route path="/admin" element={<Login/>} />
+              <Route path="/Profile" element={<Profile/>} />
+              <Route path="/profile" element={<Profile/>} />
+              <Route path="/UserLogin" element={<UserLogin/>} />
+              <Route path="/userlogin" element={<UserLogin/>} />
+              <Route path="/user-login" element={<UserLogin/>} />
+              <Route path="/forgot-password" element={<ForgotPassword />} />
+              <Route path="/reset-password/:token" element={<ResetPassword />} />
+              <Route path="/jobs" element={<JobBoard />} />
+            </Routes>
+          </Suspense>
+        </div>
+        <Footer />
+        <MobileBottomNav />
       </div>
-      <Footer />
-    </div>
+    </ThemeProvider>
   );
 }
 

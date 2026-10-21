@@ -62,7 +62,7 @@ exports.getEvents = async (req, res) => {
 exports.updateEvent = async (req, res) => {
   try {
     const { id } = req.params;
-    const { title, description, position, bgColor, textColor } = req.body;
+    const { title, description, position, bgColor, textColor, removedPublicIds } = req.body;
     const images = req.files;
 
     if (!title || !description) {
@@ -74,17 +74,28 @@ exports.updateEvent = async (req, res) => {
       return res.status(404).json({ error: 'Event not found' });
     }
 
-    let updatedImages = event.images;
-    if (images && images.length > 0) {
-      // Delete existing images from Cloudinary
-      if (event.images && event.images.length > 0) {
-        await Promise.all(
-          event.images.map((image) => cloudinary.uploader.destroy(image.publicId))
-        );
-      }
+    let currentImages = event.images || [];
 
-      // Upload new images
-      updatedImages = await Promise.all(
+    // Remove any selected images from Cloudinary and current list
+    if (removedPublicIds) {
+      try {
+        const parsedRemoved = typeof removedPublicIds === 'string'
+          ? JSON.parse(removedPublicIds)
+          : removedPublicIds;
+        if (Array.isArray(parsedRemoved) && parsedRemoved.length > 0) {
+          await Promise.all(
+            parsedRemoved.map((publicId) => cloudinary.uploader.destroy(publicId).catch(() => {}))
+          );
+          currentImages = currentImages.filter((img) => !parsedRemoved.includes(img.publicId));
+        }
+      } catch (parseErr) {
+        console.error('Error parsing removedPublicIds:', parseErr);
+      }
+    }
+
+    // Upload and APPEND newly added images
+    if (images && images.length > 0) {
+      const newlyUploaded = await Promise.all(
         images.map(async (image) => {
           return new Promise((resolve, reject) => {
             const uploadStream = cloudinary.uploader.upload_stream(
@@ -104,6 +115,7 @@ exports.updateEvent = async (req, res) => {
           });
         })
       );
+      currentImages = [...currentImages, ...newlyUploaded];
     }
 
     const updatedEvent = await Event.findByIdAndUpdate(
@@ -111,10 +123,10 @@ exports.updateEvent = async (req, res) => {
       {
         title,
         description,
-        position,
-        bgColor,
-        textColor,
-        images: updatedImages,
+        position: position || event.position || 'right',
+        bgColor: bgColor || event.bgColor || 'bg-white',
+        textColor: textColor || event.textColor || '#374151',
+        images: currentImages,
       },
       { new: true }
     );

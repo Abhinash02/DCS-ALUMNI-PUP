@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import API from '../../api/api';
+import { GraduationCap, UserCheck, AlertCircle, CheckCircle2 } from 'lucide-react';
 
 const AdminFaculty = () => {
   const [faculty, setFaculty] = useState([]);
@@ -177,7 +178,7 @@ const AdminFaculty = () => {
         <button
           onClick={() => setCurrentPage(currentPage - 1)}
           disabled={currentPage === 1}
-          className="px-4 py-2 bg-blue text-white rounded-lg disabled:opacity-50"
+          className="px-4 py-2 bg-blue text-white rounded-xl disabled:opacity-50 text-sm font-semibold transition"
         >
           Previous
         </button>
@@ -185,8 +186,9 @@ const AdminFaculty = () => {
           <button
             key={page}
             onClick={() => setCurrentPage(page)}
-            className={`px-4 py-2 rounded-lg ${currentPage === page ? 'bg-blue text-white' : 'bg-gray-700 text-gray-300'
-              }`}
+            className={`px-4 py-2 rounded-xl text-sm font-semibold transition ${
+              currentPage === page ? 'bg-blue text-white shadow' : 'bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-gray-300 hover:bg-slate-200'
+            }`}
           >
             {page}
           </button>
@@ -194,7 +196,7 @@ const AdminFaculty = () => {
         <button
           onClick={() => setCurrentPage(currentPage + 1)}
           disabled={currentPage === totalPages}
-          className="px-4 py-2 bg-blue text-white rounded-lg disabled:opacity-50"
+          className="px-4 py-2 bg-blue text-white rounded-xl disabled:opacity-50 text-sm font-semibold transition"
         >
           Next
         </button>
@@ -203,176 +205,226 @@ const AdminFaculty = () => {
   };
 
   return (
-    <section className="bg-gray-800 p-8 rounded-xl shadow-2xl animate__animated animate__fadeInUp">
+    <section className="bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 animate__animated animate__fadeInUp transition-colors duration-200">
       {error && (
-        <p className="text-black bg-red-900 bg-opacity-50 p-4 rounded-lg mb-4 animate__animated animate__shakeX">{error}</p>
+        <div className="text-red-700 dark:text-red-300 bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-800 p-4 rounded-xl mb-6 flex items-center gap-2.5 text-sm font-medium animate__animated animate__shakeX">
+          <AlertCircle className="w-5 h-5 shrink-0 text-red-500" />
+          <span>{error}</span>
+        </div>
       )}
       {success && (
-        <p className="text-white bg-green-900 bg-opacity-50 p-4 rounded-lg mb-4 animate__animated animate__shakeX">{success}</p>
+        <div className="text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 p-4 rounded-xl mb-6 flex items-center gap-2.5 text-sm font-medium animate__animated animate__fadeIn">
+          <CheckCircle2 className="w-5 h-5 shrink-0 text-emerald-500" />
+          <span>{success}</span>
+        </div>
       )}
 
-      <h3 className="text-2xl font-semibold text-blue mb-6">
-        {editingFaculty ? 'Edit Faculty' : 'Manage Faculty'}
-      </h3>
-      <form onSubmit={handleFacultySubmit} className="space-y-6 mb-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {/* Form Header */}
+      <div className="flex items-center gap-3 mb-6 pb-4 border-b border-slate-100 dark:border-slate-700">
+        <div className="p-2.5 bg-blue-50 dark:bg-blue-500/20 rounded-xl text-blue-700 dark:text-blue-300">
+          <GraduationCap className="w-6 h-6" />
+        </div>
+        <div>
+          <h3 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white">
+            {editingFaculty ? 'Edit Faculty Member' : 'Manage Faculty'}
+          </h3>
+          <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">Add or update academic staff records for Punjabi University Patiala DCS</p>
+        </div>
+      </div>
+
+      <form onSubmit={handleFacultySubmit} className="space-y-5 mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           <div>
-            <label className="block text-sm font-medium text-gray-300">Name</label>
+            <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5">
+              Full Name <span className="text-red-500 font-bold ml-1">*</span>
+            </label>
             <input
               type="text"
               name="name"
               value={formData.name}
               onChange={handleInputChange}
-              className="mt-1 block w-full border-1.5 border-black rounded-lg text-black shadow-sm focus:ring-blue-500 focus:border-blue sm:text-sm"
+              className="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-300 dark:border-slate-600 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:bg-white dark:focus:bg-slate-900 focus:border-blue-600 focus:ring-2 focus:ring-blue-500/20 outline-none transition duration-200 text-sm shadow-sm"
+              placeholder="e.g., Dr. Gurpreet Singh"
               required
               disabled={isUploading}
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-300">Title</label>
+            <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5">
+              Title
+            </label>
             <input
               type="text"
               name="title"
               value={formData.title}
               onChange={handleInputChange}
-              className="mt-1 block w-full bg-gray-700 border-1.5 border-black rounded-lg text-black shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+              className="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-300 dark:border-slate-600 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:bg-white dark:focus:bg-slate-900 focus:border-blue-600 focus:ring-2 focus:ring-blue-500/20 outline-none transition duration-200 text-sm shadow-sm"
+              placeholder="e.g., Professor & Head"
               disabled={isUploading}
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-300">Department</label>
+            <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5">
+              Department
+            </label>
             <input
               type="text"
               name="department"
               value={formData.department}
               onChange={handleInputChange}
-              className="mt-1 block w-full bg-gray-700 border-1.5 border-black rounded-lg text-black shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+              className="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-300 dark:border-slate-600 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:bg-white dark:focus:bg-slate-900 focus:border-blue-600 focus:ring-2 focus:ring-blue-500/20 outline-none transition duration-200 text-sm shadow-sm"
+              placeholder="e.g., Department of Computer Science"
               disabled={isUploading}
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-300">Email</label>
+            <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5">
+              Email Address
+            </label>
             <input
               type="email"
               name="email"
               value={formData.email}
               onChange={handleInputChange}
-              className="mt-1 block w-full bg-gray-700 border-1.5 border-black rounded-lg text-black shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+              className="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-300 dark:border-slate-600 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:bg-white dark:focus:bg-slate-900 focus:border-blue-600 focus:ring-2 focus:ring-blue-500/20 outline-none transition duration-200 text-sm shadow-sm"
+              placeholder="e.g., faculty@pbi.ac.in"
               disabled={isUploading}
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-300">Phone</label>
+            <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5">
+              Phone Number
+            </label>
             <input
               type="text"
               name="phone"
               value={formData.phone}
               onChange={handleInputChange}
-              className="mt-1 block w-full bg-gray-700 border-1.5 border-black rounded-lg text-black shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+              className="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-300 dark:border-slate-600 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:bg-white dark:focus:bg-slate-900 focus:border-blue-600 focus:ring-2 focus:ring-blue-500/20 outline-none transition duration-200 text-sm shadow-sm"
+              placeholder="e.g., +91 98765 43210"
               disabled={isUploading}
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-300">Expertise (comma-separated)</label>
-            <input
-              type="text"
-              name="expertise"
-              value={formData.expertise}
-              onChange={handleInputChange}
-              className="mt-1 block w-full bg-gray-700 border-1.5 border-black rounded-lg text-black shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-              placeholder="e.g., JavaScript, Python"
-              disabled={isUploading}
-            />
-          </div>
-          <div className="md:col-span-2">
-            <label className="block text-sm font-medium text-gray-300">Bio</label>
-            <textarea
-              name="bio"
-              value={formData.bio}
-              onChange={handleInputChange}
-              className="mt-1 block w-full bg-gray-700 border-1.5 border-black rounded-lg text-black shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-              rows="4"
-              disabled={isUploading}
-            />
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-300">Designation</label>
+            <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5">
+              Academic Designation
+            </label>
             <input
               type="text"
               name="Designation"
               value={formData.Designation}
               onChange={handleInputChange}
-              className="mt-1 block w-full bg-gray-700 border-1.5 border-black rounded-lg text-black shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+              className="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-300 dark:border-slate-600 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:bg-white dark:focus:bg-slate-900 focus:border-blue-600 focus:ring-2 focus:ring-blue-500/20 outline-none transition duration-200 text-sm shadow-sm"
+              placeholder="e.g., Professor, Assistant Professor, Technical Assistance"
               disabled={isUploading}
             />
           </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-300">Image</label>
+          <div className="md:col-span-2">
+            <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5">
+              Areas of Expertise (comma-separated)
+            </label>
+            <input
+              type="text"
+              name="expertise"
+              value={formData.expertise}
+              onChange={handleInputChange}
+              className="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-300 dark:border-slate-600 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:bg-white dark:focus:bg-slate-900 focus:border-blue-600 focus:ring-2 focus:ring-blue-500/20 outline-none transition duration-200 text-sm shadow-sm"
+              placeholder="e.g., Machine Learning, Cloud Computing, Cyber Security"
+              disabled={isUploading}
+            />
+          </div>
+          <div className="md:col-span-2">
+            <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5">
+              Biography / Academic Profile
+            </label>
+            <textarea
+              name="bio"
+              value={formData.bio}
+              onChange={handleInputChange}
+              className="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-300 dark:border-slate-600 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:bg-white dark:focus:bg-slate-900 focus:border-blue-600 focus:ring-2 focus:ring-blue-500/20 outline-none transition duration-200 text-sm shadow-sm"
+              rows="3"
+              placeholder="Enter faculty background, research interests, and publications..."
+              disabled={isUploading}
+            />
+          </div>
+          <div className="md:col-span-2">
+            <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5">
+              Profile Photograph (JPEG, PNG under 5MB)
+            </label>
             <input
               type="file"
               accept="image/jpeg,image/png"
               onChange={handleImageChange}
-              className="mt-1 block w-full text-gray-300 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-1.5 file:border-black file:text-sm file:font-semibold file:bg-blue file:text-white hover:file:bg-lightBlue"
+              className="w-full text-slate-600 dark:text-slate-300 text-sm file:mr-4 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-blue-50 file:text-blue-700 dark:file:bg-blue-900/40 dark:file:text-blue-300 hover:file:bg-blue-100 cursor-pointer"
               disabled={isUploading}
             />
           </div>
         </div>
-        <div className="flex gap-4">
+
+        <div className="flex flex-wrap gap-3 pt-2">
           <button
             type="submit"
-            className={`flex-1 bg-blue hover:bg-lightBlue text-white font-semibold rounded-lg py-3 px-4 transition-colors transform hover:scale-105 animate__animated animate__pulse animate__infinite ${isUploading ? 'opacity-50 cursor-not-allowed' : 'opacity-100'
-              }`}
+            className={`px-6 py-3 rounded-xl bg-gradient-to-r from-blue to-darkBlue text-white font-semibold shadow-md shadow-blue-900/20 hover:opacity-95 active:scale-[0.99] transition duration-200 text-sm flex items-center justify-center gap-2 ${
+              isUploading ? 'opacity-50 cursor-not-allowed' : ''
+            }`}
             disabled={isUploading}
           >
-            {isUploading ? 'Processing...' : editingFaculty ? 'Update Faculty' : 'Add Faculty'}
+            <UserCheck className="w-4 h-4" />
+            <span>{isUploading ? 'Saving...' : editingFaculty ? 'Update Faculty Member' : 'Add Faculty Member'}</span>
           </button>
           {editingFaculty && (
             <button
               type="button"
               onClick={handleCancelEdit}
-              className="flex-1 bg-gray-600 hover:bg-gray-700 text-white font-semibold rounded-lg py-3 px-4 transition-colors transform hover:scale-105"
+              className="px-6 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 font-semibold transition duration-200 text-sm"
             >
-              Cancel
+              Cancel Edit
             </button>
           )}
         </div>
       </form>
 
-      <h3 className="text-2xl font-semibold text-blue mb-6">Faculty List</h3>
-      {faculty.length === 0 ? (
-        <p className="text-gray">No faculty members available.</p>
-      ) : (
-        <>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {getPaginatedData().map((f) => (
-              <div
-                key={f._id}
-                className="flex justify-between items-center border p-4 rounded-lg shadow-md bg-gray-700 animate__animated animate__fadeIn"
-              >
-                <div>
-                  <h4 className="text-lg font-medium text-blue">{f.name}</h4>
-                  <p className="text-sm text-gray-300">{f.Designation}</p>
+      {/* Faculty Directory List */}
+      <div className="border-t border-slate-100 dark:border-slate-700 pt-6">
+        <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-4">
+          Faculty Directory ({faculty.length})
+        </h4>
+        {faculty.length === 0 ? (
+          <p className="text-slate-400 text-sm">No faculty members available in database.</p>
+        ) : (
+          <>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {getPaginatedData().map((f) => (
+                <div
+                  key={f._id}
+                  className="flex justify-between items-center border border-slate-200 dark:border-slate-700 p-4 rounded-xl shadow-sm bg-slate-50 dark:bg-slate-900/60 hover:border-blue-300 transition duration-200"
+                >
+                  <div className="min-w-0 mr-3">
+                    <h5 className="text-sm font-bold text-slate-900 dark:text-white truncate">{f.name}</h5>
+                    <p className="text-xs text-slate-500 dark:text-slate-400 font-medium truncate">{f.Designation || 'Academic Staff'}</p>
+                    {f.email && <p className="text-[11px] text-blue-600 dark:text-sky-300 truncate">{f.email}</p>}
+                  </div>
+                  <div className="flex gap-2 shrink-0">
+                    <button
+                      onClick={() => handleEditFaculty(f)}
+                      className="px-3 py-1.5 rounded-lg bg-blue-50 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 hover:bg-blue-100 font-semibold text-xs border border-blue-200 dark:border-blue-800 transition"
+                    >
+                      Edit
+                    </button>
+                    <button
+                      onClick={() => deleteFaculty(f._id)}
+                      className="px-3 py-1.5 rounded-lg bg-red-50 dark:bg-red-950/40 text-red-600 dark:text-red-400 hover:bg-red-100 font-semibold text-xs border border-red-200 dark:border-red-800 transition"
+                    >
+                      Delete
+                    </button>
+                  </div>
                 </div>
-                <div className="flex gap-2">
-                  <button
-                    onClick={() => handleEditFaculty(f)}
-                    className="bg-blue hover:bg-blue text-white py-1 px-4 rounded-lg transition-colors transform hover:scale-110 animate__animated animate__pulse animate__infinite"
-                  >
-                    Edit
-                  </button>
-                  <button
-                    onClick={() => deleteFaculty(f._id)}
-                    className="bg-red-600 hover:bg-red-700 text-white py-1 px-4 rounded-lg transition-colors transform hover:scale-110 animate__animated animate__pulse animate__infinite"
-                  >
-                    Delete
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-          {renderPagination()}
-        </>
-      )}
+              ))}
+            </div>
+            {renderPagination()}
+          </>
+        )}
+      </div>
     </section>
   );
 };

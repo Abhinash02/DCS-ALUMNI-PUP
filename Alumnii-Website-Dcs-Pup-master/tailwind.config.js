@@ -1,6 +1,10 @@
+const colors = require('tailwindcss/colors');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: 'class',
   content: [
+    "./public/index.html",
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
@@ -48,22 +52,34 @@ module.exports = {
         scaleUp: 'scaleUp 0.2s ease-in-out forwards',
       },
       colors: {
-        "blue": '#005b96',
-        "darkBlue": "#2E5090",
-        "lightBlue": "#aec8e2",
-        "hoverBlue": "#eaf1fe",
-        "LightSteelBlue": "#B0C4DE",
-        "kajal": "#a2d2ff",
-        "DeepSkyBlue": "#00BFFF",
-        "gray": "#757575",
-        "darkBlueAlt": '#1E3A8A',   // New
-        "lightBlueAlt": '#60A5FA',  // New
-        "grayAlt": '#4B5563',       // New
+        white: '#ffffff',
+        black: '#000000',
+        pureWhite: '#ffffff',
+        pureBlack: '#000000',
+        gray: {
+          ...colors.gray,
+          DEFAULT: '#757575',
+        },
+        blue: {
+          ...colors.blue,
+          DEFAULT: 'var(--portal-primary, #005b96)',
+        },
+        darkBlue: 'var(--portal-dark-blue, #2E5090)',
+        lightBlue: 'var(--portal-light-blue, #aec8e2)',
+        hoverBlue: 'var(--portal-hover-blue, #eaf1fe)',
+        LightSteelBlue: 'var(--portal-steel-blue, #B0C4DE)',
+        kajal: 'var(--portal-accent, #a2d2ff)',
+        DeepSkyBlue: 'var(--portal-accent, #00BFFF)',
+        darkBlueAlt: 'var(--portal-dark-blue-alt, #1E3A8A)',
+        lightBlueAlt: 'var(--portal-light-blue-alt, #60A5FA)',
+        grayAlt: '#4B5563',
       },
       fontFamily: {
-        "mons": "'Montserrat', sans-serif",
-        "playfair": "'Playfair Display', serif",
-        "poppins": "'Poppins', sans-serif",
+        "mons": ["'Montserrat'", 'sans-serif'],
+        "montserrat": ["'Montserrat'", 'sans-serif'],
+        "playfair": ["'Playfair Display'", 'serif'],
+        "poppins": ["'Poppins'", 'sans-serif'],
+        "sans": ["'Poppins'", "'Montserrat'", 'sans-serif'],
       },
       backgroundImage: {
         'hero-pattern': "url('images/banner.jpg')",

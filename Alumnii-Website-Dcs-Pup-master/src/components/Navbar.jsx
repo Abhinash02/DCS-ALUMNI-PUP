@@ -984,6 +984,7 @@ import { FaBell, FaLinkedinIn, FaInstagram, FaUserAlt } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
 import API from "../api/api";
 import NotificationModal from "./NotificationModal";
+import ThemeToggle from "./common/ThemeToggle";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -1047,7 +1048,7 @@ export const Navbar = () => {
   };
 
   return (
-    <div className="py-2 fixed w-full bg-[#ffffff] z-50 navbar duration-700 ">
+    <div className="py-2 fixed w-full bg-[#ffffff] dark:bg-slate-900/95 dark:border-b dark:border-slate-800 z-50 navbar duration-700 backdrop-blur-md">
       <nav className="flex justify-between items-center max-w-[95%] md:max-w-[85%] mx-auto text-lg">
         <div className="w-16">
           <img src="/images/logo.png" alt="Punjabi University" />
@@ -1055,7 +1056,8 @@ export const Navbar = () => {
 
         {/* Mobile Menu Icons */}
         <div className="md:hidden flex items-center gap-2 xs:gap-3">
-          <Link to="/UserLogin" className="text-xl xs:text-2xl p-1 hover:text-lightBlue transition-colors text-darkBlue" title="Login">
+          <ThemeToggle className="scale-90" />
+          <Link to="/UserLogin" className="text-xl xs:text-2xl p-1 hover:text-lightBlue transition-colors text-darkBlue dark:text-slate-200" title="Login">
             <FaUserAlt className="w-5 h-5" />
           </Link>
           <Link to="/Register">
@@ -1065,7 +1067,7 @@ export const Navbar = () => {
           </Link>
           <button
             onClick={toggleNotificationModal}
-            className="relative text-xl xs:text-2xl p-1 hover:text-lightBlue transition-colors"
+            className="relative text-xl xs:text-2xl p-1 hover:text-lightBlue transition-colors text-darkBlue dark:text-slate-200"
           >
             <FaBell className="w-5 h-5" />
             {activeNotificationCount > 0 && (
@@ -1074,7 +1076,7 @@ export const Navbar = () => {
               </span>
             )}
           </button>
-          <button onClick={toggleMenu} className="text-xl xs:text-2xl p-1 hover:text-lightBlue transition-colors">
+          <button onClick={toggleMenu} className="text-xl xs:text-2xl p-1 hover:text-lightBlue transition-colors text-darkBlue dark:text-slate-200">
             <GiHamburgerMenu className="w-5 h-5" />
           </button>
         </div>
@@ -1175,54 +1177,57 @@ export const Navbar = () => {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex">
-          <ul className="flex gap-6 font-medium items-center underline-offset-8">
+          <ul className="flex gap-5 lg:gap-6 font-medium items-center underline-offset-8 dark:text-slate-200">
             <li
-              className={`hover:underline hover:text-darkBlue decoration-2 ${isActive("/") ? "underline text-darkBlue" : ""
+              className={`hover:underline hover:text-darkBlue dark:hover:text-sky-400 decoration-2 ${isActive("/") ? "underline text-darkBlue dark:text-sky-400 font-bold" : ""
                 }`}
             >
               <Link to="/">Home</Link>
             </li>
             <li
-              className={`hover:underline hover:text-darkBlue decoration-2 ${isActive("/Alumni") ? "underline text-darkBlue" : ""
+              className={`hover:underline hover:text-darkBlue dark:hover:text-sky-400 decoration-2 ${isActive("/Alumni") ? "underline text-darkBlue dark:text-sky-400 font-bold" : ""
                 }`}
             >
               <Link to="/Alumni">Alumni</Link>
             </li>
             <li
-              className={`hover:underline hover:text-darkBlue decoration-2 ${isActive("/Events") ? "underline text-darkBlue" : ""
+              className={`hover:underline hover:text-darkBlue dark:hover:text-sky-400 decoration-2 ${isActive("/Events") ? "underline text-darkBlue dark:text-sky-400 font-bold" : ""
                 }`}
             >
               <Link to="/Events">Events</Link>
             </li>
             <li
-              className={`hover:underline hover:text-darkBlue decoration-2 ${isActive("/jobs") ? "underline text-darkBlue" : ""
+              className={`hover:underline hover:text-darkBlue dark:hover:text-sky-400 decoration-2 ${isActive("/jobs") ? "underline text-darkBlue dark:text-sky-400 font-bold" : ""
                 }`}
             >
               <Link to="/jobs">Jobs</Link>
             </li>
             <li
-              className={`hover:underline hover:text-darkBlue decoration-2 ${isActive("/Faculty") ? "underline text-darkBlue" : ""
+              className={`hover:underline hover:text-darkBlue dark:hover:text-sky-400 decoration-2 ${isActive("/Faculty") ? "underline text-darkBlue dark:text-sky-400 font-bold" : ""
                 }`}
             >
               <Link to="/Faculty">Faculty</Link>
             </li>
             <li
-              className={`hover:underline hover:text-darkBlue decoration-2 ${isActive("/ReachUs") ? "underline text-darkBlue" : ""
+              className={`hover:underline hover:text-darkBlue dark:hover:text-sky-400 decoration-2 ${isActive("/ReachUs") ? "underline text-darkBlue dark:text-sky-400 font-bold" : ""
                 }`}
             >
               <Link to="/ReachUs">Reach Us</Link>
             </li>
             <li>
               <Link to="/Register">
-                <button className="bg-darkBlue hover:bg-[#222363] text-[#fff] font-semibold rounded-lg py-2 px-3">
+                <button className="bg-darkBlue hover:bg-[#222363] text-[#fff] font-semibold rounded-lg py-2 px-3 shadow-sm hover:shadow transition-all">
                   Register Now!
                 </button>
               </Link>
             </li>
             <li>
+              <ThemeToggle />
+            </li>
+            <li>
               <button
                 onClick={toggleNotificationModal}
-                className="relative text-2xl text-darkBlue hover:text-lightBlue p-2"
+                className="relative text-2xl text-darkBlue dark:text-slate-200 hover:text-lightBlue dark:hover:text-sky-400 p-2"
               >
                 <FaBell className="w-6 h-6" />
                 {activeNotificationCount > 0 && (
@@ -1233,11 +1238,11 @@ export const Navbar = () => {
               </button>
             </li>
             <li>
-              <Link to="/UserLogin" className="text-2xl text-darkBlue hover:text-lightBlue p-2" title="Login">
+              <Link to="/UserLogin" className="text-2xl text-darkBlue dark:text-slate-200 hover:text-lightBlue dark:hover:text-sky-400 p-2" title="Login">
                 <FaUserAlt className="w-6 h-6" />
               </Link>
             </li>
-            <li className="flex items-center gap-4 text-2xl text-darkBlue">
+            <li className="flex items-center gap-4 text-2xl text-darkBlue dark:text-slate-300">
               <a
                 href="https://www.linkedin.com/school/punjabi-university-patiala/"
                 className="hover:text-[#0a66c2] transition-colors p-2"

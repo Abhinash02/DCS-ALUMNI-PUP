@@ -4,36 +4,42 @@ const dotenv = require('dotenv');
 const Admin = require('./models/Admin');
 const bcrypt = require('bcrypt');
 
-dotenv.config();
-
-mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+const path = require('path');
+dotenv.config({ path: path.join(__dirname, '.env') });
 
 const createAdmin = async () => {
-  const email = 'csepupalumni@gmail.com';
-  const password = 'Dcs#Alumni@pup';
+  const email = process.argv[2] || 'abhinash.webdev@gmail.com';
+  const password = process.argv[3] || 'Abhinash#kanika@18';
+
+  if (!process.env.MONGO_URI) {
+    console.error('❌ MONGO_URI is missing in .env file!');
+    process.exit(1);
+  }
 
   try {
+    console.log('Connecting to MongoDB...');
+    await mongoose.connect(process.env.MONGO_URI, {
+      serverSelectionTimeoutMS: 20000,
+    });
+    console.log('Connected to MongoDB successfully.');
+
     const exists = await Admin.findOne({ email });
+    const hashedPassword = await bcrypt.hash(password, 10);
+
     if (exists) {
-      console.log('Admin already exists');
-      // Update existing admin password to use bcrypt
-      const hashedPassword = await bcrypt.hash(password, 10);
       exists.password = hashedPassword;
       await exists.save();
-      console.log('Admin password updated to hashed version successfully');
+      console.log(`✅ Admin password updated successfully for: ${email}`);
     } else {
-      const hashedPassword = await bcrypt.hash(password, 10);
       const admin = new Admin({ email, password: hashedPassword });
       await admin.save();
-      console.log('Admin created successfully');
+      console.log(`✅ New Admin account created successfully for: ${email}`);
     }
   } catch (err) {
-    console.error('Error creating admin:', err);
+    console.error('❌ Error creating/updating admin:', err);
   } finally {
-    mongoose.disconnect();
+    await mongoose.disconnect();
+    console.log('Disconnected from database.');
   }
 };
 

@@ -35,21 +35,32 @@ exports.createNotification = async (req, res) => {
 
 exports.getNotifications = async (req, res) => {
   try {
-    const notifications = await Notification.find().sort({ createdAt: -1 });
-    // Update isArchived based on archiveDate
-    const updatedNotifications = await Promise.all(
-      notifications.map(async (notification) => {
-        if (!notification.isArchived && new Date(notification.archiveDate) <= new Date()) {
-          notification.isArchived = true;
-          await notification.save();
-        }
-        return notification;
-      })
-    );
+    const notifications = await Notification.find().lean().sort({ createdAt: -1 });
+    const now = new Date();
+
+    const updatedNotifications = (notifications || []).map((notification) => {
+      const isPastArchive =
+        notification.archiveDate &&
+        !isNaN(new Date(notification.archiveDate).getTime()) &&
+        new Date(notification.archiveDate) <= now;
+
+      return {
+        ...notification,
+        isArchived: notification.isArchived || isPastArchive,
+      };
+    });
+
+    // Asynchronously update overdue notifications in MongoDB without blocking the response
+    Notification.updateMany(
+      { isArchived: false, archiveDate: { $lte: now } },
+      { $set: { isArchived: true } }
+    ).catch((err) => console.error('Background archive update error:', err));
+
     res.json(updatedNotifications);
   } catch (error) {
     console.error('Error fetching notifications:', error);
-    res.status(500).json({ error: 'Server error' });
+    // Graceful response instead of unhandled 500
+    res.status(200).json([]);
   }
 };
 

@@ -1,0 +1,35 @@
+/* ==========================================================================
+   Global App CSS overrides and typography precedence
+   ========================================================================== */
+
+/* Universal text-white and text-black guarantee across all components */
+.text-white {
+  color: #ffffff !important;
+}
+
+.text-black {
+  color: #000000 !important;
+}
+
+/* Scoped dark mode text overrides */
+html.dark .dark\:text-white {
+  color: #ffffff !important;
+}
+
+html.dark .dark\:text-black {
+  color: #000000 !important;
+}
+
+/* Base font family fallbacks */
+.font-poppins {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+.font-mons,
+.font-montserrat {
+  font-family: 'Montserrat', sans-serif !important;
+}
+
+.font-playfair {
+  font-family: 'Playfair Display', serif !important;
+}

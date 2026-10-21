@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import API from '../../api/api';
+import { FileSpreadsheet } from 'lucide-react';
+import { exportAlumniToCSV } from '../../utils/csvExport';
 
 const AdminApproved = () => {
   const [approved, setApproved] = useState([]);
@@ -161,7 +163,24 @@ const AdminApproved = () => {
         <p className="text-white bg-green-900 bg-opacity-50 p-4 rounded-lg mb-4 animate__animated animate__shakeX">{success}</p>
       )}
 
-      <h3 className="text-2xl font-semibold text-blue mb-6">Approved Alumni</h3>
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6 pb-4 border-b border-blue-900/10">
+        <div className="flex items-center gap-3">
+          <h3 className="text-2xl font-bold text-blue font-poppins">Approved Alumni</h3>
+          <span className="bg-blue/10 text-blue font-semibold text-xs px-2.5 py-1 rounded-full border border-blue/20">
+            {approved.length} Verified
+          </span>
+        </div>
+
+        <button
+          onClick={() => exportAlumniToCSV(approved, `DCS_Approved_Alumni_${new Date().toISOString().slice(0, 10)}.csv`)}
+          disabled={approved.length === 0}
+          className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 disabled:opacity-50 disabled:cursor-not-allowed text-white text-sm font-semibold rounded-lg shadow transition duration-200 transform hover:-translate-y-0.5 active:translate-y-0"
+          title="Download approved alumni list as a spreadsheet (CSV)"
+        >
+          <FileSpreadsheet className="w-4 h-4" />
+          <span>Export to CSV</span>
+        </button>
+      </div>
       {approved.length === 0 ? (
         <p className="text-gray">No approved alumni yet.</p>
       ) : (

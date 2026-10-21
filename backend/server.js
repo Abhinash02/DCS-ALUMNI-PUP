@@ -150,6 +150,7 @@ const facultyRoutes = require('./routes/facultyRoutes');
 const events = require('./routes/events');
 const notificationRoutes = require('./routes/notificationRoutes');
 const jobRoutes = require('./routes/jobRoutes');
+const contactRoutes = require('./routes/contactRoutes');
 
 dotenv.config();
 
@@ -241,6 +242,7 @@ app.use('/api/faculty', facultyRoutes);
 app.use('/api/events', events);
 app.use('/api/notifications', notificationRoutes);
 app.use('/api/jobs', jobRoutes);
+app.use('/api/contact', contactRoutes);
 
 
 // Server

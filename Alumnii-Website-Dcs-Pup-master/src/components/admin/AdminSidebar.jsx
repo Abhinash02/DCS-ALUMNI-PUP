@@ -1,5 +1,7 @@
 import React from 'react';
 import { 
+  LayoutDashboard,
+  Palette,
   ClipboardList, 
   CheckCircle, 
   XCircle, 
@@ -12,6 +14,8 @@ import {
 
 const AdminSidebar = ({ activeSection, setActiveSection, handleLogout }) => {
   const menuItems = [
+    { id: 'overview', label: 'Analytics & Overview', icon: LayoutDashboard },
+    { id: 'appearance', label: 'Appearance & Themes', icon: Palette },
     { id: 'pending', label: 'Pending Approvals', icon: ClipboardList },
     { id: 'approved', label: 'Approved Alumni', icon: CheckCircle },
     { id: 'denied', label: 'Denied Alumni', icon: XCircle },

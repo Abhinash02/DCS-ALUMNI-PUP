@@ -1,5 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import API from '../api/api';
 import emailjs from '@emailjs/browser';
+import { toast } from 'react-toastify';
+import {
+    MapPin,
+    Navigation,
+    ExternalLink,
+    Send,
+    Loader2,
+    CheckCircle2,
+} from 'lucide-react';
 
 export const ReachUs = () => {
     const [formData, setFormData] = useState({
@@ -12,6 +22,8 @@ export const ReachUs = () => {
 
     const [popup, setPopup] = useState(false);
     const [dropdownOpen, setDropdownOpen] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submittedName, setSubmittedName] = useState('');
 
     const dropdownOptions = [
         'Monitory Contribution',
@@ -42,35 +54,56 @@ export const ReachUs = () => {
         setDropdownOpen(false);
     };
 
-    const sendEmail = (e) => {
+    const sendEmail = async (e) => {
         e.preventDefault();
 
         // Ensure the dropdown has a valid selection
         if (formData.selected_option === 'How Alumni Can Help Us') {
-            alert('Please select an option from the dropdown!');
-            return; // Prevent form submission if no option is selected
-        }
-
-        // Validate form fields
-        if (!formData.from_fname || !formData.from_lname || !formData.from_email || !formData.message) {
-            alert('Please fill out all required fields!');
+            toast.warn('Please select how you would like to collaborate or help from the dropdown!');
             return;
         }
 
-        // Send email using EmailJS
-        emailjs.send('service_apu5zy4', 'template_g7qzrrj', formData, '5PrHo6XQmfc1vb4mT')
-                    .then(
-                () => {
-                    console.log('SUCCESS!');
-                    setPopup(true); // Show popup on success
-                },
-                (error) => {
-                    console.log('FAILED...', error.text);
-                }
-            );
+        // Validate form fields
+        if (!formData.from_fname?.trim() || !formData.from_email?.trim() || !formData.message?.trim()) {
+            toast.warn('Please fill out all required fields (First Name, Email, and Message)!');
+            return;
+        }
+
+        setIsSubmitting(true);
+        const senderFullName = `${formData.from_fname} ${formData.from_lname || ''}`.trim();
+
+        try {
+            // 1. Submit to reliable backend API first (stores in MongoDB and triggers async email)
+            const response = await API.post('/contact', formData, { timeout: 8000 });
+            if (response.data?.success || response.status === 200) {
+                setSubmittedName(senderFullName);
+                setPopup(true);
+                toast.success('Your message has been delivered successfully!');
+                return;
+            }
+        } catch (backendError) {
+            console.warn('Backend contact submission fallback:', backendError.message);
+
+            // 2. Fallback to client-side EmailJS with a safe 5-second timeout
+            try {
+                await Promise.race([
+                    emailjs.send('service_apu5zy4', 'template_g7qzrrj', formData, '5PrHo6XQmfc1vb4mT'),
+                    new Promise((_, reject) => setTimeout(() => reject(new Error('EmailJS timeout')), 5000)),
+                ]);
+                setSubmittedName(senderFullName);
+                setPopup(true);
+                toast.success('Your message has been delivered successfully!');
+                return;
+            } catch (emailjsError) {
+                console.error('All contact submission channels failed:', emailjsError);
+                toast.error('Unable to send at the moment. Please email csepupalumni@gmail.com directly or call 0175-5136313.');
+            }
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
-    // Close the popup and refresh the page
+    // Close the popup and reset form fields
     const handleClosePopup = () => {
         setPopup(false);
         setFormData({
@@ -96,50 +129,153 @@ export const ReachUs = () => {
         };
     }, []);
 
+
     return (
         <div className="max-w-[85%] mx-auto mt-28">
             <div>
-                <h1 className="text-6xl font-extrabold font-mons py-4 text-darkBlue">Get in Touch!</h1>
-                <div className="flex mx-auto justify-between">
-                    <div className="size-[45%] lg:size-[40%] hidden md:flex mt-10 lg:mt-0 items-center">
-                        <img src="images/contactUs.jpg" alt="contactUs" className="size-full" />
+                <h1 className="text-4xl sm:text-6xl font-extrabold font-mons py-4 text-darkBlue dark:text-white">
+                    Get in <span className="bg-gradient-to-r from-blue via-sky-500 to-indigo-600 dark:from-sky-400 dark:via-blue-400 dark:to-indigo-300 bg-clip-text text-transparent">Touch!</span>
+                </h1>
+                <div className="flex flex-col lg:flex-row mx-auto justify-between gap-8 lg:gap-12 items-start">
+                    {/* Left Column: Official Leadership & Verified Department Information */}
+                    <div className="w-full lg:w-[48%] flex flex-col gap-6 mt-6 md:mt-10">
+                        {/* Official Leadership Card */}
+                        <div className="rounded-3xl bg-gradient-to-br from-darkBlue via-[#004875] to-darkBlueAlt text-white p-6 sm:p-8 shadow-xl border border-white/15 relative overflow-hidden">
+                            <div className="flex items-center justify-between mb-4">
+                                <span className="px-3.5 py-1 rounded-full text-xs font-bold bg-white/15 border border-white/20 text-white shadow-xs">
+                                    NAAC "A+" Grade (CGPA 3.37)
+                                </span>
+                                <span className="text-xs text-sky-200 font-semibold">DCS PUP</span>
+                            </div>
+
+                            <h2 className="text-2xl font-extrabold font-mons text-white">
+                                Department Leadership
+                            </h2>
+                            <p className="text-xs text-blue-100/90 mt-1">
+                                Department of Computer Science, Punjabi University, Patiala
+                            </p>
+
+                            <div className="mt-5 space-y-4 text-xs sm:text-sm">
+                                <div className="bg-white/10 rounded-2xl p-4 border border-white/10 backdrop-blur-sm">
+                                    <div className="text-[11px] uppercase font-bold text-sky-200 tracking-wider">Head of the Department</div>
+                                    <div className="text-base font-extrabold text-white mt-0.5">Prof. (Dr.) Gagandeep</div>
+                                    <div className="text-xs text-blue-100 mt-1 flex items-center gap-1.5">
+                                        <span>Phone:</span>
+                                        <a href="tel:01755136313" className="text-sky-300 font-semibold hover:underline">0175-5136313</a>
+                                    </div>
+                                </div>
+
+                                <div className="bg-white/10 rounded-2xl p-4 border border-white/10 backdrop-blur-sm">
+                                    <div className="text-[11px] uppercase font-bold text-sky-200 tracking-wider">Website Liaison & Alumni Incharge</div>
+                                    <div className="text-base font-extrabold text-white mt-0.5">Prof. (Dr.) Vishal Goyal</div>
+                                    <div className="text-xs text-blue-100 mt-1">
+                                        Professor, Department of Computer Science
+                                    </div>
+                                </div>
+
+                                <div className="bg-white/10 rounded-2xl p-4 border border-white/10 backdrop-blur-sm">
+                                    <div className="text-[11px] uppercase font-bold text-sky-200 tracking-wider">Official Department Subdomain</div>
+                                    <a
+                                        href="http://CSC.punjabiuniversity.ac.in"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-sm font-bold text-sky-300 hover:text-white transition flex items-center gap-1.5 mt-0.5"
+                                    >
+                                        <span>http://CSC.punjabiuniversity.ac.in</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Verified Contact Details Card */}
+                        <div className="rounded-3xl bg-white dark:bg-slate-800/90 p-6 sm:p-7 shadow-lg border border-slate-100 dark:border-slate-700/60 text-slate-800 dark:text-slate-100">
+                            <h3 className="text-lg font-bold font-mons text-slate-900 dark:text-white mb-4">
+                                Verified Contact Information
+                            </h3>
+
+                            <div className="space-y-3.5 text-xs sm:text-sm">
+                                <div className="flex items-start gap-3">
+                                    <span className="font-bold text-blue dark:text-sky-400 min-w-[70px]">Address:</span>
+                                    <span className="text-slate-600 dark:text-slate-300">
+                                        Department of Computer Science, Punjabi University, Patiala - 147002, Punjab, India.
+                                    </span>
+                                </div>
+                                <div className="flex items-center gap-3">
+                                    <span className="font-bold text-blue dark:text-sky-400 min-w-[70px]">Phone:</span>
+                                    <span className="text-slate-600 dark:text-slate-300 font-medium">
+                                        0175-5136313 / +91-175-3046313
+                                    </span>
+                                </div>
+                                <div className="flex items-center gap-3">
+                                    <span className="font-bold text-blue dark:text-sky-400 min-w-[70px]">Alumni Email:</span>
+                                    <a href="mailto:csepupalumni@gmail.com" className="text-blue dark:text-sky-400 hover:underline font-semibold">
+                                        csepupalumni@gmail.com
+                                    </a>
+                                </div>
+                                <div className="flex items-center gap-3">
+                                    <span className="font-bold text-blue dark:text-sky-400 min-w-[70px]">Hours:</span>
+                                    <span className="text-slate-600 dark:text-slate-300">
+                                        Monday – Friday, 9:00 AM – 5:00 PM IST
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    {/* Form */}
+
+                    {/* Right Column: Interactive Alumni Contact Form */}
+                    {/* Right Column: Interactive Alumni Contact Form (Lowered nicely) */}
                     <form
-                        className="w-full md:w-[45%] xl:w-[50%] text-md my-10 font-medium"
+                        className="w-full lg:w-[48%] text-md mt-6 lg:mt-10 font-medium bg-white/70 dark:bg-slate-800/80 p-6 sm:p-8 rounded-3xl border border-slate-200/80 dark:border-slate-700/60 shadow-lg backdrop-blur-sm"
                         onSubmit={sendEmail}
+                        data-gramm="false"
+                        data-enable-grammarly="false"
+                        spellCheck="false"
                     >
-                        <div className="mb-5 flex gap-5">
+                        <h2 className="text-2xl font-bold font-mons text-slate-900 dark:text-white mb-1">Send us a Message</h2>
+                        <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mb-6">Have questions or want to collaborate? Fill out the form below and our team will get back to you promptly.</p>
+
+                        <div className="mb-5 flex flex-col sm:flex-row gap-4">
                             <input
                                 type="text"
                                 id="fName"
-                                className="shadow-sm bg-gray-50 rounded-lg focus:ring-darkBlue focus:border-darkBlue block w-full p-3.5 3xl:p-5 3xl:text-xl placeholder:text-darkBlue bg-lightBlue"
-                                placeholder="First Name"
+                                className="shadow-xs rounded-xl focus:ring-2 focus:ring-darkBlue focus:border-darkBlue block w-full p-3.5 3xl:p-5 3xl:text-xl placeholder:text-slate-500 dark:placeholder:text-slate-400 bg-lightBlue dark:bg-slate-900/60 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-700"
+                                placeholder="First Name *"
                                 name="from_fname"
                                 value={formData.from_fname}
                                 onChange={handleInputChange}
+                                data-gramm="false"
+                                data-enable-grammarly="false"
+                                spellCheck="false"
+                                autoComplete="given-name"
                                 required
                             />
                             <input
                                 type="text"
                                 id="lName"
-                                className="shadow-sm bg-gray-50 rounded-lg focus:ring-darkBlue focus:border-darkBlue block w-full p-3.5 3xl:p-5 3xl:text-xl placeholder:text-darkBlue bg-lightBlue"
+                                className="shadow-xs rounded-xl focus:ring-2 focus:ring-darkBlue focus:border-darkBlue block w-full p-3.5 3xl:p-5 3xl:text-xl placeholder:text-slate-500 dark:placeholder:text-slate-400 bg-lightBlue dark:bg-slate-900/60 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-700"
                                 placeholder="Last Name"
                                 name="from_lname"
                                 value={formData.from_lname}
                                 onChange={handleInputChange}
-                                required
+                                data-gramm="false"
+                                data-enable-grammarly="false"
+                                spellCheck="false"
+                                autoComplete="family-name"
                             />
                         </div>
                         <div className="mb-5">
                             <input
                                 type="email"
                                 id="email"
-                                className="shadow-sm rounded-lg focus:ring-darkBlue focus:border-darkBlue block w-full p-3.5 3xl:p-5 3xl:text-xl placeholder:text-darkBlue bg-lightBlue"
-                                placeholder="Email"
+                                className="shadow-xs rounded-xl focus:ring-2 focus:ring-darkBlue focus:border-darkBlue block w-full p-3.5 3xl:p-5 3xl:text-xl placeholder:text-slate-500 dark:placeholder:text-slate-400 bg-lightBlue dark:bg-slate-900/60 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-700"
+                                placeholder="Email Address *"
                                 name="from_email"
                                 value={formData.from_email}
                                 onChange={handleInputChange}
+                                data-gramm="false"
+                                data-enable-grammarly="false"
+                                spellCheck="false"
+                                autoComplete="email"
                                 required
                             />
                         </div>
@@ -147,9 +283,9 @@ export const ReachUs = () => {
                             <button
                                 type="button"
                                 onClick={() => setDropdownOpen(!dropdownOpen)}
-                                className={`w-full bg-lightBlue focus:ring-darkBlue focus:border-darkBlue text-darkBlue rounded-lg p-3.5 3xl:p-5 3xl:text-xl text-center flex justify-between items-center`}
+                                className={`w-full bg-lightBlue dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-darkBlue text-darkBlue dark:text-sky-300 rounded-xl p-3.5 3xl:p-5 3xl:text-xl text-center flex justify-between items-center font-medium`}
                             >
-                                {formData.selected_option}
+                                <span>{formData.selected_option}</span>
                                 <svg
                                     className="w-2.5 h-2.5 ms-3"
                                     aria-hidden="true"
@@ -167,14 +303,14 @@ export const ReachUs = () => {
                                 </svg>
                             </button>
                             {dropdownOpen && (
-                                <div className="absolute z-10 bg-lightBlue rounded-lg shadow w-full ">
-                                    <ul className=" text-darkBlue">
+                                <div className="absolute z-10 bg-white dark:bg-slate-800 rounded-xl shadow-xl w-full border border-slate-200 dark:border-slate-700 mt-1 overflow-hidden">
+                                    <ul className="text-slate-700 dark:text-slate-200 text-sm">
                                         {dropdownOptions.map((option, index) => (
-                                            <li key={index}>
+                                             <li key={index}>
                                                 <button
                                                     type="button"
                                                     onClick={() => handleDropdownSelect(option)}
-                                                    className="block w-full text-left px-4 py-2.5 hover:bg-hoverBlue"
+                                                    className="block w-full text-left px-4 py-2.5 hover:bg-blue/10 dark:hover:bg-slate-700 transition"
                                                 >
                                                     {option}
                                                 </button>
@@ -187,42 +323,115 @@ export const ReachUs = () => {
                         <div className="flex items-start mb-5">
                             <textarea
                                 id="message"
-                                rows="7"
-                                className="resize-none block p-3.5 w-full shadow-sm rounded-lg 3xl:p-5 3xl:text-xl focus:ring-darkBlue focus:border-darkBlue placeholder:text-darkBlue bg-lightBlue"
-                                placeholder="Leave a message..."
+                                rows="6"
+                                className="resize-none block p-3.5 w-full shadow-xs rounded-xl 3xl:p-5 3xl:text-xl focus:ring-2 focus:ring-darkBlue placeholder:text-slate-500 dark:placeholder:text-slate-400 bg-lightBlue dark:bg-slate-900/60 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-700"
+                                placeholder="Share your message, thoughts, or collaboration proposal... *"
                                 name="message"
                                 value={formData.message}
                                 onChange={handleInputChange}
+                                data-gramm="false"
+                                data-enable-grammarly="false"
+                                spellCheck="false"
                                 required
                             ></textarea>
                         </div>
                         <div className="w-full items-end justify-end flex">
-                            <input
+                            <button
                                 type="submit"
-                                value="Send"
-                                className="text-[#ffffff] cursor-pointer bg-darkBlue font-medium rounded-lg text-md px-5 py-2.5 3xl:px-8 3xl:py-4 xl:text-xl text-center"
-                            />
+                                disabled={isSubmitting}
+                                className="text-white cursor-pointer bg-darkBlue hover:bg-darkBlueAlt disabled:opacity-50 disabled:cursor-not-allowed font-semibold rounded-xl text-sm sm:text-base px-6 py-3 3xl:px-8 3xl:py-4 transition shadow-md hover:shadow-lg inline-flex items-center gap-2"
+                            >
+                                {isSubmitting ? (
+                                    <>
+                                        <Loader2 className="w-4 h-4 animate-spin" />
+                                        <span>Submitting Message...</span>
+                                    </>
+                                ) : (
+                                    <>
+                                        <Send className="w-4 h-4" />
+                                        <span>Send Message</span>
+                                    </>
+                                )}
+                            </button>
                         </div>
                     </form>
                 </div>
+
+                {/* Department Map Location Card (Rectangle Format) */}
+                <div className="w-full rounded-3xl bg-white dark:bg-slate-800/90 p-5 sm:p-7 shadow-xl border border-slate-100 dark:border-slate-700/60 mt-12 sm:mt-16 mb-16">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-5">
+                        <div className="flex items-start gap-3">
+                            <div className="w-11 h-11 rounded-2xl bg-blue/10 dark:bg-sky-400/10 flex items-center justify-center text-blue dark:text-sky-400 shrink-0 mt-0.5 shadow-xs">
+                                <MapPin className="w-5 h-5" />
+                            </div>
+                            <div>
+                                <h3 className="text-xl sm:text-2xl font-extrabold font-mons text-slate-900 dark:text-white">
+                                    Department Campus Location
+                                </h3>
+                                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-0.5">
+                                    Department of Computer Science, Punjabi University, Patiala, Punjab - 147002, India
+                                </p>
+                            </div>
+                        </div>
+                        <a
+                            href="https://maps.google.com/?q=Department+of+Computer+Science,+Punjabi+University,+Patiala"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-darkBlue hover:bg-darkBlueAlt text-white text-xs sm:text-sm font-semibold shadow-md hover:shadow-lg transition-all duration-200 shrink-0"
+                        >
+                            <Navigation className="w-4 h-4" />
+                            <span>Open in Google Maps</span>
+                            <ExternalLink className="w-3.5 h-3.5 opacity-80" />
+                        </a>
+                    </div>
+
+                    {/* Responsive Map Iframe in Rectangle Shape */}
+                    <div className="w-full h-72 sm:h-96 rounded-2xl overflow-hidden border border-slate-200/90 dark:border-slate-700 shadow-inner relative">
+                        <iframe
+                            title="Department of Computer Science Punjabi University Patiala Map"
+                            src="https://maps.google.com/maps?q=Department+of+Computer+Science,+Punjabi+University,+Patiala&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                            width="100%"
+                            height="100%"
+                            style={{ border: 0 }}
+                            allowFullScreen=""
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                            className="w-full h-full"
+                        />
+                    </div>
+                </div>
             </div>
 
-            {/* Popup */}
+            {/* Success Popup Modal */}
             {popup && (
-                <div className="fixed inset-0 bg-[#707172] bg-opacity-50 flex items-center justify-center">
-                    <div className="bg-[white] p-6 rounded-lg shadow-lg text-center">
-                        <h2 className="text-2xl font-bold mb-4">Email Sent Successfully!</h2>
-                        <p className="mb-6">Your message has been sent. We will get back to you soon.</p>
+                <div
+                    className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 animate-fadeIn"
+                    onClick={handleClosePopup}
+                >
+                    <div
+                        className="bg-white dark:bg-slate-900 p-7 sm:p-8 rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-800 text-center max-w-md w-full relative z-10 transform transition-all"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        <div className="w-16 h-16 rounded-2xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center mx-auto mb-4">
+                            <CheckCircle2 className="w-9 h-9" />
+                        </div>
+                        <h2 className="text-2xl font-bold font-mons text-slate-900 dark:text-white mb-2">
+                            Message Received!
+                        </h2>
+                        <p className="text-sm text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
+                            {submittedName ? `Thank you, ${submittedName}! ` : 'Thank you! '}
+                            Your inquiry has been successfully recorded. A confirmation email has been dispatched and our department coordinator will get back to you shortly.
+                        </p>
                         <button
+                            type="button"
                             onClick={handleClosePopup}
-                            className=" bg-darkBlue text-[#fff] px-4 py-2 rounded-lg hover:bg-blue"
+                            className="w-full py-3 rounded-xl bg-darkBlue dark:bg-sky-500 text-white dark:text-slate-950 font-bold text-sm shadow-md hover:opacity-90 transition-all"
                         >
-                            OK
+                            Got it, thanks!
                         </button>
                     </div>
                 </div>
             )}
         </div>
-    
     );
 };

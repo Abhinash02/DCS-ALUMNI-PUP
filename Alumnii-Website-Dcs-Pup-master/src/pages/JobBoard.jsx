@@ -102,22 +102,22 @@ const JobBoard = ({ isComponent = false }) => {
               {currentJobs.map((job) => (
                 <div 
                   key={job._id} 
-                className="bg-white rounded-2xl p-6 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.1)] hover:shadow-[0_8px_30px_-4px_rgba(0,145,205,0.15)] transition-all duration-300 border border-gray-100 flex flex-col h-full group"
-              >
+                  className="relative bg-white/95 dark:bg-slate-800/90 backdrop-blur-md rounded-2xl p-6 shadow-md hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 border border-slate-100 dark:border-slate-700/60 hover:border-blue/30 dark:hover:border-sky-400/40 flex flex-col h-full group"
+                >
                 {/* Job Header */}
-                <div className="flex justify-between items-start mb-4">
-                  <div>
-                    <h2 className="text-xl font-bold text-darkBlue group-hover:text-lightBlue transition-colors line-clamp-2">
+                <div className="flex items-start justify-between gap-3 mb-3">
+                  <div className="flex-1 min-w-0">
+                    <h2 className="text-lg md:text-xl font-bold text-darkBlue dark:text-sky-400 group-hover:text-blue transition-colors line-clamp-2">
                       {job.title}
                     </h2>
-                    <p className="text-gray-500 font-medium flex items-center mt-1">
-                      <FaBuilding className="mr-2 text-lightBlue" />
-                      {job.company}
+                    <p className="text-gray-500 dark:text-gray-400 font-medium text-sm flex items-center mt-1">
+                      <FaBuilding className="mr-1.5 text-blue dark:text-sky-400 flex-shrink-0" />
+                      <span className="truncate">{job.company}</span>
                     </p>
                   </div>
                   {job.isExternal && (
-                    <span className="bg-purple-100 text-purple-700 text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap shadow-sm">
-                      🌍 External Portal
+                    <span className="flex-shrink-0 bg-purple-50 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800 text-[11px] font-semibold px-2.5 py-1 rounded-full whitespace-nowrap shadow-sm">
+                      🌍 External
                     </span>
                   )}
                 </div>

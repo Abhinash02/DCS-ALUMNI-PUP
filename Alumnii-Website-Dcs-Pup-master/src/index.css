@@ -1,8 +1,134 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --portal-primary: #005b96;
+  --portal-dark-blue: #2E5090;
+  --portal-light-blue: #aec8e2;
+  --portal-hover-blue: #eaf1fe;
+  --portal-steel-blue: #B0C4DE;
+  --portal-accent: #00BFFF;
+  --portal-dark-blue-alt: #1E3A8A;
+  --portal-light-blue-alt: #60A5FA;
+}
+
+/* Universal Typography: Poppins for body/controls, Montserrat for headings */
+body, input, select, textarea, button, p, span, a, label, table, td, th {
+  font-family: 'Poppins', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', 'Poppins', sans-serif;
+  letter-spacing: -0.015em;
+}
+
+/* Dark Mode Global University Portal Theme */
+html.dark {
+  color-scheme: dark;
+  background-color: #0f172a;
+}
+
+html.dark body {
+  background-color: #0f172a;
+  color: #e2e8f0;
+}
+
+html.dark input:not([type="checkbox"]):not([type="radio"]),
+html.dark select,
+html.dark textarea {
+  background-color: #1e293b;
+  color: #f8fafc;
+  border-color: #334155;
+}
+
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+  color: #64748b;
+}
+
+html.dark .text-slate-900,
+html.dark .text-gray-900 {
+  color: #f8fafc;
+}
+
+html.dark .text-slate-800,
+html.dark .text-gray-800 {
+  color: #f1f5f9;
+}
+
+html.dark .text-slate-700,
+html.dark .text-gray-700 {
+  color: #cbd5e1;
+}
+
+html.dark .text-slate-600,
+html.dark .text-gray-600 {
+  color: #94a3b8;
+}
+
+html.dark .border-gray-200,
+html.dark .border-gray-300,
+html.dark .border-slate-200,
+html.dark .border-slate-300 {
+  border-color: #334155;
+}
+
+html.dark .bg-LightSteelBlue {
+  background-color: #1e293b !important;
+  border: 1px solid #334155;
+}
+
+/* Guarantee text-white and text-black always take full precedence */
+.text-white {
+  color: #ffffff !important;
+}
+
+.text-black {
+  color: #000000 !important;
+}
+
+/* Dark mode dynamic color enhancements */
+html.dark .text-darkBlue {
+  color: #38bdf8;
+}
+
+/* Only apply dark:text-white and dark:text-black when dark mode is explicitly active */
+html.dark .dark\:text-white {
+  color: #ffffff !important;
+}
+
+html.dark .dark\:text-black {
+  color: #000000 !important;
+}
+
+html.dark .dark\:text-slate-100 {
+  color: #f1f5f9 !important;
+}
+
+html.dark .dark\:text-slate-200 {
+  color: #e2e8f0 !important;
+}
+
+html.dark .dark\:text-sky-300 {
+  color: #7dd3fc !important;
+}
+
+html.dark .dark\:text-sky-400 {
+  color: #38bdf8 !important;
+}
+
+/* Elevated ambient card shadow & border glow in dark mode */
+html.dark .shadow-xl {
+  box-shadow: 0 14px 28px -6px rgba(0, 0, 0, 0.65), 0 0 15px 1px rgba(56, 189, 248, 0.05);
+}
+
+html.dark .shadow-2xl {
+  box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.8), 0 0 25px 2px rgba(56, 189, 248, 0.08);
+}
+
 
 /* Custom Smooth Loader Animations */
 @keyframes loaderFadeIn {

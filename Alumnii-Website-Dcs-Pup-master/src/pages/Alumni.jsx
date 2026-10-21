@@ -2,9 +2,11 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import localData from '../data/aluminiData.json';
 import API from '../api/api';
 import { AlumniGridSkeleton } from '../components/skeletons/AlumniCardSkeleton';
+import { ChevronDown } from 'lucide-react';
 
 export default function Alumni() {
   const [loading, setLoading] = useState(true);
+  const [expandedCards, setExpandedCards] = useState({});
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCourse, setSelectedCourse] = useState('');
   const [selectedProfession, setSelectedProfession] = useState('');
@@ -356,55 +358,117 @@ export default function Alumni() {
           <AlumniGridSkeleton count={8} />
         ) : combinedData.length > 0 ? (
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
-            {combinedData.slice(0, visibleCount).map((item, index) => (
-              <div
-                key={index}
-                className="bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105"
-              >
-                <div className="h-64 md:h-72 lg:h-96">
-                  <img
-                    src={item.Image || item.photo || '/images/user.jpg'}
-                    alt={item.Name || item.name}
-                    className="w-full h-full object-cover"
-                  />
+            {combinedData.slice(0, visibleCount).map((item, index) => {
+              const cardKey = item._id || `${item.Name || item.name}-${index}`;
+              const isExpanded = !!expandedCards[cardKey];
+
+              return (
+                <div
+                  key={cardKey}
+                  className="bg-white dark:bg-slate-800 shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105 flex flex-col justify-between"
+                >
+                  <div>
+                    <div className="h-64 md:h-72 lg:h-96">
+                      <img
+                        src={item.Image || item.photo || '/images/user.jpg'}
+                        alt={item.Name || item.name}
+                        className="w-full h-full object-cover"
+                        onError={(e) => { e.target.src = '/images/user.jpg'; }}
+                      />
+                    </div>
+
+                    <div className="p-4 text-sm md:text-base">
+                      <div className="space-y-1">
+                        <h3 className="text-lg md:text-xl font-bold text-slate-900 dark:text-slate-100 mb-2">
+                          {item.Name || item.name}
+                        </h3>
+
+                        {(item.Course || item.course) && (
+                          <p className="text-slate-700 dark:text-slate-300">
+                            <strong className="text-slate-900 dark:text-slate-100">Course:</strong> {item.Course || item.course}
+                          </p>
+                        )}
+
+                        {(item.Batch || item.batch || getBatch(item)) && (
+                          <p className="text-slate-700 dark:text-slate-300 whitespace-nowrap">
+                            <strong className="text-slate-900 dark:text-slate-100">Batch:</strong> {item.Batch || item.batch || getBatch(item)}
+                          </p>
+                        )}
+
+                        {getProfession(item) && (
+                          <p className="text-slate-700 dark:text-slate-300">
+                            <strong className="text-slate-900 dark:text-slate-100">Profession:</strong> {getProfession(item).charAt(0).toUpperCase() + getProfession(item).slice(1)}
+                          </p>
+                        )}
+
+                        {(item.organization || item.InstituteName) && (
+                          <p className="text-slate-700 dark:text-slate-300">
+                            <strong className="text-slate-900 dark:text-slate-100">Organization:</strong> {item.organization || item.InstituteName}
+                          </p>
+                        )}
+
+                        {(item.LinkedIn || item.linkedin) && (
+                          <p className="text-slate-700 dark:text-slate-300">
+                            <strong className="text-slate-900 dark:text-slate-100">LinkedIn:</strong>{' '}
+                            <a
+                              href={item.LinkedIn || item.linkedin}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-blue dark:text-sky-400 underline font-medium hover:text-darkBlue"
+                            >
+                              Profile
+                            </a>
+                          </p>
+                        )}
+
+                        {/* Collapsible details section */}
+                        {isExpanded && (
+                          <div className="pt-2 mt-2 border-t border-slate-200 dark:border-slate-700 space-y-1 animate__animated animate__fadeIn">
+                            {(item.Skill || item.skill || (Array.isArray(item.skills) ? item.skills.join(', ') : item.skills)) && (
+                              <p className="text-slate-700 dark:text-slate-300">
+                                <strong className="text-slate-900 dark:text-slate-100">Skills:</strong> {item.Skill || item.skill || (Array.isArray(item.skills) ? item.skills.join(', ') : item.skills)}
+                              </p>
+                            )}
+
+                            {(item.Class || item.class) && (
+                              <p className="text-slate-700 dark:text-slate-300">
+                                <strong className="text-slate-900 dark:text-slate-100">Class:</strong> {item.Class || item.class}
+                              </p>
+                            )}
+
+                            {(item.WebsiteLink || item.website) && (
+                              <p className="text-slate-700 dark:text-slate-300">
+                                <strong className="text-slate-900 dark:text-slate-100">Website:</strong>{' '}
+                                <a
+                                  href={item.WebsiteLink || item.website}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-blue dark:text-sky-400 underline font-medium hover:text-darkBlue"
+                                >
+                                  Visit
+                                </a>
+                              </p>
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* See More / See Less Button */}
+                  <div className="p-4 pt-0">
+                    <button
+                      type="button"
+                      onClick={() => setExpandedCards(prev => ({ ...prev, [cardKey]: !prev[cardKey] }))}
+                      className="w-full py-1.5 px-3 rounded-lg bg-blue/10 hover:bg-blue/20 text-blue dark:bg-sky-400/10 dark:hover:bg-sky-400/20 dark:text-sky-300 font-semibold text-xs md:text-sm transition flex items-center justify-center gap-1.5 border border-blue/20 dark:border-sky-400/20"
+                    >
+                      <span>{isExpanded ? 'See Less' : 'See More'}</span>
+                      <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`} />
+                    </button>
+                  </div>
                 </div>
-                <div className="p-4 text-sm md:text-base">
-                  <h3 className="text-lg md:text-xl font-bold">{item.Name || item.name}</h3>
-                  {(item.Course || item.course) && <p><strong>Course:</strong> {item.Course || item.course}</p>}
-                  {getBatch(item) && <p><strong>Batch:</strong> {getBatch(item)}</p>}
-                  {(item.Class || item.class) && <p><strong>Class:</strong> {item.Class || item.class}</p>}
-                  {getProfession(item) && <p><strong>Profession:</strong> {getProfession(item).charAt(0).toUpperCase() + getProfession(item).slice(1)}</p>}
-                  {item.organization && <p><strong>Organization:</strong> {item.organization}</p>}
-                  {(item.Skill || item.skill) && <p><strong>Skills:</strong> {item.Skill || item.skill}</p>}
-                  {(item.LinkedIn || item.linkedin) && (
-                    <p>
-                       <strong>LinkedIn:</strong>{' '}
-                      <a
-                        href={item.LinkedIn || item.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue underline"
-                      >
-                        Profile
-                      </a>
-                    </p>
-                  )}
-                  {(item.WebsiteLink || item.website) && (
-                    <p>
-                      <strong>Website:</strong>{' '}
-                      <a
-                        href={item.WebsiteLink || item.website}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue underline"
-                      >
-                        Visit
-                      </a>
-                    </p>
-                  )}
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         ) : (
           <p className="text-center text-gray-500 mt-10">

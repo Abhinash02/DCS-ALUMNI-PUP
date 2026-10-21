@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import API from '../../api/api';
+import { Bell, AlertCircle, CheckCircle2, FileText, Trash2, Edit } from 'lucide-react';
 
 const AdminNotifications = () => {
   const [notifications, setNotifications] = useState([]);
@@ -166,135 +167,183 @@ const AdminNotifications = () => {
   };
 
   return (
-    <section className="bg-gray-800 p-8 rounded-xl shadow-2xl animate__animated animate__fadeInUp">
+    <section className="bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 animate__animated animate__fadeInUp transition-colors duration-200">
       {error && (
-        <p className="text-black bg-red-900 bg-opacity-50 p-4 rounded-lg mb-4 animate__animated animate__shakeX">{error}</p>
+        <div className="text-red-700 dark:text-red-300 bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-800 p-4 rounded-xl mb-6 flex items-center gap-2.5 text-sm font-medium animate__animated animate__shakeX">
+          <AlertCircle className="w-5 h-5 shrink-0 text-red-500" />
+          <span>{error}</span>
+        </div>
       )}
       {success && (
-        <p className="text-white bg-green-900 bg-opacity-50 p-4 rounded-lg mb-4 animate__animated animate__shakeX">{success}</p>
+        <div className="text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 p-4 rounded-xl mb-6 flex items-center gap-2.5 text-sm font-medium animate__animated animate__fadeIn">
+          <CheckCircle2 className="w-5 h-5 shrink-0 text-emerald-500" />
+          <span>{success}</span>
+        </div>
       )}
 
-      <h3 className="text-2xl font-semibold text-blue-400 mb-6">
-        {editingNotification ? 'Edit Notification' : 'Upload Notification'}
-      </h3>
-      <form onSubmit={handleNotificationSubmit} className="space-y-6 mb-8">
+      {/* Header */}
+      <div className="flex items-center gap-3 mb-6 pb-4 border-b border-slate-100 dark:border-slate-700">
+        <div className="p-2.5 bg-blue-50 dark:bg-blue-500/20 rounded-xl text-blue-700 dark:text-blue-300">
+          <Bell className="w-6 h-6" />
+        </div>
         <div>
-          <label className="block text-sm font-medium text-gray-300">Title</label>
+          <h3 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white">
+            {editingNotification ? 'Edit Department Notification' : 'Publish Notification'}
+          </h3>
+          <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">Broadcast official university circulars, guidelines, and announcements</p>
+        </div>
+      </div>
+
+      <form onSubmit={handleNotificationSubmit} className="space-y-5 mb-10">
+        <div>
+          <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5">
+            Notice Title <span className="text-red-500 font-bold ml-1">*</span>
+          </label>
           <input
             type="text"
             name="title"
             value={formData.title}
             onChange={handleInputChange}
-            className="mt-1 block w-full bg-gray-700 border-1.5 border-black rounded-lg text-black shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+            className="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-300 dark:border-slate-600 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:bg-white dark:focus:bg-slate-900 focus:border-blue-600 focus:ring-2 focus:ring-blue-500/20 outline-none transition duration-200 text-sm shadow-sm"
+            placeholder="e.g., Annual Alumni Meet Registration Open"
             required
             disabled={isUploading}
           />
         </div>
+
         <div>
-          <label className="block text-sm font-medium text-gray-300">Description</label>
+          <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5">
+            Detailed Notice / Description <span className="text-red-500 font-bold ml-1">*</span>
+          </label>
           <textarea
             name="description"
             value={formData.description}
             onChange={handleInputChange}
-            className="mt-1 block w-full bg-gray-700 border-1.5 border-black rounded-lg text-black shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+            className="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-300 dark:border-slate-600 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:bg-white dark:focus:bg-slate-900 focus:border-blue-600 focus:ring-2 focus:ring-blue-500/20 outline-none transition duration-200 text-sm shadow-sm"
             rows="4"
+            placeholder="Write circular content, guidelines, dates, and instructions..."
             required
             disabled={isUploading}
           />
         </div>
-        <div>
-          <label className="block text-sm font-medium text-gray-300">Archive Date</label>
-          <input
-            type="date"
-            name="archiveDate"
-            value={formData.archiveDate}
-            onChange={handleInputChange}
-            className="mt-1 block w-full bg-gray-700 border-1.5 border-black rounded-lg text-black shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-            required
-            disabled={isUploading}
-          />
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div>
+            <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5">
+              Archive Date <span className="text-red-500 font-bold ml-1">*</span>
+            </label>
+            <input
+              type="date"
+              name="archiveDate"
+              value={formData.archiveDate}
+              onChange={handleInputChange}
+              className="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-300 dark:border-slate-600 text-slate-900 dark:text-slate-100 focus:bg-white dark:focus:bg-slate-900 focus:border-blue-600 focus:ring-2 focus:ring-blue-500/20 outline-none transition duration-200 text-sm shadow-sm"
+              required
+              disabled={isUploading}
+            />
+          </div>
+
+          <div>
+            <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5">
+              Upload PDF or Image Document
+            </label>
+            <input
+              type="file"
+              accept="image/jpeg,image/png,image/gif,application/pdf"
+              onChange={(e) => setFormData({ ...formData, files: [e.target.files[0]] })}
+              className="w-full text-slate-600 dark:text-slate-300 text-sm file:mr-4 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-blue-50 file:text-blue-700 dark:file:bg-blue-900/40 dark:file:text-blue-300 hover:file:bg-blue-100 cursor-pointer"
+              disabled={isUploading}
+            />
+          </div>
         </div>
-        <div>
-          <label className="block text-sm font-medium text-gray-300">Upload Image or PDF</label>
-          <input
-            type="file"
-            accept="image/jpeg,image/png,image/gif,application/pdf"
-            onChange={(e) => setFormData({ ...formData, files: [e.target.files[0]] })}
-            className="mt-1 block w-full text-gray-300 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-blue file:text-white"
-            disabled={isUploading}
-          />
-        </div>
-        <div className="flex gap-4">
+
+        <div className="flex flex-wrap gap-3 pt-2">
           <button
             type="submit"
-            className={`flex-1 bg-blue text-white font-semibold rounded-lg py-3 px-4 transition-colors transform hover:scale-105 animate__animated animate__pulse animate__infinite ${isUploading ? 'opacity-50 cursor-not-allowed' : 'opacity-100'
-              }`}
+            className={`px-6 py-3 rounded-xl bg-gradient-to-r from-blue to-darkBlue text-white font-semibold shadow-md shadow-blue-900/20 hover:opacity-95 active:scale-[0.99] transition duration-200 text-sm flex items-center justify-center gap-2 ${
+              isUploading ? 'opacity-50 cursor-not-allowed' : ''
+            }`}
             disabled={isUploading}
           >
-            {isUploading ? 'Processing...' : editingNotification ? 'Update Notification' : 'Upload Notification'}
+            <Bell className="w-4 h-4" />
+            <span>{isUploading ? 'Publishing...' : editingNotification ? 'Update Notification' : 'Publish Notification'}</span>
           </button>
           {editingNotification && (
             <button
               type="button"
               onClick={handleCancelEdit}
-              className="flex-1 bg-gray-600 hover:bg-gray-700 text-white font-semibold rounded-lg py-3 px-4 transition-colors transform hover:scale-105"
+              className="px-6 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 font-semibold transition duration-200 text-sm"
             >
-              Cancel
+              Cancel Edit
             </button>
           )}
         </div>
       </form>
 
-      <h3 className="text-2xl font-semibold text-blue-400 mb-6">Manage Notifications</h3>
-      {notifications.length === 0 ? (
-        <p className="text-gray-400">No notifications available.</p>
-      ) : (
-        <>
-          <div className="space-y-4">
-            {getPaginatedData().map((notification) => (
-              <div key={notification._id} className="border p-4 rounded-lg shadow-md bg-gray-700 animate__animated animate__fadeIn">
-                <h4 className="text-lg font-medium text-white">{notification.title}</h4>
-                <p className="text-gray-300">{notification.description}</p>
-                <p className="text-sm text-gray-400 mt-1">
-                  Posted on: {new Date(notification.createdAt).toLocaleDateString()}
-                </p>
-                <p className="text-sm text-gray-400">
-                  Archive Date: {new Date(notification.archiveDate).toLocaleDateString()}
-                </p>
-                <p className="text-sm text-gray-400">
-                  Status: {notification.isArchived ? 'Archived' : 'Active'}
-                </p>
-                <p className="text-sm text-gray-400">
-                  File:{' '}
-                  <a
-                    href={notification.fileUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-400 hover:underline"
-                  >
-                    {notification.fileType === 'pdf' ? 'View PDF' : 'View Image'}
-                  </a>
-                </p>
-                <div className="flex gap-2 mt-2">
-                  <button
-                    onClick={() => handleEditNotification(notification)}
-                    className="bg-blue hover:bg-blue text-white py-1 px-4 rounded-lg transition-colors transform hover:scale-110 animate__animated animate__pulse animate__infinite"
-                  >
-                    Edit
-                  </button>
-                  <button
-                    onClick={() => deleteNotification(notification._id, notification.publicId)}
-                    className="bg-red-600 hover:bg-red-700 text-white py-1 px-4 rounded-lg transition-colors transform hover:scale-110 animate__animated animate__pulse animate__infinite"
-                  >
-                    Delete
-                  </button>
+      {/* Notifications List */}
+      <div className="border-t border-slate-100 dark:border-slate-700 pt-6">
+        <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-4">
+          Active Notices & Circulars ({notifications.length})
+        </h4>
+        {notifications.length === 0 ? (
+          <p className="text-slate-400 text-sm">No notifications available in database.</p>
+        ) : (
+          <>
+            <div className="space-y-4">
+              {getPaginatedData().map((n) => (
+                <div key={n._id} className="border border-slate-200 dark:border-slate-700 p-5 rounded-xl shadow-sm bg-slate-50 dark:bg-slate-900/60 hover:border-slate-300 transition duration-200">
+                  <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-3 mb-2">
+                    <h5 className="text-base font-bold text-slate-900 dark:text-white">{n.title}</h5>
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs px-2.5 py-0.5 rounded-full bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 font-semibold border border-blue-200 dark:border-blue-800">
+                        Archive: {new Date(n.archiveDate).toLocaleDateString()}
+                      </span>
+                      <span className={`text-xs px-2.5 py-0.5 rounded-full font-bold ${
+                        n.isArchived ? 'bg-gray-200 text-gray-700' : 'bg-emerald-100 text-emerald-800'
+                      }`}>
+                        {n.isArchived ? 'Archived' : 'Active'}
+                      </span>
+                    </div>
+                  </div>
+                  <p className="text-sm text-slate-600 dark:text-slate-300 mb-3">{n.description}</p>
+
+                  <div className="pt-2 border-t border-slate-200/60 dark:border-slate-700/60 flex flex-wrap justify-between items-center gap-2">
+                    {n.fileUrl ? (
+                      <a
+                        href={n.fileUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-xs text-blue-600 dark:text-sky-300 font-semibold hover:underline"
+                      >
+                        <FileText className="w-4 h-4" />
+                        <span>{n.fileType === 'pdf' ? 'Download PDF Circular' : 'View Attachment'}</span>
+                      </a>
+                    ) : <span />}
+
+                    <div className="flex items-center gap-2">
+                      <button
+                        onClick={() => handleEditNotification(n)}
+                        className="px-3.5 py-1.5 rounded-lg bg-blue-50 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 hover:bg-blue-100 font-semibold text-xs border border-blue-200 dark:border-blue-800 transition flex items-center gap-1"
+                      >
+                        <Edit className="w-3.5 h-3.5" />
+                        <span>Edit</span>
+                      </button>
+                      <button
+                        onClick={() => deleteNotification(n._id, n.publicId)}
+                        className="px-3.5 py-1.5 rounded-lg bg-red-50 dark:bg-red-950/40 text-red-600 dark:text-red-400 hover:bg-red-100 font-semibold text-xs border border-red-200 dark:border-red-800 transition flex items-center gap-1"
+                      >
+                        <Trash2 className="w-3.5 h-3.5" />
+                        <span>Delete</span>
+                      </button>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-          {renderPagination()}
-        </>
-      )}
+              ))}
+            </div>
+            {renderPagination()}
+          </>
+        )}
+      </div>
     </section>
   );
 };
