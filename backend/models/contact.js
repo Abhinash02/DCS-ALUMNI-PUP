@@ -18,6 +18,16 @@ const contactSchema = new mongoose.Schema(
       trim: true,
       lowercase: true,
     },
+    phone: {
+      type: String,
+      trim: true,
+      default: '',
+    },
+    alumniId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Alumni',
+      default: null,
+    },
     selected_option: {
       type: String,
       required: true,

@@ -15,6 +15,7 @@ export const ReachUs = () => {
         from_fname: '',
         from_lname: '',
         from_email: '',
+        phone: '',
         message: '',
         selected_option: 'How Alumni Can Help Us', // Default dropdown title
     });
@@ -97,6 +98,7 @@ export const ReachUs = () => {
             from_fname: '',
             from_lname: '',
             from_email: '',
+            phone: '',
             message: '',
             selected_option: 'How Alumni Can Help Us',
         });
@@ -250,21 +252,38 @@ export const ReachUs = () => {
                                 autoComplete="family-name"
                             />
                         </div>
-                        <div className="mb-5">
-                            <input
-                                type="email"
-                                id="email"
-                                className="shadow-xs rounded-xl focus:ring-2 focus:ring-darkBlue focus:border-darkBlue block w-full p-3.5 3xl:p-5 3xl:text-xl placeholder:text-slate-500 dark:placeholder:text-slate-400 bg-lightBlue dark:bg-slate-900/60 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-700"
-                                placeholder="Email Address *"
-                                name="from_email"
-                                value={formData.from_email}
-                                onChange={handleInputChange}
-                                data-gramm="false"
-                                data-enable-grammarly="false"
-                                spellCheck="false"
-                                autoComplete="email"
-                                required
-                            />
+                        <div className="mb-5 flex flex-col sm:flex-row gap-4">
+                            <div className="w-full sm:w-1/2">
+                                <input
+                                    type="email"
+                                    id="email"
+                                    className="shadow-xs rounded-xl focus:ring-2 focus:ring-darkBlue focus:border-darkBlue block w-full p-3.5 3xl:p-5 3xl:text-xl placeholder:text-slate-500 dark:placeholder:text-slate-400 bg-lightBlue dark:bg-slate-900/60 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-700"
+                                    placeholder="Email Address *"
+                                    name="from_email"
+                                    value={formData.from_email}
+                                    onChange={handleInputChange}
+                                    data-gramm="false"
+                                    data-enable-grammarly="false"
+                                    spellCheck="false"
+                                    autoComplete="email"
+                                    required
+                                />
+                            </div>
+                            <div className="w-full sm:w-1/2">
+                                <input
+                                    type="tel"
+                                    id="phone"
+                                    className="shadow-xs rounded-xl focus:ring-2 focus:ring-darkBlue focus:border-darkBlue block w-full p-3.5 3xl:p-5 3xl:text-xl placeholder:text-slate-500 dark:placeholder:text-slate-400 bg-lightBlue dark:bg-slate-900/60 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-700"
+                                    placeholder="Phone Number (Optional)"
+                                    name="phone"
+                                    value={formData.phone}
+                                    onChange={handleInputChange}
+                                    data-gramm="false"
+                                    data-enable-grammarly="false"
+                                    spellCheck="false"
+                                    autoComplete="tel"
+                                />
+                            </div>
                         </div>
                         <div className="relative mb-5 dropdown">
                             <button
