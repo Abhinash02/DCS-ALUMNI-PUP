@@ -23,6 +23,41 @@
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
   <title>DCS PUP Alumni</title>
+  <script>
+    // Suppress external browser extension unhandled exceptions (e.g. Codeium, Grammarly contentScript.js)
+    window.addEventListener('unhandledrejection', function (e) {
+      try {
+        var reason = e && e.reason;
+        var msg = (reason && (reason.message || reason.stack || String(reason))) || '';
+        if (
+          msg.includes('sentence') ||
+          msg.includes('contentScript') ||
+          msg.includes('message channel closed') ||
+          msg.includes('chrome-extension://') ||
+          msg.includes('A listener indicated an asynchronous response')
+        ) {
+          e.preventDefault();
+          e.stopImmediatePropagation();
+        }
+      } catch (err) {}
+    });
+    window.addEventListener('error', function (e) {
+      try {
+        var msg = (e && e.message) || '';
+        var filename = (e && e.filename) || '';
+        if (
+          msg.includes('sentence') ||
+          msg.includes('message channel closed') ||
+          filename.includes('contentScript') ||
+          filename.includes('chrome-extension://')
+        ) {
+          e.preventDefault();
+          e.stopImmediatePropagation();
+          return true;
+        }
+      } catch (err) {}
+    });
+  </script>
 </head>
 
 <body>

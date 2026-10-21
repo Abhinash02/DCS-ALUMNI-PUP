@@ -174,6 +174,10 @@ export default function UserLogin() {
                   onChange={(e) => setEmail(e.target.value)}
                   required
                   placeholder="alumni@example.com"
+                  data-gramm="false"
+                  data-enable-grammarly="false"
+                  spellCheck={false}
+                  autoComplete="email"
                   className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue dark:focus:ring-sky-400 transition"
                 />
               </div>
@@ -202,6 +206,10 @@ export default function UserLogin() {
                   onChange={(e) => setPassword(e.target.value)}
                   required
                   placeholder="••••••••"
+                  data-gramm="false"
+                  data-enable-grammarly="false"
+                  spellCheck={false}
+                  autoComplete="current-password"
                   className="w-full pl-10 pr-11 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue dark:focus:ring-sky-400 transition"
                 />
                 <button

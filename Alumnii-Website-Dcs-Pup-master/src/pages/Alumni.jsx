@@ -297,6 +297,10 @@ export default function Alumni() {
             placeholder="Search Alumni by Name..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
+            data-gramm="false"
+            data-enable-grammarly="false"
+            spellCheck={false}
+            autoComplete="off"
             className="w-full md:w-1/5 px-4 py-2 border border-gray-300 rounded-lg shadow-md"
           />
           <select
