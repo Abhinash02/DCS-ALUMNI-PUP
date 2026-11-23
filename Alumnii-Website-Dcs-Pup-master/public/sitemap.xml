@@ -5,49 +5,49 @@
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <!-- Homepage -->
   <url>
-    <loc>https://dcs-alumni.vercel.app/</loc>
+    <loc>https://vishalpup.in/</loc>
     <lastmod>2026-11-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <!-- Alumni Directory & Search -->
   <url>
-    <loc>https://dcs-alumni.vercel.app/alumni</loc>
+    <loc>https://vishalpup.in/alumni</loc>
     <lastmod>2026-11-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <!-- Events, Reunions & Gallery -->
   <url>
-    <loc>https://dcs-alumni.vercel.app/events</loc>
+    <loc>https://vishalpup.in/events</loc>
     <lastmod>2026-11-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <!-- Faculty & Academic Mentors -->
   <url>
-    <loc>https://dcs-alumni.vercel.app/faculty</loc>
+    <loc>https://vishalpup.in/faculty</loc>
     <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <!-- Job Board & Career Opportunities -->
   <url>
-    <loc>https://dcs-alumni.vercel.app/jobs</loc>
+    <loc>https://vishalpup.in/jobs</loc>
     <lastmod>2026-11-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <!-- Alumni Registration -->
   <url>
-    <loc>https://dcs-alumni.vercel.app/register</loc>
+    <loc>https://vishalpup.in/register</loc>
     <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <!-- Contact & Reach Us -->
   <url>
-    <loc>https://dcs-alumni.vercel.app/reach-us</loc>
+    <loc>https://vishalpup.in/reach-us</loc>
     <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
