@@ -21,7 +21,7 @@
   <meta name="google-site-verification" content="qekxAv4erqHxj7ENCcp2U-rEi62KC30X-yZt9qfDg-c" />
   
   <!-- Canonical & Alternate Links (Matching Google Search Console Property) -->
-  <link rel="canonical" href="https://vishalpup.in/" />
+  <link rel="canonical" href="https://dcsalumni.vishalpup.in/" />
   <link rel="alternate" type="text/markdown" title="LLM Knowledge Base" href="%PUBLIC_URL%/llms.txt" />
   <link rel="sitemap" type="application/xml" title="Sitemap" href="%PUBLIC_URL%/sitemap.xml" />
 
@@ -41,7 +41,7 @@
   <!-- Open Graph / Facebook / LinkedIn / WhatsApp -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="DCS PUP Alumni Portal" />
-  <meta property="og:url" content="https://vishalpup.in/" />
+  <meta property="og:url" content="https://dcsalumni.vishalpup.in/" />
   <meta property="og:title" content="DCS PUP Alumni Portal | Department of Computer Science, Punjabi University Patiala" />
   <meta property="og:description" content="Official Alumni Network for the Department of Computer Science, Punjabi University Patiala. Reconnect with fellow alumni, discover events, job referrals, and mentorship." />
   <meta property="og:image" content="%PUBLIC_URL%/images/banner.png" />
@@ -50,10 +50,22 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:url" content="https://vishalpup.in/" />
+  <meta name="twitter:url" content="https://dcsalumni.vishalpup.in/" />
   <meta name="twitter:title" content="DCS PUP Alumni Portal | Department of Computer Science, Punjabi University Patiala" />
   <meta name="twitter:description" content="Official Alumni Network for the Department of Computer Science, Punjabi University Patiala. Reconnect, network, and grow." />
   <meta name="twitter:image" content="%PUBLIC_URL%/images/banner.png" />
+
+  <!-- HashRouter Path Redirect Helper: Maps direct path URLs (e.g. /alumni) to HashRouter route (/#/alumni) -->
+  <script>
+    (function () {
+      try {
+        var path = window.location.pathname;
+        if (path && path !== '/' && path !== '/index.html' && !path.includes('.')) {
+          window.location.replace('/#' + path + window.location.search);
+        }
+      } catch (e) {}
+    })();
+  </script>
 
   <!-- Schema.org JSON-LD Structured Data for Google Rich Snippets & Knowledge Graph -->
   <script type="application/ld+json">
@@ -62,11 +74,11 @@
     "@graph": [
       {
         "@type": "CollegeOrUniversity",
-        "@id": "https://vishalpup.in/#university",
+        "@id": "https://dcsalumni.vishalpup.in/#university",
         "name": "Punjabi University, Patiala",
         "alternateName": ["PUP", "Punjabi University"],
         "url": "http://www.punjabiuniversity.ac.in",
-        "logo": "https://vishalpup.in/images/logo.png",
+        "logo": "https://dcsalumni.vishalpup.in/images/logo.png",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "NH 64, Urban Estate Phase II",
@@ -77,7 +89,7 @@
         },
         "department": {
           "@type": "Organization",
-          "@id": "https://vishalpup.in/#dcs",
+          "@id": "https://dcsalumni.vishalpup.in/#dcs",
           "name": "Department of Computer Science",
           "alternateName": "DCS PUP",
           "description": "Department of Computer Science at Punjabi University Patiala, pioneering computer education, AI, NLP, and software systems since 1987."
@@ -85,27 +97,27 @@
       },
       {
         "@type": "AlumniAssociation",
-        "@id": "https://vishalpup.in/#alumni-association",
+        "@id": "https://dcsalumni.vishalpup.in/#alumni-association",
         "name": "DCS PUP Alumni Association",
-        "url": "https://vishalpup.in",
-        "logo": "https://vishalpup.in/images/logo.png",
+        "url": "https://dcsalumni.vishalpup.in",
+        "logo": "https://dcsalumni.vishalpup.in/images/logo.png",
         "description": "The official alumni association and network connecting graduates of the Department of Computer Science, Punjabi University Patiala.",
         "parentOrganization": {
-          "@id": "https://vishalpup.in/#university"
+          "@id": "https://dcsalumni.vishalpup.in/#university"
         }
       },
       {
         "@type": "WebSite",
-        "@id": "https://vishalpup.in/#website",
-        "url": "https://vishalpup.in",
+        "@id": "https://dcsalumni.vishalpup.in/#website",
+        "url": "https://dcsalumni.vishalpup.in",
         "name": "DCS PUP Alumni Portal",
         "description": "Search, connect, and network with MCA, M.Tech, BCA, and Ph.D. graduates from Department of Computer Science, Punjabi University Patiala.",
         "publisher": {
-          "@id": "https://vishalpup.in/#alumni-association"
+          "@id": "https://dcsalumni.vishalpup.in/#alumni-association"
         },
         "potentialAction": {
           "@type": "SearchAction",
-          "target": "https://vishalpup.in/alumni?search={search_term_string}",
+          "target": "https://dcsalumni.vishalpup.in/#/alumni?search={search_term_string}",
           "query-input": "required name=search_term_string"
         }
       }

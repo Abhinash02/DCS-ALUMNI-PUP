@@ -1,6 +1,6 @@
 # Robots.txt for DCS PUP Alumni Portal
 # Department of Computer Science, Punjabi University, Patiala (PUP)
-# Primary Domains: https://vishalpup.in | https://dcs-alumni.vercel.app
+# Primary Domain: https://dcsalumni.vishalpup.in | Secondary: https://dcs-alumni.vercel.app
 
 # -------------------------------------------------------------
 # 1. Standard Search Engine Crawlers (Google, Bing, Yahoo, etc.)
@@ -89,5 +89,5 @@ Disallow: /api/
 # -------------------------------------------------------------
 # 4. XML Sitemaps
 # -------------------------------------------------------------
-Sitemap: https://vishalpup.in/sitemap.xml
+Sitemap: https://dcsalumni.vishalpup.in/sitemap.xml
 Sitemap: https://dcs-alumni.vercel.app/sitemap-vercel.xml
