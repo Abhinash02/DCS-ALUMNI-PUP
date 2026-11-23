@@ -119,11 +119,17 @@ const ThemeContext = createContext();
 export const ThemeProvider = ({ children }) => {
   const [isDark, setIsDark] = useState(() => {
     try {
-      const saved = localStorage.getItem('dcs_theme');
-      if (saved) {
-        return saved === 'dark';
+      // 1. Check if user explicitly chose dark or light mode
+      const userPreference = localStorage.getItem('dcs_user_theme');
+      if (userPreference) {
+        return userPreference === 'dark';
       }
-      return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      // 2. Clear legacy auto-detected 'dcs_theme' to avoid forcing dark on mobile/desktop
+      try {
+        localStorage.removeItem('dcs_theme');
+      } catch {}
+      // 3. Strict Default: LIGHT mode on all devices (mobile, tablet, desktop)
+      return false;
     } catch {
       return false;
     }
@@ -212,6 +218,9 @@ export const ThemeProvider = ({ children }) => {
       if (e.key === 'dcs_portal_color_theme' && e.newValue && isMounted) {
         applyRemotePalette(e.newValue);
       }
+      if (e.key === 'dcs_user_theme' && isMounted) {
+        setIsDark(e.newValue === 'dark');
+      }
     };
     window.addEventListener('storage', handleStorageEvent);
 
@@ -236,12 +245,12 @@ export const ThemeProvider = ({ children }) => {
     if (isDark) {
       root.classList.add('dark');
       try {
-        localStorage.setItem('dcs_theme', 'dark');
+        localStorage.setItem('dcs_user_theme', 'dark');
       } catch {}
     } else {
       root.classList.remove('dark');
       try {
-        localStorage.setItem('dcs_theme', 'light');
+        localStorage.setItem('dcs_user_theme', 'light');
       } catch {}
     }
   }, [isDark]);

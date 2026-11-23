@@ -1,0 +1,93 @@
+# Robots.txt for DCS PUP Alumni Portal
+# Department of Computer Science, Punjabi University, Patiala (PUP)
+# Primary Domains: https://dcs-alumni.vercel.app | https://vishalpup.in
+
+# -------------------------------------------------------------
+# 1. Standard Search Engine Crawlers (Google, Bing, Yahoo, etc.)
+# -------------------------------------------------------------
+User-agent: Googlebot
+User-agent: Googlebot-Image
+User-agent: Bingbot
+User-agent: Slurp
+User-agent: DuckDuckBot
+User-agent: Baiduspider
+User-agent: YandexBot
+Allow: /
+Allow: /alumni
+Allow: /events
+Allow: /faculty
+Allow: /jobs
+Allow: /reach-us
+Allow: /register
+Allow: /images/
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /sitemap.xml
+Disallow: /admin
+Disallow: /admindashboard
+Disallow: /login
+Disallow: /userlogin
+Disallow: /user-login
+Disallow: /profile
+Disallow: /forgot-password
+Disallow: /reset-password
+Disallow: /api/
+
+# -------------------------------------------------------------
+# 2. AI & Large Language Model (LLM) Crawlers & Search Agents
+# Explicitly ALLOWED to crawl, index, and cite for AI answers
+# (ChatGPT, Perplexity, Google Gemini, Claude, Apple Intelligence)
+# -------------------------------------------------------------
+User-agent: GPTBot
+User-agent: ChatGPT-User
+User-agent: PerplexityBot
+User-agent: Google-Extended
+User-agent: anthropic-ai
+User-agent: ClaudeBot
+User-agent: Claude-Web
+User-agent: Applebot-Extended
+User-agent: Bytespider
+User-agent: Diffbot
+User-agent: CCBot
+User-agent: cohere-ai
+User-agent: Meta-ExternalAgent
+User-agent: FacebookBot
+Allow: /
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /alumni
+Allow: /events
+Allow: /faculty
+Allow: /jobs
+Allow: /reach-us
+Allow: /register
+Disallow: /admin
+Disallow: /admindashboard
+Disallow: /login
+Disallow: /userlogin
+Disallow: /user-login
+Disallow: /profile
+Disallow: /forgot-password
+Disallow: /reset-password
+Disallow: /api/
+
+# -------------------------------------------------------------
+# 3. Default Rules for All Other Web Crawlers
+# -------------------------------------------------------------
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /admindashboard
+Disallow: /login
+Disallow: /userlogin
+Disallow: /user-login
+Disallow: /profile
+Disallow: /forgot-password
+Disallow: /reset-password
+Disallow: /api/
+
+# -------------------------------------------------------------
+# 4. XML Sitemaps & LLM Context References
+# -------------------------------------------------------------
+Sitemap: https://dcs-alumni.vercel.app/sitemap.xml
+Sitemap: https://vishalpup.in/sitemap.xml
