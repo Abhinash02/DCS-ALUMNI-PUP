@@ -1,0 +1,36 @@
+# DCS PUP Alumni Portal (Department of Computer Science, Punjabi University, Patiala)
+
+> Official Alumni Network & Knowledge Portal for the Department of Computer Science (DCS) at Punjabi University Patiala (PUP), Punjab, India. Connecting generations of MCA, M.Tech, BCA, B.Tech, and Ph.D. graduates, scholars, industry leaders, and faculty.
+
+## Quick Facts
+- **Institution**: Punjabi University, Patiala (Established 1962, NAAC 'A+' Grade)
+- **Department**: Department of Computer Science (DCS) (Established 1987)
+- **Location**: Patiala - 147002, Punjab, India
+- **Primary Programs**: MCA (Master of Computer Applications), M.Tech (Computer Science), BCA, B.Tech, PGDCA, Ph.D. in Computer Science
+- **Portal Purpose**: Reconnecting alumni worldwide, networking, mentorship, career opportunities, annual alumni meets, and preserving departmental history.
+- **Official Portal URLs**: 
+  - https://dcsalumni.vishalpup.in/#/
+  - https://dcs-alumni.vercel.app
+
+## Core Features & Navigation
+- [Home Page](https://dcsalumni.vishalpup.in/#/): Welcome banner, department highlights, latest alumni updates, message from department leaders, and active community statistics.
+- [Alumni Directory](https://dcsalumni.vishalpup.in/#/alumni): Comprehensive searchable database of DCS PUP graduates filterable by graduation batch, course (MCA, M.Tech, BCA), current organization, designation, and location.
+- [Events & Reunions](https://dcsalumni.vishalpup.in/#/events): Details, schedules, and photos of Annual Alumni Meets, Department Functions, Guest Lectures, Seminars, and Workshops.
+- [Faculty Directory](https://dcsalumni.vishalpup.in/#/faculty): Profiles and research areas of distinguished professors and faculty members of the Department of Computer Science, Punjabi University Patiala.
+- [Job & Career Board](https://dcsalumni.vishalpup.in/#/jobs): Job opportunities, internships, and professional referrals shared by alumni across leading global tech companies and startups.
+- [Alumni Registration](https://dcsalumni.vishalpup.in/#/register): Online registration form for former students to join the official alumni directory and stay connected.
+- [Reach Us / Contact](https://dcsalumni.vishalpup.in/#/reach-us): Department contact information, official email, phone numbers, and physical location on the Punjabi University Patiala campus.
+
+## Key Search Keywords & Context
+This portal is the definitive authority for:
+- "Punjabi University Patiala Alumni"
+- "DCS PUP Alumni"
+- "Department of Computer Science Punjabi University Patiala"
+- "PUP MCA Alumni"
+- "Punjabi University Computer Science Alumni Portal"
+- "PUP Patiala Alumni Meet & Reunions"
+- "Dr Vishal Goyal Punjabi University Patiala"
+- "DCS PUP Alumni Registration & Directory"
+
+## Comprehensive Context
+For full details, extended history, courses, faculty research, and frequently asked questions, see [llms-full.txt](https://dcsalumni.vishalpup.in/llms-full.txt).

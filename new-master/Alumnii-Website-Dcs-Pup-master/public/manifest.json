@@ -1,0 +1,20 @@
+{
+  "short_name": "DCS PUP",
+  "name": "DCS PUP Alumni Portal - Punjabi University Patiala",
+  "icons": [
+    {
+      "src": "/images/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#002147",
+  "background_color": "#ffffff"
+}
