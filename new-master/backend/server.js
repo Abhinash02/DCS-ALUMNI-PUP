@@ -88,10 +88,15 @@ app.use(cors(corsOptions));
 // Middleware
 app.use(express.json());
 
-// MongoDB Connection (Serverless Friendly)
+// MongoDB Connection (Serverless Friendly with Promise Caching)
+let cachedPromise = null;
+
 const connectDB = async () => {
   if (mongoose.connection.readyState === 1) {
     return;
+  }
+  if (cachedPromise) {
+    return cachedPromise;
   }
   const mongoUri = process.env.MONGO_URI;
   if (!mongoUri) {
@@ -99,15 +104,20 @@ const connectDB = async () => {
     console.error(errorMsg);
     throw new Error(errorMsg);
   }
-  try {
-    await mongoose.connect(mongoUri, {
-      serverSelectionTimeoutMS: 5000,
-    });
+  
+  cachedPromise = mongoose.connect(mongoUri, {
+    serverSelectionTimeoutMS: 5000,
+    bufferCommands: false, // Fail immediately if not connected instead of freezing for 10s
+  }).then((conn) => {
     console.log('MongoDB Connected Successfully');
-  } catch (err) {
-    console.error('MongoDB Connection Error:', err);
+    return conn;
+  }).catch((err) => {
+    cachedPromise = null; // Allow retry on subsequent request
+    console.error('MongoDB Connection Error:', err.message);
     throw err;
-  }
+  });
+
+  return cachedPromise;
 };
 
 // --- Fast Response Routes (No DB Required) ---
@@ -136,6 +146,22 @@ app.get('/api/health', (req, res) => {
     uptime: process.uptime(),
     timestamp: new Date().toISOString(),
   });
+});
+
+// Fast Graceful Response for GET /api/theme (never 500 even if database is connecting/reconnecting)
+app.get('/api/theme', async (req, res, next) => {
+  if (mongoose.connection.readyState === 1) {
+    return next();
+  }
+  try {
+    await connectDB();
+    return next();
+  } catch (err) {
+    return res.status(200).json({
+      success: true,
+      activePaletteId: 'maroon',
+    });
+  }
 });
 
 // Connect to the database before handling any DB-dependent API requests
