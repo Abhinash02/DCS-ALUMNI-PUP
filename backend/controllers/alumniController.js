@@ -1,5 +1,5 @@
 const Alumni = require('../models/Alumni');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const cloudinary = require('../utils/cloudinary');
 const jwt = require('jsonwebtoken');
 const xlsx = require('xlsx');
