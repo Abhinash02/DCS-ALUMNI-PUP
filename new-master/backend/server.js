@@ -89,18 +89,24 @@ app.use(cors(corsOptions));
 app.use(express.json());
 
 // MongoDB Connection (Serverless Friendly)
-let isConnected = false;
-
 const connectDB = async () => {
-  if (isConnected) {
+  if (mongoose.connection.readyState === 1) {
     return;
   }
+  const mongoUri = process.env.MONGO_URI;
+  if (!mongoUri) {
+    const errorMsg = 'CRITICAL: MONGO_URI is missing from process.env! Please add MONGO_URI in Vercel project environment variables.';
+    console.error(errorMsg);
+    throw new Error(errorMsg);
+  }
   try {
-    const db = await mongoose.connect(process.env.MONGO_URI);
-    isConnected = db.connections[0].readyState;
+    await mongoose.connect(mongoUri, {
+      serverSelectionTimeoutMS: 5000,
+    });
     console.log('MongoDB Connected Successfully');
   } catch (err) {
-    console.log('MongoDB Connection Error:', err);
+    console.error('MongoDB Connection Error:', err);
+    throw err;
   }
 };
 
@@ -117,18 +123,38 @@ app.get('/', (req, res) => {
 
 // Health Route
 app.get('/api/health', (req, res) => {
+  const origin = req.headers.origin;
+  if (origin) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+  }
   res.status(200).json({
     ok: true,
     message: 'Backend is running',
+    database: mongoose.connection.readyState === 1 ? 'connected' : 'disconnected',
+    hasMongoUri: Boolean(process.env.MONGO_URI),
     uptime: process.uptime(),
     timestamp: new Date().toISOString(),
   });
 });
 
-// Connect to the database before handling any API requests
+// Connect to the database before handling any DB-dependent API requests
 app.use(async (req, res, next) => {
-  await connectDB();
-  next();
+  try {
+    await connectDB();
+    next();
+  } catch (err) {
+    console.error('Database connection failed for route:', req.originalUrl, err.message);
+    const origin = req.headers.origin;
+    if (origin) {
+      res.setHeader('Access-Control-Allow-Origin', origin);
+      res.setHeader('Access-Control-Allow-Credentials', 'true');
+    }
+    return res.status(503).json({
+      error: 'Database connection failed',
+      message: err.message || 'Could not connect to database. Check MONGO_URI and MongoDB Atlas IP access list.',
+    });
+  }
 });
 
 // API Routes
@@ -154,12 +180,13 @@ app.use((err, req, res, next) => {
   });
 });
 
-// Server
-const PORT = process.env.PORT || 5000;
-
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+// Server (Only listen locally/traditional server, NOT inside Vercel serverless functions)
+if (!process.env.VERCEL) {
+  const PORT = process.env.PORT || 5000;
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+}
 
 // Export app for Vercel Serverless Functions
 module.exports = app;
