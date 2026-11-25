@@ -150,7 +150,7 @@ export const ThemeProvider = ({ children }) => {
   // Synchronize with global theme from backend (MongoDB) and across browser tabs
   useEffect(() => {
     let isMounted = true;
-    const PROD_THEME_URL = 'https://dcs-alumni.vercel.app/api/theme';
+    const PROD_THEME_URL = 'https://dcs-alumni-pup.vercel.app/api/theme';
 
     const applyRemotePalette = (remotePalette) => {
       if (remotePalette && THEME_PALETTES[remotePalette]) {
@@ -289,7 +289,7 @@ export const ThemeProvider = ({ children }) => {
       } catch {}
 
       // 3. Broadcast and persist to MongoDB so live site (vercel & vishalpup.in) immediately updates for all visitors!
-      const PROD_THEME_URL = 'https://dcs-alumni.vercel.app/api/theme';
+      const PROD_THEME_URL = 'https://dcs-alumni-pup.vercel.app/api/theme';
       try {
         // Send to configured API baseURL
         await API.put('/theme', { paletteId });

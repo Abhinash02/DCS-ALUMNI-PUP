@@ -2,7 +2,7 @@ import axios from "axios";
 
 const API_URLS = {
   development: "http://localhost:5000/api",
-  production: "https://dcs-alumni.vercel.app/api",
+  production: "https://dcs-alumni-pup.vercel.app/api",
 };
 
 const getBaseURL = () => {

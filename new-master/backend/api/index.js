@@ -1,3 +1,12 @@
+// Polyfill SlowBuffer for buffer-equal-constant-time / jsonwebtoken in Node 22+ serverless runtimes
+const bufferModule = require('buffer');
+if (!bufferModule.SlowBuffer) {
+  bufferModule.SlowBuffer = bufferModule.Buffer;
+}
+if (!bufferModule.SlowBuffer.prototype) {
+  bufferModule.SlowBuffer.prototype = bufferModule.Buffer.prototype;
+}
+
 let app;
 let initError = null;
 

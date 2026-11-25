@@ -1,3 +1,12 @@
+// Polyfill SlowBuffer for buffer-equal-constant-time / jsonwebtoken in Node 22+ serverless runtimes
+const bufferModule = require('buffer');
+if (!bufferModule.SlowBuffer) {
+  bufferModule.SlowBuffer = bufferModule.Buffer;
+}
+if (!bufferModule.SlowBuffer.prototype) {
+  bufferModule.SlowBuffer.prototype = bufferModule.Buffer.prototype;
+}
+
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -20,6 +29,7 @@ const app = express();
 const allowedOrigins = [
   'https://dcsalumni.vishalpup.in',
   'https://dcs-alumni.vercel.app',
+  'https://dcs-alumni-pup.vercel.app',
   'https://dcsalumnipup-flame.vercel.app',
   'http://localhost:3000',
   'http://localhost:5000',
