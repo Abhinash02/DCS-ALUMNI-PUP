@@ -1,4 +1,3 @@
-
 const express = require('express');
 const router = express.Router();
 const facultyController = require('../controllers/facultyController');
@@ -12,6 +11,7 @@ const storage = new CloudinaryStorage({
   params: {
     folder: 'faculty',
     allowed_formats: ['jpg', 'png', 'jpeg'],
+    transformation: [{ quality: 'auto', fetch_format: 'auto' }]
   },
 });
 
